@@ -1,0 +1,88 @@
+.DriverLogin-container{
+    background-color: black;
+    height: 100vh;
+    box-sizing: border-box;
+    font-family: Roboto-Regular, Roboto;
+    display: grid;
+    place-items: start;
+}
+
+
+.DriverLoginForm-login {
+    color: white;
+    border: 10px solid white;
+    margin: 0 auto;
+    margin-top: 10%;
+     display: grid; 
+    /* place-items: center;  */
+    align-items: center;
+     /* width: 20%; */
+     /* height: 80%; */
+    background-color: black;
+    border-radius: 10px;
+    font-size: 16px;
+    /* box-shadow: 20px 20px 20px 50px rgb(253, 251, 251); */
+    gap: 20px;
+    padding: 30px;
+    Link{
+        color: red;
+    }
+
+}
+
+/* .DriverLogin-form-group {
+    padding: 30px;
+} */
+
+/* .PassengerForm-login{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+} */
+
+/* .DriverLogin-form-text {
+    float: left;
+    padding: 30px 440px 20px 30px;
+} */
+
+.DriverLogin-input {
+    width: 100%;
+    height: 35px;
+    background-color: #FAFAFA;
+    border: none;
+}
+
+#DriverLogin-btn{
+    background-color: #1E1E1E;
+    color: white;
+    border: solid 2px white;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 10px;
+    /* width: 100%; */
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.DriverLogin-checkbox {
+    margin-left: 30px;
+}
+
+.DriverLogin-text {
+    font-size: 12px;
+    padding-left: 10px;
+}
+.DriverLogin-red-text{
+    display: inline;
+    margin-left: 20px;
+    color: red;
+    font-size: 14px;
+}
+.DriverLogin-red-text1{
+    display: inline;
+    color: red;
+    font-size: 14px;
+    float: right;
+}

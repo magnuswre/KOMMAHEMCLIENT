@@ -1,0 +1,40 @@
+.driver-form-container{
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 50%;
+    border: 10px solid white;
+    border-radius: 10px;
+}
+
+.driver-form-container form{
+    padding: 3%;
+}
+
+.driver-form-container form > * {
+    margin-top: 5px; /* Adjust as needed */
+  }
+
+
+.driver-form-btn{
+    background-color: #1E1E1E;
+    color: white;
+    border: solid 2px white;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 10px;
+    /* width: 100%; */
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.driver-selection-picker, .driver-arrival-selection-picker{
+    /* margin-top: 25px; */
+    width: 50px; /* Add your desired width */
+    text-align: center;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+   
+}

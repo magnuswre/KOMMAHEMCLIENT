@@ -1,0 +1,9 @@
+.custom-datepicker-input {
+    width: 150px; /* Add your desired width */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+    /* Add any additional styles as needed */
+  }

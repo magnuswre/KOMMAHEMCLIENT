@@ -1,0 +1,70 @@
+.passenger-page-container{
+    background-color: black;
+    height: 100vh;
+    color: white;
+    display: grid;
+    place-items: start;
+    /* margin: 10%; */
+    /* ove'rflow: hidden; */
+}
+
+.passenger-page-wrapper{
+    margin: 0 auto;
+    margin-top: 5%;
+    width: 50%;
+    border: solid 10px white;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.destinations-list-current-day{
+    margin: 5%;
+    display: grid;
+     /* grid-template-rows: 5% 5% auto;  */
+    /* gap: 10px; */
+}
+ .destinations-list-searched-day{
+     margin: 5%;
+    display: grid;
+      /*grid-template-rows: 5% 5% auto;  */
+    /* gap: 10px; */
+}
+
+/* .yoloyolo{
+    border: 2px solid white;
+} */
+
+/* .Passenger-search-current-date, .Passenger-search-chosen-date{
+    padding-top: 2%;
+} */
+
+.destination-btn{
+    background-color: #1E1E1E;
+    color: white;
+    border: solid 2px white;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 10px;
+    /* width: 100%; */
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.green-btn{
+    background-color: rgb(29, 99, 29);
+    color: white;
+    border: solid 2px white;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 10px;
+    /* width: 100%; */
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+p{
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+}

@@ -1,0 +1,26 @@
+.Passenger-confirm-form{
+    height: 40vh;
+    color: white;
+    border: 10px solid white;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 5%;
+    width: 60%;
+    display: grid;
+    /* grid-template-columns: 1fr 1fr; */
+    /* align-items: center; */
+    place-items: center;
+    padding: 12px;
+}
+
+.passenger-confirm-page-btn{
+    background-color: #1E1E1E;
+    color: white;
+    border: solid 2px white;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 10px;
+    /* width: 100%; */
+    font-size: 1.2rem;
+    font-weight: bold;
+}

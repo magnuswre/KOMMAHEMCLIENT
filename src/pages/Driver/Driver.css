@@ -1,0 +1,12 @@
+ .driver-page-container {
+    /* width: 80%; */
+    background-color: black;
+    margin: 0 auto;
+    height: 100vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ 
+} 

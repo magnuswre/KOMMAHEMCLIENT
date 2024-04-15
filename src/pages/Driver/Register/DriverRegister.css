@@ -1,0 +1,76 @@
+
+.DriverRegister-container{
+    background-color: black;
+    height: 100vh;
+    box-sizing: border-box;
+    font-family: Roboto-Regular, Roboto;
+    display: flex;
+}
+
+
+.DriverRegister-create-form {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    color: white;
+    border-radius: 10px;
+    background-color: black;
+    border: 10px solid white;
+    font-size: 16px;
+    Link{
+        color: red;
+    }
+
+}
+
+.DriverRegister-form-group {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.DriverRegister-form-text {
+    float: left;
+    padding: 30px 440px 20px 30px;
+}
+
+.DriverRegister-input {
+    width: 80%;
+    height: 35px;
+    /* padding: 20px; */
+    background-color: #FAFAFA;
+    border: none;
+}
+
+#DriverRegister-Btn {
+    width: 10%;
+    padding: 15px;
+    margin: 30px;
+    background-color: rgb(250, 49, 80);
+    border: none;
+    color: aliceblue;
+    cursor: pointer;
+}
+
+.DriverRegister-checkbox {
+    margin-left: 30px;
+}
+
+.DriverRegister-text {
+    font-size: 12px;
+    padding-left: 10px;
+    text-decoration: underline;
+}
+.DriverRegister-red-text{
+    display: inline;
+    margin-left: 20px;
+    color: red;
+    font-size: 14px;
+}
+.DriverRegister-red-text1{
+    display: inline;
+    color: red;
+    font-size: 14px;
+    float: right;
+}

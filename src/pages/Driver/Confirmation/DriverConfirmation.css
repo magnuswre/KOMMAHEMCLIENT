@@ -1,0 +1,50 @@
+.driver-confirmation-page-container{
+    background-color: black;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+.driver-confirmation-page-wrapper{
+    margin: 0 auto;
+    height: 60vh;
+    color: white;
+    display: grid;
+    place-items: center;
+    border: 10px solid white;
+    border-radius: 10px;
+    width: 60%;
+}
+
+.driver-confirmation-page-bookinginformation{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+
+}
+
+
+.passenger-change-page-destination-btn{
+    background-color: #1E1E1E;
+    color: white;
+    border: solid 2px white;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 10px;
+    /* width: 100%; */
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.driver-confirmation-page-btn{
+    background-color: #1E1E1E;
+    color: white;
+    border: solid 2px white;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 10px;
+    /* width: 100%; */
+    font-size: 1.2rem;
+    font-weight: bold;
+}

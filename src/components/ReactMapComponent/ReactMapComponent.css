@@ -1,0 +1,28 @@
+.google-maps-container {
+ margin: 0 auto;   
+ width: 50%; 
+ border: 10px solid white;
+ border-radius: 10px;
+}
+
+.user-input-map-container{
+    /* background-color: blue; */
+    margin-bottom: 25px;
+    padding: 3%;
+}
+
+.user-map-container{
+    margin-top: 25px;
+}
+
+.li-tag-destination-suggestions{
+    list-style: none;
+}
+
+.input-destination-search-bar{
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+}
