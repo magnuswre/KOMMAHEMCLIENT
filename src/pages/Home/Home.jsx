@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
-import videoBg from "../../assets/ocean.mov";
+// import videoBg from "../../assets/ocean.mov";
 import infoIcon from "../../assets/info.svg";
 import "./Home.css";
 import { DriverContext } from "../../contexts/DriverContext";
@@ -17,8 +17,7 @@ const Home = () => {
     <div className="App-Wrapper">
       <div className="App-Overlay"></div>
       <div className="videoBg">
-        {/* <video src={videoBg} /> */}
-        <video src={videoBg} autoPlay loop muted />
+        {/* <video src={videoBg} autoPlay loop muted /> */}
       </div>
       <div className="App-Content">
         <div className="App-Form">
