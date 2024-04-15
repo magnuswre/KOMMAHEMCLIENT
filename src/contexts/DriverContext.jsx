@@ -1,6 +1,5 @@
 import axios from "axios";
-import { start } from "init";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 
 export const DriverContext = createContext();
 
