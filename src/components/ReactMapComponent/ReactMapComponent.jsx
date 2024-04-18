@@ -3,15 +3,12 @@ import { useContext } from "react";
 import { set } from "date-fns";
 import { PassengerContext } from "../../contexts/PassengerContext";
 import { DriverContext } from "../../contexts/DriverContext";
-// import 'dotenv/config'
-
 
 import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
 } from "use-places-autocomplete";
 import useOnclickOutside from "react-cool-onclickoutside";
-
 
 import React, { useEffect, useState } from "react";
 import {
@@ -31,7 +28,6 @@ const ReactMapComponent = () => {
   const { placeNameDriver, setPlaceNameDriver } = useContext(DriverContext);
   const { placeNamePassenger, setPlaceNamePassenger } = useContext(PassengerContext);
 
-    
   // VISBY
   const InitPosition = { lat: 57.6348, lng: 18.29484 };
   const mapId = "e7b9c1e6b6c3c6a7";
@@ -118,16 +114,16 @@ const ReactMapComponent = () => {
     <>
       <div className="google-maps-container">
         <div className="user-input-map-container">
-          <div ref={ref}>
+          <div ref={ref} className="google-map-ref">
             <input
               className="input-destination-search-bar"
               value={value}
               onChange={handleInput}
               disabled={!ready}
-              placeholder="Vart vill du köra?"
+              placeholder="Ange din slutdestionation här:"
             />
             {/* We can use the "status" to decide whether we should display the dropdown or not */}
-            {status === "OK" && <ul>{renderSuggestions()}</ul>}
+            {status === "OK" && <ul className="google-maps-renderSuggestions">{renderSuggestions()}</ul>}
           </div>
         </div>
 

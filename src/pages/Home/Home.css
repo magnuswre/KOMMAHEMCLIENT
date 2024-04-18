@@ -15,7 +15,7 @@
   overflow: hidden; 
 }
 
-.videoBg {
+.Bg-Image {
     position: fixed; /* This will make the container take the whole screen */
     top: 0;
     left: 0;
@@ -23,6 +23,8 @@
     height: 100%;
     z-index: 1; /* This will keep the video behind your content */
     overflow: hidden; /* Prevents scrollbars from appearing */
+     /* filter: saturate(1); */
+    filter: brightness(0.8); 
   }
   
   video {
@@ -66,8 +68,6 @@
     font-size: 2.5rem;
     font-weight: bold;
     margin: 0 auto;
-    /* font-:  uppercase; */
-    /* font-family: Helvetica, sans-serif; */
     letter-spacing: 2.5px;
   
   }
@@ -80,19 +80,6 @@
    
   }
   
-  /* .Btn button{
-    height: 100%;
-    width: 100%;
-    border-radius: 10px;
-    border: 1px solid white;
-    background-color: black;
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
-    letter-spacing: 1.5px;
-  
-  } */
-
   .Links a{
     display: flex;
     justify-content: center;
@@ -110,27 +97,17 @@
   
   }
 
-  /* .Drive-Btn, .Passenger-Btn, .Change-Btn{
-    margin: 0 auto;
-    height: 100%;
-    border: solid 2px white;
-    width: 80%;
-    border-radius: 10px;
-  } */
-  
   .Icon-Container{
     display: flex;
     justify-content: end;
     align-items: end;
     height: 100%;
-    /* width: 20%; */
-     /* border: 2px solid white; */
-  
   }
   
   .infoIcon{
     background-color: white;
-    width: 30px;
-    height: 30px;
+    width: 45px;
+    height: 45px;
     margin: 1%;
+    border-radius: 10px;
   }

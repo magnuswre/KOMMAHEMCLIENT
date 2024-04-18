@@ -8,10 +8,12 @@ const DriverContextProvider = ({ children }) => {
   const [placeNameDriver, setPlaceNameDriver] = useState("");
   const [userDriver, setUserDriver] = useState({});
   const [errorMessageDriver, setErrorMessageDriver] = useState("");
-  const [arrivalDriver, setArrivalDriver] = useState("1");
+  const [arrivalDriver, setArrivalDriver] = useState({});
   const [seatsDriver, setSeatsDriver] = useState("1");
   const [startDateDriver, setStartDateDriver] = useState(new Date());
   const baseUrl = "https://kommahem-fd9ac0fc3b1a.herokuapp.com";
+
+ 
 
 
   //-------REGISTER USER DRIVER----------//

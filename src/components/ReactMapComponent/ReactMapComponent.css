@@ -7,8 +7,12 @@
 
 .user-input-map-container{
     /* background-color: blue; */
-    margin-bottom: 25px;
-    padding: 3%;
+    margin-top: 25px;
+    /* padding: 3%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
 .user-map-container{
@@ -17,12 +21,27 @@
 
 .li-tag-destination-suggestions{
     list-style: none;
+    margin: 4px;
+    padding: 1%;
+}
+
+.google-map-ref{
+    position: relative;
+}
+.google-maps-renderSuggestions{
+    position: absolute;
+    z-index: 1;
+    background-color: black;
+    border-radius: 10px;
 }
 
 .input-destination-search-bar{
-    padding: 8px;
+    padding: 20px;
+    width: 250px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 16px;
     outline: none;
+    color: black;
+    
 }

@@ -58,7 +58,7 @@ const DriverConfirmation = () => {
             <span>{startDateDriver.toLocaleDateString()}</span>
           </h2>
           <h2>
-            Ankomsttid: <span> {arrivalDriver}</span>
+            Avgångstid: <span> {arrivalDriver}</span>
           </h2>
           <h2>
             Antal platser: <span> {seatsDriver}</span>

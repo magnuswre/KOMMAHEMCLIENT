@@ -29,12 +29,13 @@
 
 .driver-selection-picker, .driver-arrival-selection-picker{
     /* margin-top: 25px; */
-    width: 50px; /* Add your desired width */
+    /*width: 50px; /* Add your desired width */
     text-align: center;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 14px;
     outline: none;
+    color: lightslategray;
    
 }
