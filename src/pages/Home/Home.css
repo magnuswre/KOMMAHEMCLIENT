@@ -111,3 +111,28 @@
     margin: 1%;
     border-radius: 10px;
   }
+
+
+  @media (max-width: 1000px) {
+    .App-Content {
+      width: 80%; /* Change the width to 80% for smaller screens */
+      padding: 30px; /* Adjust padding as needed */
+    }
+  }
+
+  @media (max-width: 1000px) {
+    .App-Content {
+      width: 80%; /* Change the width to 80% for smaller screens */
+      padding: 10px;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .App-Content {
+      width: 90%; /* Change the width to 80% for smaller screens */
+      padding: 10px;
+    }
+    .App-Form{
+      width: 80%;
+    }
+  }

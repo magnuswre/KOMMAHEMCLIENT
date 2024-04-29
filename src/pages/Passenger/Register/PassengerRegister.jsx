@@ -24,7 +24,7 @@ const PassengerRegister = () => {
     confirmPassword: "",
   });
 
-  const handleChaneInput = (e) => {
+  const handleChangeInput = (e) => {
     setFormData((prevData) => {
       return {
         ...prevData,
@@ -44,7 +44,7 @@ const PassengerRegister = () => {
       });
     }
 
-    if (checkIfEmpty(formData.phone )) {
+    if (checkIfEmpty(formData.phone)) {
       setError((data) => {
         return {
           ...data,
@@ -71,7 +71,7 @@ const PassengerRegister = () => {
       });
       return true;
     }
-    
+
     const { confirmPassword, ...userDataToSend } = formData;
 
     registerUserPassenger(userDataToSend)
@@ -92,11 +92,10 @@ const PassengerRegister = () => {
   return (
     <div className="PassengerRegister-container">
       <div className="PassengerRegister-create-form">
-        <form className="PassengerForm-register"  onSubmit={handleSubmit}>
-        <p className="PassengerRegister-form-text">
-          Registrera ditt nya konto här:
-        </p>
-          {/* <div className="PassengerRegister-form-group right"></div> */}
+        <form className="PassengerForm-register" onSubmit={handleSubmit}>
+          <p className="PassengerRegister-form-text">
+            Registrera ditt nya konto här:
+          </p>
           <div className="PassengerRegister-form-group">
             <label htmlFor="email">Email*</label>
             <input
@@ -105,11 +104,11 @@ const PassengerRegister = () => {
               className="PassengerRegister-input"
               id="PassengerRegister-email"
               value={formData.email}
-              onChange={handleChaneInput}
+              onChange={handleChangeInput}
             />
             <p className="error-text">{error.email}</p>
           </div>
-          <div className="DriverRegister-form-group">
+          <div className="PassengerRegister-form-group">
             <label htmlFor="phone">Mobilnummer*</label>
             <input
               type="text"
@@ -117,7 +116,7 @@ const PassengerRegister = () => {
               className="PassengerRegister-input"
               id="PassengerRegister-phone"
               value={formData.phone}
-              onChange={handleChaneInput}
+              onChange={handleChangeInput}
             />
             <p className="error-text">{error.phone}</p>
           </div>
@@ -129,7 +128,7 @@ const PassengerRegister = () => {
               className="PassengerRegister-input"
               id="PassengerRegister-password"
               value={formData.password}
-              onChange={handleChaneInput}
+              onChange={handleChangeInput}
             />
             <p className="error-text"> {error.password}</p>
           </div>
@@ -141,7 +140,7 @@ const PassengerRegister = () => {
               className="PassengerRegister-input"
               id="PassengerRegister-confirmPassword"
               value={formData.confirmPassword}
-              onChange={handleChaneInput}
+              onChange={handleChangeInput}
             />
             <p className="error-text">{error.confirmPassword}</p>
           </div>

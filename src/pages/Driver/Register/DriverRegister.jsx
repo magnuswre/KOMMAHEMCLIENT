@@ -13,7 +13,7 @@ const initState = {
 };
 
 const DriverRegister = () => {
-  const { registerUserDriver,  } = useContext(DriverContext);
+  const { registerUserDriver } = useContext(DriverContext);
   const navigate = useNavigate();
   const [formData, setFormData] = useState(initState);
 
@@ -35,7 +35,6 @@ const DriverRegister = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Reset error state
     setError({
       email: "",
       phone: "",
@@ -50,7 +49,7 @@ const DriverRegister = () => {
           email: "You need to enter a email address",
         };
       });
-      return; // Return after validation fails
+      return;
     }
 
     if (checkIfEmpty(formData.phone)) {
@@ -60,7 +59,7 @@ const DriverRegister = () => {
           phone: "You need to enter a phone number",
         };
       });
-      return; // Return after validation fails
+      return;
     }
 
     if (checkIfEmpty(formData.password)) {
@@ -70,7 +69,7 @@ const DriverRegister = () => {
           password: "You need to enter a password",
         };
       });
-      return; // Return after validation fails
+      return;
     }
 
     if (formData.password !== formData.confirmPassword) {
@@ -80,19 +79,17 @@ const DriverRegister = () => {
           confirmPassword: "password does not match",
         };
       });
-      return; // Return after validation fails
+      return;
     }
 
     const { confirmPassword, ...userDataToSend } = formData;
 
     registerUserDriver(userDataToSend)
       .then(() => {
-        // Registration successful, you can navigate or perform additional actions
         console.log("User registered successfully");
-        navigate('/driverlogin');
+        navigate("/driverlogin");
       })
       .catch((error) => {
-        // Handle registration error
         console.error("Error registering user:", error);
       });
   };
@@ -100,11 +97,10 @@ const DriverRegister = () => {
   return (
     <div className="DriverRegister-container">
       <div className="DriverRegister-create-form">
-        <p className="DriverRegister-form-text">
-        Registrera ditt nya konto här:
-        </p>
-        <form onSubmit={handleSubmit}>
-          <div className="DriverRegister-form-group right"></div>
+        <form className="DriverForm-register" onSubmit={handleSubmit}>
+          <p className="DriverRegister-form-text">
+            Registrera ditt nya konto här:
+          </p>
           <div className="DriverRegister-form-group">
             <label htmlFor="email">Email*</label>
             <input
