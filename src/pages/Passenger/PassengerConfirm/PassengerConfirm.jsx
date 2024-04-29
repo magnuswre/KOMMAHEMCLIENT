@@ -6,7 +6,7 @@ const PassengerConfirm = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const { destination } = location.state || {};
+  const { destination, arrivalTime, selectedSeats } = location.state || {};
 
   console.log(destination)
 
@@ -32,12 +32,12 @@ const PassengerConfirm = () => {
         </div>
         <div>
           <h2>
-            Ankomst:<span> 1</span>
+            Ankomst:<span>{arrivalTime}</span>
           </h2>
         </div>
         <div>
           <h2>
-            Antal passagerare:<span> 1</span>
+            Antal passagerare:<span>{selectedSeats}</span>
           </h2>
         </div>
         <div>

@@ -76,7 +76,6 @@
 
 .passenger-selection-picker, .passenger-arrival-selection-picker{
     /* margin-top: 25px; */
-    width: 50px; /* Add your desired width */
     text-align: center;
     padding: 8px;
     border: 1px solid #ccc;

@@ -1,9 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./PassengerChange.css";
 import { useNavigate, useLocation} from "react-router-dom";
-import { PassengerContext } from "../../../contexts/PassengerContext";
-import { DriverContext } from "../../../contexts/DriverContext";
-import MyDatePickerComponentPassenger from "../../../components/DatePickerComponents/DatePickerComponentPassenger/MyDatePickerComponentPassenger";
 
 const PassengerChange = () => {
   const navigate = useNavigate();
@@ -12,9 +9,11 @@ const PassengerChange = () => {
   const { destination } = location.state || {};
 
   const [passenger, setPassenger] = useState(true);
+  const [arrivalTime, setArrivalTime] = useState("11.25")
+  const [selectedSeats, setSelectedSeats] = useState("1");
 
   const handleSubmit = () => {
-    navigate("/passengerconfirmation", { state: { destination } }); 
+    navigate("/passengerconfirmation", { state: { destination, arrivalTime, selectedSeats } }); 
   };
 
   return (
@@ -29,16 +28,17 @@ const PassengerChange = () => {
           </div>
           <div className="passenger-available-seats-container">
             <div>
-              <h2>Välj ankomst:</h2>
+              <h2>Välj avgång:</h2>
             </div>
             <div>
               <select
                 className="passenger-arrival-selection-picker"
-                defaultValue="-"
+                value={arrivalTime} 
+                onChange={(e) => setArrivalTime(e.target.value)}
+                defaultValue="11.25"
               >
-                <option value="x">-</option>
-                <option value="A">1</option>
-                <option value="B">2</option>
+                <option value="11.25">11.25</option>
+                <option value="20.45">20.45</option>
               </select>
             </div>
 
@@ -47,8 +47,10 @@ const PassengerChange = () => {
             </div>
 
             <div>
-              <select className="passenger-selection-picker" defaultValue="-">
-                <option value="x">-</option>
+              <select className="passenger-selection-picker" 
+              value={selectedSeats} 
+              onChange={(e) => setSelectedSeats(e.target.value)}
+              >
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
