@@ -4,9 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { DriverContext } from "../../contexts/DriverContext";
 import { useContext } from "react";
 import MyDatePickerComponent from "../DatePickerComponents/DatePickerComponentDriver/MyDatePickerComponent";
-import data from "../../timetable/nynas-visby/nynashamn.json";
 
-console.log(data);
 const DriverForm = () => {
   const {
     placeNameDriver,
@@ -84,16 +82,6 @@ const DriverForm = () => {
             <option value="11.25">11.25</option>
             <option value="20.45">20.45</option>
           </select>
-          {/* <div>
-            {Object.entries(data).map(([date, times]) => (
-              <div key={date}>
-                <h2>{date}</h2>
-                {times.map((time, index) => (
-                  <p key={index}>{time}</p>
-                ))}
-              </div>
-            ))}
-          </div> */}
         </div>
         <div>
           <p>Antal platser:</p>

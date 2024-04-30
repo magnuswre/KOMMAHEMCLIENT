@@ -43,6 +43,7 @@ const DriverConfirmation = () => {
     console.log("Logout");
     setUserDriver({});
     setIsLoggedInDriver(false);
+    localStorage.setItem("user-driver", "");
     navigate("/");
   };
 
@@ -58,10 +59,10 @@ const DriverConfirmation = () => {
             <span>{startDateDriver.toLocaleDateString()}</span>
           </h2>
           <h2>
-            Avgångstid: <span> {arrivalDriver}</span>
+            Avgångstid: <span> 11.25</span>
           </h2>
           <h2>
-            Antal platser: <span> {seatsDriver}</span>
+            Antal platser: <span> 1 </span>
           </h2>
         </div>
         <div>
