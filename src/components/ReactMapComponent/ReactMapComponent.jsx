@@ -338,7 +338,7 @@ export default ReactMapComponent;
 //         {isClicked && (
 //         <div className="user-map-container">
 //           <div>
-//             <APIProvider apiKey={'AIzaSyDLHfQX07NkjfywxgLF_Z-RhVCeOGbNWqA'}>
+//             <APIProvider apiKey={''}>
 //               <div style={{ height: "40vh " }}>
 //                 <Map zoom={12} center={position} mapId={mapId}>
 //                   <AdvancedMarker
