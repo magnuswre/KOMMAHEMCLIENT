@@ -1,4 +1,4 @@
-.passenger-page-container{
+.passenger-page-container {
     background-color: black;
     height: 100vh;
     color: white;
@@ -8,38 +8,68 @@
     /* ove'rflow: hidden; */
 }
 
-.passenger-page-wrapper{
+.passenger-page-wrapper {
     margin: 0 auto;
     margin-top: 5%;
     width: 50%;
     border: solid 10px white;
     border-radius: 10px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* display: grid; */
+    /* grid-template-columns: 1fr 1fr; */
 }
 
-.destinations-list-current-day{
+
+
+.destinations-list-current-day {
     margin: 5%;
     display: grid;
-     /* grid-template-rows: 5% 5% auto;  */
+    /* grid-template-rows: 5% 5% auto;  */
     /* gap: 10px; */
 }
- .destinations-list-searched-day{
-     margin: 5%;
+
+.destinations-list-searched-day {
+    margin: 5%;
     display: grid;
-      /*grid-template-rows: 5% 5% auto;  */
+    /*grid-template-rows: 5% 5% auto;  */
     /* gap: 10px; */
 }
 
-/* .yoloyolo{
-    border: 2px solid white;
-} */
+.passenger-destination-picker {
+    width: 150px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+}
 
-/* .Passenger-search-current-date, .Passenger-search-chosen-date{
-    padding-top: 2%;
-} */
+#Passenger-destinations-btn:hover {
+    background-color: green;
+}
 
-.destination-btn{
+#Passenger-destinations-btn:active {
+    background-color: green;
+}
+
+
+#Passenger-destinations-btn {
+    background-color: #1E1E1E;
+    color: white;
+    border: solid 2px white;
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: 10px;
+    /* width: 100%; */
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.destination-btn {
     background-color: #1E1E1E;
     color: white;
     border: solid 2px white;
@@ -51,20 +81,21 @@
     font-weight: bold;
 }
 
-.green-btn{
-    background-color: rgb(29, 99, 29);
+
+p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+}
+
+#Passenger-Submit-Btn {
+    background-color: #1E1E1E;
     color: white;
     border: solid 2px white;
     border-radius: 10px;
     padding: 5px;
-    margin: 10px;
+    margin-top: 20px;
     /* width: 100%; */
     font-size: 1.2rem;
     font-weight: bold;
-}
-
-p{
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: white;
 }

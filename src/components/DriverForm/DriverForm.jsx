@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "./DriverForm.css";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { DriverContext } from "../../contexts/DriverContext";
-import { useContext } from "react";
 import MyDatePickerComponent from "../DatePickerComponents/DatePickerComponentDriver/MyDatePickerComponent";
 
 const DriverForm = () => {
   const {
     placeNameDriver,
     arrivalDriver,
-    startDateDriver,
     setArrivalDriver,
     seatsDriver,
+    setSeatsDriver,
     addDestinationDriver,
     setUserDriver,
+    selectedDateDriver,
   } = useContext(DriverContext);
 
   const navigate = useNavigate();
@@ -23,12 +23,28 @@ const DriverForm = () => {
     const token = localStorage.getItem("user-driver");
     const parsedToken = JSON.parse(token);
     const { user } = parsedToken;
-    console.log(user);
     const userDriverId = user.id;
-    console.log(userDriverId);
     setUserDriver(userDriverId);
-    console.log(startDateDriver.toISOString().slice(0, 10));
-  }, []);
+  }, [setUserDriver]);
+
+  const [routes, setRoutes] = useState([]);
+
+  useEffect(() => {
+    if (selectedDateDriver) {
+      fetch(`http://localhost:5000/timetable/${selectedDateDriver}`)
+        .then((response) => response.json())
+        .then((data) => setRoutes(data))
+        .catch((error) => console.error("Error:", error));
+    }
+  }, [selectedDateDriver]);
+
+  useEffect(() => {
+    if (routes.length > 0) {
+      setArrivalDriver(routes[0]);
+    }
+
+    setSeatsDriver("1");
+  }, [routes]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -42,6 +58,7 @@ const DriverForm = () => {
       console.log("Please accept the terms and conditions");
       return;
     }
+
     try {
       await addDestinationDriver(placeNameDriver, arrivalDriver, seatsDriver);
       navigate(`/driverconfirmation`);
@@ -49,14 +66,7 @@ const DriverForm = () => {
     } catch (error) {
       console.error("Error");
     }
-
-    console.log(placeNameDriver);
-    console.log("Selected Arrival:", arrivalDriver);
-    console.log("Selected Seats:", seatsDriver);
-    console.log("Checkbox Status:", isChecked);
   };
-
-  console.log(arrivalDriver)
 
   return (
     <div className="driver-form-container">
@@ -73,14 +83,22 @@ const DriverForm = () => {
           <MyDatePickerComponent />
         </div>
         <div>
-          <p>Vilken avgång:</p>
+          <p>Vilken rutt:</p>
           <select
             className="driver-arrival-selection-picker"
-            value={arrivalDriver}
-            onChange={(e) => setArrivalDriver(e.target.value)}
+            value={routes.arrival_time}
+            onChange={(e) => {
+              const selectedRoute = routes[e.target.selectedIndex];
+              console.log(selectedRoute);
+              setArrivalDriver(selectedRoute);
+            }}
           >
-            <option value="11.25">11.25</option>
-            <option value="20.45">20.45</option>
+            {routes.map((route, id) => (
+              <option key={id} value={route.arrival_time}>
+                {route.route}, avgång: {route.departure_time}, ankomst:{" "}
+                {route.arrival_time}
+              </option>
+            ))}
           </select>
         </div>
         <div>
@@ -88,7 +106,7 @@ const DriverForm = () => {
           <select
             className="driver-selection-picker"
             value={seatsDriver}
-            onChange={(e) => setSeats(e.target.value)}
+            onChange={(e) => setSeatsDriver(e.target.value)}
           >
             <option value="1">1</option>
             <option value="2">2</option>

@@ -6,14 +6,16 @@ import { DriverContext } from "../../../contexts/DriverContext";
 import { PassengerContext } from "../../../contexts/PassengerContext";
 
 const MyDatePickerComponent = () => {
- 
   const { setAllDestinationsByChosenDate } = useContext(PassengerContext);
-  const { startDateDriver, setStartDateDriver } = useContext(DriverContext); 
-  
+  const { startDateDriver, setStartDateDriver, setSelectedDateDriver } =
+    useContext(DriverContext);
+
   const handleDateChange = (date) => {
     setStartDateDriver(date);
     setAllDestinationsByChosenDate(date);
-    console.log('setStartDateDriver DRIVER', date);
+    // console.log(date.toISOString().split("T")[0]);
+    // console.log("setStartDateDriver DRIVER", date);
+    setSelectedDateDriver(date.toISOString().split("T")[0]);
   };
 
   const CustomInput = ({ value, onClick }) => (

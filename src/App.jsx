@@ -13,6 +13,7 @@ import Change from "./pages/Change/Change";
 import PassengerChange from "./pages/Passenger/PassengerChange/PassengerChange";
 import DriverConfirmation from "./pages/Driver/Confirmation/DriverConfirmation";
 import PassengerConfirm from "./pages/Passenger/PassengerConfirm/PassengerConfirm";
+import PassengerDashboard from "./pages/Passenger/Dashboard/PassengerDashboard";
 // import ChangeDriving from "./pages/ChangeDriving/ChangeDriving";
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
     <>
       <Routes>
         <Route index element={<Home />} />
-        
+
         <Route path="/change" element={<Change />} />
 
         {/* DRIVER */}
@@ -28,14 +29,15 @@ function App() {
         <Route path="/driverregister" element={<DriverRegister />} />
         <Route path="/driverlogin" element={<DriverLogin />} />
         <Route path="/driverchange/:userId" element={<DriverChange />} />
-        <Route path="/driverconfirmation" element={<DriverConfirmation/> } />
+        <Route path="/driverconfirmation" element={<DriverConfirmation />} />
 
         {/* PASSENGER */}
         <Route path="/passenger" element={<Passenger />} />
         <Route path="/passengerregister" element={<PassengerRegister />} />
         <Route path="/passengerlogin" element={<PassengerLogin />} />
         <Route path="/passengerchange" element={<PassengerChange />} />
-        <Route path="/passengerconfirmation" element={<PassengerConfirm/> } />
+        <Route path="/passengerconfirmation" element={<PassengerConfirm />} />
+        <Route path="/passengerdashboard" element={<PassengerDashboard />} />
       </Routes>
     </>
   );

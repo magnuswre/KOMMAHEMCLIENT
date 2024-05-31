@@ -1,5 +1,5 @@
-.Passenger-confirm-form{
-    height: 40vh;
+.Passenger-confirm-wrapper {
+    /* height: 40vh; */
     color: white;
     border: 10px solid white;
     border-radius: 10px;
@@ -13,7 +13,7 @@
     padding: 12px;
 }
 
-.passenger-confirm-page-btn{
+.passenger-confirm-page-btn {
     background-color: #1E1E1E;
     color: white;
     border: solid 2px white;

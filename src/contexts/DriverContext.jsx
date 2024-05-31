@@ -11,12 +11,8 @@ const DriverContextProvider = ({ children }) => {
   const [arrivalDriver, setArrivalDriver] = useState({});
   const [seatsDriver, setSeatsDriver] = useState("1");
   const [startDateDriver, setStartDateDriver] = useState(new Date());
-  const baseUrl = "https://kommahem-fd9ac0fc3b1a.herokuapp.com";
-
- 
-
-
-  //-------REGISTER USER DRIVER----------//
+  const [selectedDateDriver, setSelectedDateDriver] = useState("");
+  const baseUrl = "http://localhost:5000";
 
   const registerUserDriver = async (userDataDriver) => {
     try {
@@ -32,17 +28,14 @@ const DriverContextProvider = ({ children }) => {
 
       if (response.status < 200 || response.status >= 300) {
         throw new Error(`Registration failed with status: ${response.status}`);
-      } 
-      // const responseData = response.data;
-      // console.log(responseData, "User registered successfully");
+      }
     } catch (error) {
       console.error("Error:", error.message);
-      setErrorMessageDriver("Registration failed. Please try again."); 
-      throw error; 
+      setErrorMessageDriver("Registration failed. Please try again.");
+      throw error;
     }
   };
 
-  //-------LOGIN USER DRIVER----------// 
   const loginUserDriver = async (email, password) => {
     try {
       const response = await axios.post(
@@ -58,19 +51,14 @@ const DriverContextProvider = ({ children }) => {
       if (response.status < 200 || response.status >= 300) {
         throw new Error(`Login failed with status: ${response.status}`);
       }
-
       const responseDataDriver = response.data;
       localStorage.setItem("user-driver", JSON.stringify(responseDataDriver));
-      setUserDriver(responseDataDriver); 
-      console.log("DriverContext: UserDriver data:", responseDataDriver); 
+      setUserDriver(responseDataDriver);
+      console.log("DriverContext: UserDriver data:", responseDataDriver);
     } catch (error) {
       console.error("Error:", error.message);
-      console.error(
-        "Custom error:",
-        "Incorrect email or password. Please try again."
-      ); 
-      setErrorMessageDriver("Incorrect email or password. Please try again."); 
-      throw error; 
+      setErrorMessageDriver("Incorrect email or password. Please try again.");
+      throw error;
     }
   };
 
@@ -78,31 +66,28 @@ const DriverContextProvider = ({ children }) => {
     setErrorMessageDriver("");
   };
 
-//------- ADD DESTINATION----------//
-
   const addDestinationDriver = async (
     placeNameDriver,
     arrivalDriver,
     seatsDriver
   ) => {
-    // console.log("userDriver:", userDriver);
-    // console.log("userDriver ID:", userDriver.id);
     if (!userDriver) {
       console.error("User or user id is undefined");
-      setErrorMessage("User or user id is undefined. Please try again."); 
+      setErrorMessageDriver("User or user id is undefined. Please try again.");
       return;
     }
 
     const startDateString = startDateDriver.toLocaleDateString();
-    console.log(startDateString);
 
     const destinationDataDriver = {
       enddestination: placeNameDriver,
       traveldate: startDateString,
-      arrivalTime: arrivalDriver,
+      arrival_time: arrivalDriver.arrival_time,
+      departure_time: arrivalDriver.departure_time,
       seats: seatsDriver,
+      route: arrivalDriver.route,
     };
-    console.log("Destination data:", destinationDataDriver);
+
     try {
       const response = await axios.post(
         `${baseUrl}/users/${userDriver}/destinations`,
@@ -116,7 +101,6 @@ const DriverContextProvider = ({ children }) => {
 
       if (response.status !== 200) {
         console.error(`Destination failed with status: ${response.status}`);
-        console.error("Response data:", response.data); 
         throw new Error(`Destination failed with status: ${response.status}`);
       }
 
@@ -125,13 +109,10 @@ const DriverContextProvider = ({ children }) => {
       console.log("Destination added successfully");
     } catch (error) {
       console.error("Error:", error.message);
-      setErrorMessage("Destination failed. Please try again."); 
-      throw error; 
+      setErrorMessageDriver("Destination failed. Please try again.");
+      throw error;
     }
   };
-
- 
-//--------DELETE DESTINATION----------//
 
   const deleteDestinationDriver = async (destinationId) => {
     try {
@@ -146,18 +127,16 @@ const DriverContextProvider = ({ children }) => {
 
       if (response.status !== 200) {
         console.error(`Deletion failed with status: ${response.status}`);
-        console.error("Response data:", response.data); 
         throw new Error(`Deletion failed with status: ${response.status}`);
       }
 
-      const responseDataDriver = response.data;
       console.log("Destination deleted successfully");
     } catch (error) {
       console.error("Error:", error.message);
-      setErrorMessage("Deletion failed. Please try again."); 
-      throw error; 
+      setErrorMessageDriver("Deletion failed. Please try again.");
+      throw error;
     }
-  }
+  };
 
   const value = {
     IsLoggedInDriver,
@@ -177,6 +156,8 @@ const DriverContextProvider = ({ children }) => {
     startDateDriver,
     setStartDateDriver,
     addDestinationDriver,
+    selectedDateDriver,
+    setSelectedDateDriver,
   };
 
   return (

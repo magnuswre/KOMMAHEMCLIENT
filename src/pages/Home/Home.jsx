@@ -8,10 +8,10 @@ import { PassengerContext } from "../../contexts/PassengerContext";
 
 const Home = () => {
   const { IsLoggedInDriver } = useContext(DriverContext);
-  const { passengerIsLoggedIn } = useContext(PassengerContext);
-  
+  const { IsLoggedInPassenger } = useContext(PassengerContext);
+
   console.log(IsLoggedInDriver);
-  console.log(passengerIsLoggedIn)
+  console.log(IsLoggedInPassenger);
 
   return (
     <div className="App-Wrapper">
@@ -25,15 +25,15 @@ const Home = () => {
             <h1>kommahem</h1>
           </div>
           <div className="Links">
-            <Link className="Passenger-Btn" to="/passenger">
+            <Link className="Passenger-Btn" to="/passengerlogin">
               Åka
             </Link>
             <Link className="Drive-Btn" to="/driverlogin">
               Köra
             </Link>
-            <Link className="Change-Btn" to="/change">
+            {/* <Link className="Change-Btn" to="/change">
               Ändra
-            </Link>
+            </Link> */}
           </div>
           <div className="Icon-Container">
             <img className="infoIcon" src={infoIcon} alt="" />
