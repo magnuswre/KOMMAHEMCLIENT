@@ -1,8 +1,8 @@
 import { createContext, useState } from "react";
 
 export const RecoveryContext = createContext();
-// const baseUrl = "https://kommahem-fd9ac0fc3b1a.herokuapp.com";
-const baseUrl = "http://localhost:5000";
+const baseUrl = "https://kommahem-fd9ac0fc3b1a.herokuapp.com";
+// const baseUrl = "http://localhost:5000";
 
 const RecoveryContextProvider = ({ children }) => {
   const [recipient_email, setRecipient_email] = useState("");

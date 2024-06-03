@@ -1,8 +1,8 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 export const PassengerContext = createContext();
-// const baseUrl = "https://kommahem-fd9ac0fc3b1a.herokuapp.com";
-const baseUrl = "http://localhost:5000";
+const baseUrl = "https://kommahem-fd9ac0fc3b1a.herokuapp.com";
+// const baseUrl = "http://localhost:5000";
 
 const PassengerContextProvider = ({ children }) => {
   const [IsLoggedInPassenger, setIsLoggedInPassenger] = useState(false);
