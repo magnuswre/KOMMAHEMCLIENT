@@ -1,0 +1,55 @@
+.OPTInput-container {
+    background-color: black;
+    height: 100vh;
+    box-sizing: border-box;
+    font-family: Roboto-Regular, Roboto;
+    display: grid;
+    place-items: start;
+}
+
+.OPTInput-wrapper {
+    color: white;
+    border: 10px solid white;
+    margin: 0 auto;
+    margin-top: 5%;
+    display: grid;
+    align-items: center;
+    background-color: black;
+    border-radius: 10px;
+    font-size: 16px;
+    gap: 20px;
+    padding: 30px;
+}
+
+.OPTInput-inputs {
+    display: flex;
+    gap: 5px;
+}
+
+.OPTInput-input {
+    width: 2ch;
+    height: 2em;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.PassengerOPTInput-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* border: 2px solid white; */
+    margin-top: 15px;
+    gap: 20px;
+}
+
+.PassengerOPTInput-verify-account-link {
+    background-color: #1E1E1E;
+    color: white;
+    border: solid 2px white;
+    border-radius: 10px;
+    padding: 5px;
+    /* margin: 10px; */
+    /* width: 100%; */
+    font-size: 1.2rem;
+    font-weight: bold;
+}

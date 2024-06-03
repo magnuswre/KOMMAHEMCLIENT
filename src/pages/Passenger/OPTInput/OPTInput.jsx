@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { createRef, useEffect, useRef } from "react";
 import { useState } from "react";
 import { useContext } from "react";
 import "./OPTInput.css";
@@ -51,67 +51,79 @@ const PassengerOPTInput = () => {
     return () => clearInterval(interval);
   }, [disable]);
 
-  return (
-    <div>
-      <div className="">
-        <div className="">
-          <div className="">
-            <div className="Email-verification-text">
-              <p>Email Verification</p>
-            </div>
-            <div className="Email-verification-text">
-              <p>We have sent a code to your email: {recipient_email}</p>
-            </div>
-          </div>
+  const inputRefs = useRef([]);
+  inputRefs.current = OTPinput.map(
+    (_, i) => inputRefs.current[i] ?? createRef()
+  );
 
-          <div>
-            <form>
-              <div className="">
-                <div className="">
-                  {OTPinput.map((_, index) => (
-                    <div key={index} className="">
-                      <input
-                        maxLength="1"
-                        className=""
-                        type="text"
-                        onChange={(e) => {
-                          const newOTPinput = [...OTPinput];
-                          newOTPinput[index] = e.target.value;
-                          setOTPinput(newOTPinput);
-                        }}
-                      />
-                    </div>
-                  ))}
+  const handleInputChange = (e, index) => {
+    const newOTPinput = [...OTPinput];
+    newOTPinput[index] = e.target.value;
+    setOTPinput(newOTPinput);
+
+    if (e.target.value) {
+      if (index < OTPinput.length - 1) {
+        inputRefs.current[index + 1].focus();
+      }
+    }
+  };
+
+  return (
+    <div className="OPTInput-container">
+      <div className="OPTInput-wrapper">
+        <div>
+          <div className="Email-verification-text">
+            <p>Email Verification</p>
+          </div>
+          <div className="Email-verification-text">
+            <p>We have sent a code to your email: {recipient_email}</p>
+          </div>
+        </div>
+
+        <div>
+          <form>
+            <div className="">
+              <div className="OPTInput-inputs">
+                {OTPinput.map((_, index) => (
+                  <div key={index} className="">
+                    <input
+                      ref={(el) => (inputRefs.current[index] = el)}
+                      maxLength="1"
+                      className="OPTInput-input"
+                      type="text"
+                      onChange={(e) => handleInputChange(e, index)}
+                    />
+                  </div>
+                ))}
+              </div>
+
+              <div className="PassengerOPTInput-bottom">
+                <div>
+                  <a
+                    onClick={() => verifyOTP()}
+                    className="PassengerOPTInput-verify-account-link"
+                  >
+                    Verify Account
+                  </a>
                 </div>
 
-                <div className="">
-                  <div>
-                    <a
-                      onClick={() => verifyOTP()}
-                      className="PassengerOPTInput-VerifyButton PassengerOPTInput-CursorPointer"
-                    >
-                      Verify Account
-                    </a>
-                  </div>
-
-                  <div className="">
-                    <p>Didn't receive code?</p>
-                    <a
-                      className="PassengerOPTInput-ResendLink"
-                      style={{
-                        color: disable ? "gray" : "blue",
-                        cursor: disable ? "none" : "pointer",
-                        textDecorationLine: disable ? "none" : "underline",
-                      }}
-                      onClick={() => resendOTP()}
-                    >
-                      {disable ? `Resend OTP in ${timerCount}s` : "Resend OTP"}
-                    </a>
-                  </div>
+                <div>
+                  <p>Didn't receive code?</p>
+                  <a
+                    className="PassengerOPTInput-ResendLink"
+                    style={{
+                      color: disable ? "gray" : "red",
+                      cursor: disable ? "none" : "pointer",
+                      textDecorationLine: disable ? "none" : "underline",
+                    }}
+                    onClick={() => resendOTP()}
+                  >
+                    {disable ? `Resend OTP in ${timerCount}s` : "Resend OTP"}
+                  </a>
                 </div>
               </div>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>

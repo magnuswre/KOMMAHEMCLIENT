@@ -45,10 +45,9 @@ const PassengerForgotPassword = () => {
   return (
     <div className="PassengerFP-container">
       <form className="PassengerFP" onSubmit={handleSubmit}>
-        <p className="PassengerFP-form-text">Ange din email:</p>
         <div className="PassengerFP-form-group">
-          <label className="PassengerFP-form-labels" htmlFor="email">
-            Email
+          <label className="PassengerFP-form-label" htmlFor="email">
+            Ange din email:
           </label>
 
           <input

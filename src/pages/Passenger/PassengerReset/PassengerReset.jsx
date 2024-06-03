@@ -10,6 +10,7 @@ const PassengerReset = () => {
 
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [passwordChanged, setPasswordChanged] = useState(false);
   const navigate = useNavigate();
 
   async function changePassword() {
@@ -33,9 +34,7 @@ const PassengerReset = () => {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      // const data = await response.json();
-      // alert(data.message);
-      navigate("/passengerrecovered");
+      setPasswordChanged(true);
     } catch (error) {
       console.error(error);
       alert("Failed to change password");
@@ -44,18 +43,24 @@ const PassengerReset = () => {
 
   return (
     <div className="PassengerReset-Container">
-      <section className="PassengerReset-Background PassengerReset-FullWidth PassengerReset-DarkBackground">
-        <div className="PassengerReset-FlexCenter PassengerReset-Padding PassengerReset-MarginAuto PassengerReset-HeightScreen PassengerReset-LargePadding">
-          <div className="PassengerReset-FormContainer PassengerReset-PaddingMedium PassengerReset-BackgroundWhite PassengerReset-Rounded PassengerReset-Shadow PassengerReset-DarkBorder PassengerReset-MarginTopMedium PassengerReset-MaxWidthMedium PassengerReset-DarkBackgroundDark PassengerReset-DarkBorderGray PassengerReset-FormPadding">
-            <h2 className="PassengerReset-Heading PassengerReset-MarginBottom PassengerReset-TextLarge PassengerReset-FontBold PassengerReset-TextGray PassengerReset-TextLargeDark">
-              Change Password
-            </h2>
-            <form className="PassengerReset-Form PassengerReset-MarginTop PassengerReset-SpaceY PassengerReset-LargeMarginTop PassengerReset-MediumSpaceY">
-              <div>
-                <label
-                  htmlFor="password"
-                  className="PassengerReset-Label PassengerReset-MarginBottomSmall PassengerReset-TextSmall PassengerReset-FontMedium PassengerReset-TextGray PassengerReset-TextSmallDark"
-                >
+      {passwordChanged ? (
+        <div>
+          <p>Password successfully changed,</p>
+
+          <button
+            className="PassengerReset-RedirectBtn"
+            onClick={() => navigate("/passengerlogin")}
+          >
+            click here to redirect to login
+          </button>
+        </div>
+      ) : (
+        <div>
+          <div className="PassengerReset-Wrapper">
+            <h2 className="">Change Password</h2>
+            <form>
+              <div className="PassengerReset-inputs">
+                <label htmlFor="password" className="">
                   New Password
                 </label>
                 <input
@@ -64,15 +69,12 @@ const PassengerReset = () => {
                   id="password"
                   placeholder="••••••••"
                   onChange={(e) => setNewPassword(e.target.value)}
-                  className="PassengerReset-Input PassengerReset-BackgroundGray PassengerReset-Border PassengerReset-TextGray PassengerReset-SmallText PassengerReset-Rounded PassengerReset-FocusRing PassengerReset-FocusBorder PassengerReset-FullWidth PassengerReset-PaddingSmall PassengerReset-DarkBackgroundGray PassengerReset-DarkBorderGray PassengerReset-DarkPlaceholderGray PassengerReset-DarkTextWhite PassengerReset-DarkFocusRing PassengerReset-DarkFocusBorder"
+                  className="PassengerReset-input"
                   required=""
                 ></input>
               </div>
-              <div>
-                <label
-                  htmlFor="confirm-password"
-                  className="PassengerReset-Label PassengerReset-MarginBottomSmall PassengerReset-TextSmall PassengerReset-FontMedium PassengerReset-TextGray PassengerReset-TextSmallDark"
-                >
+              <div className="PassengerReset-inputs">
+                <label htmlFor="confirm-password" className="">
                   Confirm Password
                 </label>
                 <input
@@ -81,20 +83,20 @@ const PassengerReset = () => {
                   id="confirm-password"
                   placeholder="••••••••"
                   onChange={(e) => setConfirmPassword(e.target.value)}
-                  className="PassengerReset-Input PassengerReset-BackgroundGray PassengerReset-Border PassengerReset-TextGray PassengerReset-SmallText PassengerReset-Rounded PassengerReset-FocusRing PassengerReset-FocusBorder PassengerReset-FullWidth PassengerReset-PaddingSmall PassengerReset-DarkBackgroundGray PassengerReset-DarkBorderGray PassengerReset-DarkPlaceholderGray PassengerReset-DarkTextWhite PassengerReset-DarkFocusRing PassengerReset-DarkFocusBorder"
+                  className="PassengerReset-input"
                   required=""
                 ></input>
               </div>
             </form>
             <button
               onClick={() => changePassword()}
-              className="PassengerReset-Button PassengerReset-TextWhite PassengerReset-BackgroundPrimary PassengerReset-HoverBackgroundPrimary PassengerReset-FocusRing PassengerReset-FocusOutline PassengerReset-FocusRingPrimary PassengerReset-FontMedium PassengerReset-Rounded PassengerReset-SmallText PassengerReset-PaddingXSmall PassengerReset-PaddingYSmall PassengerReset-TextCenter PassengerReset-DarkBackgroundPrimary PassengerReset-DarkHoverBackgroundPrimary PassengerReset-DarkFocusRingPrimary"
+              className="ResetPassword-Btn"
             >
               Reset Password
             </button>
           </div>
         </div>
-      </section>
+      )}
     </div>
   );
 };
