@@ -6,13 +6,16 @@ import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import DriverContextProvider from "./contexts/DriverContext.jsx";
 import PassengerContextProvider from "./contexts/PassengerContext.jsx";
+import RecoveryContextProvider from "./contexts/RecoveryContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <>
     <BrowserRouter>
       <DriverContextProvider>
         <PassengerContextProvider>
-        <App />
+          <RecoveryContextProvider>
+            <App />
+          </RecoveryContextProvider>
         </PassengerContextProvider>
       </DriverContextProvider>
     </BrowserRouter>

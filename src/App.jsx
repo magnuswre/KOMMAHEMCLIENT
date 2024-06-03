@@ -14,7 +14,10 @@ import PassengerChange from "./pages/Passenger/PassengerChange/PassengerChange";
 import DriverConfirmation from "./pages/Driver/Confirmation/DriverConfirmation";
 import PassengerConfirm from "./pages/Passenger/PassengerConfirm/PassengerConfirm";
 import PassengerDashboard from "./pages/Passenger/Dashboard/PassengerDashboard";
-// import ChangeDriving from "./pages/ChangeDriving/ChangeDriving";
+import PassengerForgotPassword from "./pages/Passenger/PassengerForgotPassword/PassengerForgotPassword";
+import PassengerOPTInput from "./pages/Passenger/OPTInput/OPTInput";
+import PassengerReset from "./pages/Passenger/PassengerReset/PassengerReset";
+import PassengerRecovered from "./pages/Passenger/PassengerRecovered/PassengerRecovered";
 
 function App() {
   return (
@@ -35,6 +38,14 @@ function App() {
         <Route path="/passenger" element={<Passenger />} />
         <Route path="/passengerregister" element={<PassengerRegister />} />
         <Route path="/passengerlogin" element={<PassengerLogin />} />
+        <Route
+          path="/passengerforgotpassword"
+          element={<PassengerForgotPassword />}
+        />
+        <Route path="/passengeroptinput" element={<PassengerOPTInput />} />
+        <Route path="/passengerreset" element={<PassengerReset />} />
+        <Route path="/passengerrecovered" element={<PassengerRecovered />} />
+
         <Route path="/passengerchange" element={<PassengerChange />} />
         <Route path="/passengerconfirmation" element={<PassengerConfirm />} />
         <Route path="/passengerdashboard" element={<PassengerDashboard />} />

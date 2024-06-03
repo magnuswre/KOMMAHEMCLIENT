@@ -376,6 +376,7 @@ const PassengerContextProvider = ({ children }) => {
     selectedDestination,
     setSelectedDestination,
     clearErrorMessagePassenger,
+    setErrorMessagePassenger,
     // getBookingsByUserId,
     bookings,
   };

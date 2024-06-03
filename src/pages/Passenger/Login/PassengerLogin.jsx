@@ -64,6 +64,15 @@ const PassengerLogin = () => {
               Skaffa konto här
             </Link>
           </p>
+          <p className="PassengerLogin-red-text">
+            <Link
+              className="PassengerLogin-error-text"
+              to={"/passengerforgotpassword"}
+              style={{ color: "red" }}
+            >
+              Glömt lösenord?
+            </Link>
+          </p>
           <input
             type="email"
             name="email"
