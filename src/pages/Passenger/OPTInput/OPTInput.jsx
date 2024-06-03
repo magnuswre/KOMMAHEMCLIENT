@@ -6,6 +6,9 @@ import { RecoveryContext } from "../../../contexts/RecoveryContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+const baseUrl = "https://kommahem-fd9ac0fc3b1a.herokuapp.com";
+// const baseUrl = "http://localhost:5000";
+
 const PassengerOPTInput = () => {
   const navigate = useNavigate();
   const { email, otp, recipient_email } = useContext(RecoveryContext);
@@ -16,7 +19,7 @@ const PassengerOPTInput = () => {
   function resendOTP() {
     if (disable) return;
     axios
-      .post("http://localhost:5000/send_recovery_email", {
+      .post(`${baseUrl}/send_recovery_email`, {
         OTP: otp,
         recipient_email,
       })

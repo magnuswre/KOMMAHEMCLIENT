@@ -12,7 +12,8 @@ const DriverContextProvider = ({ children }) => {
   const [seatsDriver, setSeatsDriver] = useState("1");
   const [startDateDriver, setStartDateDriver] = useState(new Date());
   const [selectedDateDriver, setSelectedDateDriver] = useState("");
-  const baseUrl = "http://localhost:5000";
+  const baseUrl = "https://kommahem-fd9ac0fc3b1a.herokuapp.com";
+  // const baseUrl = "http://localhost:5000";
 
   const registerUserDriver = async (userDataDriver) => {
     try {

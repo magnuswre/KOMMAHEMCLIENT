@@ -3,6 +3,8 @@ import "./DriverForm.css";
 import { useNavigate } from "react-router-dom";
 import { DriverContext } from "../../contexts/DriverContext";
 import MyDatePickerComponent from "../DatePickerComponents/DatePickerComponentDriver/MyDatePickerComponent";
+const baseUrl = "https://kommahem-fd9ac0fc3b1a.herokuapp.com";
+// const baseUrl = "http://localhost:5000";
 
 const DriverForm = () => {
   const {
@@ -31,7 +33,7 @@ const DriverForm = () => {
 
   useEffect(() => {
     if (selectedDateDriver) {
-      fetch(`http://localhost:5000/timetable/${selectedDateDriver}`)
+      fetch(`${baseUrl}/timetable/${selectedDateDriver}`)
         .then((response) => response.json())
         .then((data) => setRoutes(data))
         .catch((error) => console.error("Error:", error));
