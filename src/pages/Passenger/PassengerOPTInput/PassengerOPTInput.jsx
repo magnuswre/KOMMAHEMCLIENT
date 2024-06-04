@@ -1,7 +1,7 @@
 import React, { createRef, useEffect, useRef } from "react";
 import { useState } from "react";
 import { useContext } from "react";
-import "./OPTInput.css";
+import "./PassengerOPTInput.css";
 import { RecoveryContext } from "../../../contexts/RecoveryContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -11,7 +11,7 @@ const baseUrl = "https://kommahem-fd9ac0fc3b1a.herokuapp.com";
 
 const PassengerOPTInput = () => {
   const navigate = useNavigate();
-  const { email, otp, recipient_email } = useContext(RecoveryContext);
+  const { otp, recipient_email } = useContext(RecoveryContext);
   const [timerCount, setTimer] = React.useState(60);
   const [OTPinput, setOTPinput] = useState([0, 0, 0, 0]);
   const [disable, setDisable] = useState(true);
