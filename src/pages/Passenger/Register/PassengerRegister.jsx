@@ -3,7 +3,7 @@ import { checkIfEmpty } from "./Validation";
 import { useNavigate } from "react-router-dom";
 import "./PassengerRegister.css";
 import { PassengerContext } from "../../../contexts/PassengerContext";
-import TermsOfUse from "../../../components/data/termsofuse";
+import TermsOfUse from "../../../components/data/TermsOfUse";
 import UserCondition from "../../../components/data/UserCondition";
 
 const initState = {
