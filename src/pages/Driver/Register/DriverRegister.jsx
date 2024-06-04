@@ -3,7 +3,7 @@ import { checkIfEmpty } from "./Validation";
 import { useNavigate } from "react-router-dom";
 import "./DriverRegister.css";
 import { DriverContext } from "../../../contexts/DriverContext";
-import TermsOfUse from "../../../components/data/termsofuse";
+// import TermsOfUse from "../../../components/data/termsofuse";
 import UserCondition from "../../../components/data/UserCondition";
 
 const initState = {
@@ -211,7 +211,7 @@ const DriverRegister = () => {
               >
                 <div>
                   <UserCondition />
-                  <TermsOfUse />
+                  {/* <TermsOfUse /> */}
                 </div>
                 <button
                   className="modal-close-InformationText"
