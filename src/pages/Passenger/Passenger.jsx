@@ -104,7 +104,9 @@ const Passenger = () => {
   return (
     <div className="passenger-page-container">
       <div className="passenger-page-wrapper">
-        <button onClick={handleDashboardClick}>till dashboard</button>
+        <button className="destination-btn" onClick={handleDashboardClick}>
+          Bokningar och konto
+        </button>
         <form onSubmit={onSubmit}>
           <div>
             <h2>Välj datum:</h2>

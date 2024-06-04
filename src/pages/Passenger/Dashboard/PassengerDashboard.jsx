@@ -1,14 +1,33 @@
 import BookingCard from "../../../components/BookingCard/BookingCard";
 import { PassengerContext } from "../../../contexts/PassengerContext";
 import "./PassengerDashboard.css";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 const PassengerDashboard = () => {
-  const { bookings } = useContext(PassengerContext);
+  const { getBookingsByUserId } = useContext(PassengerContext);
+  const [bookings, setBookings] = useState([]);
   const user = JSON.parse(localStorage.getItem("user-passenger"));
   const userEmail = user.user.email;
   const userPhone = user.user.phone;
   const userPassword = user.user.password;
+
+  // console.log(bookings);
+  useEffect(() => {
+    const fetchBookings = async () => {
+      const user = JSON.parse(localStorage.getItem("user-passenger"));
+      if (user && user.user && "id" in user.user) {
+        const userId = user.user.id;
+        const userBookings = await getBookingsByUserId(userId);
+        setBookings(userBookings);
+      } else {
+        console.log(
+          "User not found in local storage or user object does not have an id property"
+        );
+      }
+    };
+
+    fetchBookings();
+  }, []);
 
   return (
     <>

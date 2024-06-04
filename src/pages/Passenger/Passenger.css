@@ -5,7 +5,7 @@
     display: grid;
     place-items: start;
     /* margin: 10%; */
-    /* ove'rflow: hidden; */
+    /* overflow: hidden; */
 }
 
 .passenger-page-wrapper {
@@ -23,7 +23,10 @@
     /* grid-template-columns: 1fr 1fr; */
 }
 
-
+.passenger-page-wrapper form>* {
+    margin: 10px;
+    /* Adjust this value to your needs */
+}
 
 .destinations-list-current-day {
     margin: 5%;

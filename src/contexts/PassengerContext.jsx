@@ -28,24 +28,6 @@ const PassengerContextProvider = ({ children }) => {
   const [arrivalTime, setArrivalTime] = useState("");
   const [selectedSeats, setSelectedSeats] = useState("");
   const [selectedDestination, setSelectedDestination] = useState(null);
-  const [bookings, setBookings] = useState([]);
-
-  // useEffect(() => {
-  //   const fetchBookings = async () => {
-  //     const user = JSON.parse(localStorage.getItem("user-passenger"));
-  //     if (user && user.user && "id" in user.user) {
-  //       const userId = user.user.id;
-  //       const userBookings = await getBookingsByUserId(userId);
-  //       setBookings(userBookings);
-  //     } else {
-  //       console.log(
-  //         "User not found in local storage or user object does not have an id property"
-  //       );
-  //     }
-  //   };
-
-  //   fetchBookings();
-  // }, []);
 
   //------ GET ALL DESTINATIONS-------//
   const getAllDestinations = async () => {
@@ -377,8 +359,8 @@ const PassengerContextProvider = ({ children }) => {
     setSelectedDestination,
     clearErrorMessagePassenger,
     setErrorMessagePassenger,
-    // getBookingsByUserId,
-    bookings,
+    getBookingsByUserId,
+    // bookings,
   };
 
   return (
