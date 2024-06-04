@@ -5,13 +5,17 @@ import Driver from "./pages/Driver/Driver";
 import DriverRegister from "./pages/Driver/Register/DriverRegister";
 import DriverLogin from "./pages/Driver/Login/DriverLogin";
 import DriverChange from "./pages/Driver/Change/DriverChange";
+import DriverConfirmation from "./pages/Driver/Confirmation/DriverConfirmation";
+import DriverForgotPassword from "./pages/Driver/DriverForgotPassword/DriverForgotPassword";
+import DriverReset from "./pages/Driver/DriverReset/DriverReset";
+import DriverRecovered from "./pages/Driver/DriverRecovered/DriverRecovered";
+import DriverOPTInput from "./pages/Driver/DriverOPTInput/DriverOPTInput";
 
 import Passenger from "./pages/Passenger/Passenger";
 import PassengerRegister from "./pages/Passenger/Register/PassengerRegister";
 import PassengerLogin from "./pages/Passenger/Login/PassengerLogin";
 import Change from "./pages/Change/Change";
 import PassengerChange from "./pages/Passenger/PassengerChange/PassengerChange";
-import DriverConfirmation from "./pages/Driver/Confirmation/DriverConfirmation";
 import PassengerConfirm from "./pages/Passenger/PassengerConfirm/PassengerConfirm";
 import PassengerDashboard from "./pages/Passenger/Dashboard/PassengerDashboard";
 import PassengerForgotPassword from "./pages/Passenger/PassengerForgotPassword/PassengerForgotPassword";
@@ -33,6 +37,13 @@ function App() {
         <Route path="/driverlogin" element={<DriverLogin />} />
         <Route path="/driverchange/:userId" element={<DriverChange />} />
         <Route path="/driverconfirmation" element={<DriverConfirmation />} />
+        <Route
+          path="/driverforgotpassword"
+          element={<DriverForgotPassword />}
+        />
+        <Route path="/driveroptinput" element={<DriverOPTInput />} />
+        <Route path="/driverreset" element={<DriverReset />} />
+        <Route path="/driverrecovered" element={<DriverRecovered />} />
 
         {/* PASSENGER */}
         <Route path="/passenger" element={<Passenger />} />
