@@ -2,3 +2,14 @@
     border: 5px solid white;
     margin-top: 2px;
 }
+
+.booking-card-btns {
+    background-color: #1E1E1E;
+    color: white;
+    border: solid 2px white;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 10px;
+}
