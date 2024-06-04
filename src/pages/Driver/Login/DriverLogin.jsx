@@ -58,6 +58,15 @@ const DriverLogin = () => {
               Skaffa konto här
             </Link>
           </p>
+          <p className="DriverLogin-red-text">
+            <Link
+              className="DriverLogin-error-text"
+              to={"/driverforgotpassword"}
+              style={{ color: "red" }}
+            >
+              Glömt lösenord?
+            </Link>
+          </p>
           <input
             type="email"
             name="email"
