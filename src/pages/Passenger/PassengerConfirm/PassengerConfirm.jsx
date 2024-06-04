@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "./PassengerConfirm.css";
 import { useNavigate } from "react-router-dom";
 import { PassengerContext } from "../../../contexts/PassengerContext";
-import BookingCard from "../../../components/BookingCard/BookingCard";
+// import BookingCard from "../../../components/BookingCard/BookingCard";
 
 const PassengerConfirm = () => {
   const navigate = useNavigate();
@@ -34,11 +34,11 @@ const PassengerConfirm = () => {
           <p>Bekräftelse skickas även till din angivna mejladress</p>
         </div>
         <div>
-          <p>Alla bokningar:</p>
+          <p>Gå till alla mina bokningar</p>
           <div>
-            {bookings.map((booking, index) => (
+            {/* {bookings.map((booking, index) => (
               <BookingCard key={index} booking={booking} />
-            ))}
+            ))} */}
           </div>
         </div>
       </div>
