@@ -1,10 +1,10 @@
-.App-Wrapper{
-  display: flex;   
+.App-Wrapper {
+  display: flex;
   flex-direction: column;
   height: 100vh;
-}  
+}
 
-.App-Overlay{
+.App-Overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -12,127 +12,140 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 3;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 .Bg-Image {
-    position: fixed; /* This will make the container take the whole screen */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1; /* This will keep the video behind your content */
-    overflow: hidden; /* Prevents scrollbars from appearing */
-     /* filter: saturate(1); */
-    filter: brightness(0.8); 
-  }
-  
-  video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* This will cover the whole parent container */
-  }
-  
+  position: fixed;
+  /* This will make the container take the whole screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  /* This will keep the video behind your content */
+  overflow: hidden;
+  /* Prevents scrollbars from appearing */
+  /* filter: saturate(1); */
+  filter: brightness(0.8);
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* This will cover the whole parent container */
+}
+
+.App-Content {
+  margin: 0 auto;
+  flex-grow: 1;
+  /* This makes .App-Content grow to take up remaining space */
+  position: relative;
+  /* This will make z-index applicable to this element */
+  z-index: 3;
+  /* This will place the content above the video and overlay */
+  color: white;
+  padding: 50px;
+  width: 60%;
+  background-color: rgba(0, 0, 0, 0.7);
+  /* Set the background color opacity here */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App-Form {
+  display: grid;
+  margin: 0 auto;
+  text-align: center;
+  border: 10px solid white;
+  border-radius: 10px;
+  height: 85%;
+  width: 50%;
+  background-color: black;
+}
+
+.App-Title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-Title h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0 auto;
+  letter-spacing: 2.5px;
+
+}
+
+.Links {
+  margin: 0 auto;
+  display: grid;
+  width: 80%;
+  gap: 7%;
+
+}
+
+.Links a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  border: solid 2px white;
+  background-color: #1E1E1E;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+
+}
+
+.Icon-Container {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  height: 100%;
+}
+
+.infoIcon {
+  background-color: white;
+  width: 45px;
+  height: 45px;
+  margin: 1%;
+  border-radius: 10px;
+}
+
+
+@media (max-width: 1000px) {
   .App-Content {
-    margin: 0 auto;
-    flex-grow: 1; /* This makes .App-Content grow to take up remaining space */
-    position: relative; /* This will make z-index applicable to this element */
-    z-index: 3; /* This will place the content above the video and overlay */
-    color: white;
-    padding: 50px;
-    width: 60%;
-    background-color: rgba(0, 0, 0, 0.7); /* Set the background color opacity here */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .App-Form{
-    display: grid;
-    margin: 0 auto;
-    text-align: center;
-    border: 10px solid white;
-    border-radius: 10px;
-    height: 85%;
-    width: 50%;
-    background-color: black;
-  }
-  
-  .App-Title{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .App-Title h1{
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin: 0 auto;
-    letter-spacing: 2.5px;
-  
-  }
-  
-  .Links{
-    margin: 0 auto;
-    display: grid;
     width: 80%;
-    gap: 7%;
-   
+    /* Change the width to 80% for smaller screens */
+    padding: 30px;
+    /* Adjust padding as needed */
   }
-  
-  .Links a{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    border-radius: 10px;
-    border: solid 2px white;
-    background-color: #1E1E1E;
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
-    letter-spacing: 1.5px;
-    text-decoration: none;
-  
+}
+
+@media (max-width: 1000px) {
+  .App-Content {
+    width: 80%;
+    /* Change the width to 80% for smaller screens */
+    padding: 10px;
+  }
+}
+
+@media (max-width: 800px) {
+  .App-Content {
+    width: 90%;
+    /* Change the width to 80% for smaller screens */
+    padding: 10px;
   }
 
-  .Icon-Container{
-    display: flex;
-    justify-content: end;
-    align-items: end;
-    height: 100%;
+  .App-Form {
+    width: 80%;
   }
-  
-  .infoIcon{
-    background-color: white;
-    width: 45px;
-    height: 45px;
-    margin: 1%;
-    border-radius: 10px;
-  }
-
-
-  @media (max-width: 1000px) {
-    .App-Content {
-      width: 80%; /* Change the width to 80% for smaller screens */
-      padding: 30px; /* Adjust padding as needed */
-    }
-  }
-
-  @media (max-width: 1000px) {
-    .App-Content {
-      width: 80%; /* Change the width to 80% for smaller screens */
-      padding: 10px;
-    }
-  }
-
-  @media (max-width: 800px) {
-    .App-Content {
-      width: 90%; /* Change the width to 80% for smaller screens */
-      padding: 10px;
-    }
-    .App-Form{
-      width: 80%;
-    }
-  }
+}

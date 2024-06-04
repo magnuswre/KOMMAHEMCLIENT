@@ -1,4 +1,4 @@
-.PassengerRegister-container{
+.PassengerRegister-container {
     background-color: black;
     height: 100vh;
     box-sizing: border-box;
@@ -18,13 +18,14 @@
     border-radius: 10px;
     background-color: black;
     font-size: 16px;
-    Link{
+
+    Link {
         color: red;
     }
 
 }
 
-.PassengerForm-register{
+.PassengerForm-register {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -60,24 +61,38 @@
     font-weight: bold;
 }
 
-.PassengerRegister-checkbox {
-    margin-left: 30px;
+.PassengerRegister-form-group-terms {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
 }
 
 .PassengerRegister-text {
     font-size: 12px;
-    padding-left: 10px;
+    /* padding-left: 10px; */
     text-decoration: underline;
+    color: white;
+    background-color: black;
+    border: none;
+
 }
-.PassengerRegister-red-text{
+
+.PassengerRegister-red-text {
     display: inline;
     margin-left: 20px;
     color: red;
     font-size: 14px;
 }
-.PassengerRegister-red-text1{
+
+.PassengerRegister-red-text1 {
     display: inline;
     color: red;
     font-size: 14px;
     float: right;
+}
+
+.PassengerRegister-modal {
+    border: 2px solid white;
 }

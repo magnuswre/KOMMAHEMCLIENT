@@ -1,17 +1,25 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import bgImage from "../../assets/sea2.jpg";
 import infoIcon from "../../assets/info.svg";
 import "./Home.css";
-import { DriverContext } from "../../contexts/DriverContext";
-import { PassengerContext } from "../../contexts/PassengerContext";
+import InformationText from "../../components/data/InformationText";
+// import { DriverContext } from "../../contexts/DriverContext";
+// import { PassengerContext } from "../../contexts/PassengerContext";
+// import UserCondition from "../../data/UserCondition";
 
 const Home = () => {
-  const { IsLoggedInDriver } = useContext(DriverContext);
-  const { IsLoggedInPassenger } = useContext(PassengerContext);
+  // const { IsLoggedInDriver } = useContext(DriverContext);
+  // const { IsLoggedInPassenger } = useContext(PassengerContext);
 
-  console.log(IsLoggedInDriver);
-  console.log(IsLoggedInPassenger);
+  const [showUserCondition, setShowUserCondition] = useState(false);
+
+  const handleInfoClick = (e) => {
+    setShowUserCondition((prev) => !prev);
+  };
+
+  // console.log(IsLoggedInDriver);
+  // console.log(IsLoggedInPassenger);
 
   return (
     <div className="App-Wrapper">
@@ -36,8 +44,29 @@ const Home = () => {
             </Link> */}
           </div>
           <div className="Icon-Container">
-            <img className="infoIcon" src={infoIcon} alt="" />
+            <img
+              className="infoIcon"
+              src={infoIcon}
+              alt=""
+              onClick={handleInfoClick}
+            />
           </div>
+          {showUserCondition && (
+            <div className="modal-InformationText" onClick={handleInfoClick}>
+              <div
+                className="modal-content-InformationText"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <InformationText />
+                <button
+                  className="modal-close-InformationText"
+                  onClick={handleInfoClick}
+                >
+                  Stäng
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-.DriverRegister-container{
+.DriverRegister-container {
     background-color: black;
     height: 100vh;
     box-sizing: border-box;
@@ -18,13 +18,14 @@
     border-radius: 10px;
     background-color: black;
     font-size: 16px;
-    Link{
+
+    Link {
         color: red;
     }
 
 }
 
-.DriverForm-register{
+.DriverForm-register {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -59,24 +60,34 @@
     font-weight: bold;
 }
 
-.DriverRegister-checkbox {
-    margin-left: 30px;
-}
 
 .DriverRegister-text {
     font-size: 12px;
     padding-left: 10px;
     text-decoration: underline;
+    color: white;
+    background-color: black;
+    border: none;
 }
-.DriverRegister-red-text{
+
+.DriverRegister-red-text {
     display: inline;
     margin-left: 20px;
     color: red;
     font-size: 14px;
 }
-.DriverRegister-red-text1{
+
+.DriverRegister-red-text1 {
     display: inline;
     color: red;
     font-size: 14px;
     float: right;
+}
+
+.DriverRegister-form-group-terms {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
 }
