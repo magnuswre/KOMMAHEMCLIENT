@@ -122,8 +122,6 @@ const DriverRegister = () => {
 
     const { confirmPassword, terms, ...userDataToSend } = formData;
 
-    console.log("Data to be sent:", userDataToSend);
-
     try {
       await registerUserDriver(userDataToSend);
       console.log("User registered successfully");

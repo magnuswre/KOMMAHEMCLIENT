@@ -122,8 +122,6 @@ const PassengerRegister = () => {
 
     const { confirmPassword, terms, ...userDataToSend } = formData;
 
-    console.log("Data to be sent:", userDataToSend);
-
     registerUserPassenger(userDataToSend)
       .then(() => {
         console.log("User registered successfully");
