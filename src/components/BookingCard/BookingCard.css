@@ -1,6 +1,8 @@
 .booking-card-container {
     border: 5px solid white;
     margin-top: 2px;
+    padding: 5px;
+    border-radius: 10px;
 }
 
 .booking-card-btns {
