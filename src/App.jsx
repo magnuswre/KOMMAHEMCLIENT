@@ -15,9 +15,9 @@ import DriverConfirmation from "./pages/Driver/Confirmation/DriverConfirmation";
 import PassengerConfirm from "./pages/Passenger/PassengerConfirm/PassengerConfirm";
 import PassengerDashboard from "./pages/Passenger/Dashboard/PassengerDashboard";
 import PassengerForgotPassword from "./pages/Passenger/PassengerForgotPassword/PassengerForgotPassword";
-import PassengerOPTInput from "./pages/Passenger/OPTInput/OPTInput";
 import PassengerReset from "./pages/Passenger/PassengerReset/PassengerReset";
 import PassengerRecovered from "./pages/Passenger/PassengerRecovered/PassengerRecovered";
+import PassengerOPTInput from "./pages/Passenger/PassengerOPTInput/PassengerOPTInput";
 
 function App() {
   return (
