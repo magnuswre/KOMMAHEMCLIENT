@@ -1,15 +1,42 @@
+import { PassengerContext } from "../../contexts/PassengerContext";
 import "./BookingCard.css";
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
-const BookingCard = ({ booking }) => {
+const BookingCard = ({ booking: initialBooking }) => {
+  const { updateBooking } = useContext(PassengerContext);
   const [showButtons, setShowButtons] = useState(false);
+  const [booking, setBooking] = useState(initialBooking);
+  const [isActive, setIsActive] = useState(booking.status === "active");
+
+  const mapStatusToSwedish = (status) => {
+    switch (status) {
+      case "active":
+        return "aktiv";
+      case "Booking cancelled":
+        return "avbokad";
+      case "Booking cancelled":
+        return "Bokning avbokad";
+      default:
+        return status;
+    }
+  };
+
+  useEffect(() => {
+    setIsActive(booking.status === "active");
+  }, [booking.status]);
 
   const handleCancelBooking = () => {
     setShowButtons(true);
   };
 
-  const handleConfirm = () => {
-    // Handle the booking cancellation here
+  const handleConfirm = async () => {
+    try {
+      const response = await updateBooking(booking.id, booking.user_id);
+      const updatedStatus = response.message;
+      setBooking((prevBooking) => ({ ...prevBooking, status: updatedStatus }));
+    } catch (error) {
+      console.error(error);
+    }
     setShowButtons(false);
   };
 
@@ -25,15 +52,14 @@ const BookingCard = ({ booking }) => {
       <p>Sittplatser: {booking.seats}</p>
       <p>Förarens nummer: {booking.driverPhone}</p>
       <p>Förarens email: {booking.driverEmail}</p>
-      <p>status: {booking.status} </p>
-      {/* <button>Ändra</button> */}
-      {!showButtons && (
+      <p>status: {mapStatusToSwedish(booking.status)} </p>
+      {isActive && !showButtons && (
         <button className="booking-card-btns" onClick={handleCancelBooking}>
           Avboka
         </button>
       )}
 
-      {showButtons && (
+      {isActive && showButtons && (
         <>
           <button className="booking-card-btns" onClick={handleConfirm}>
             Ja, ta bort min bokning
