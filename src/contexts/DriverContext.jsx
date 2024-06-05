@@ -108,7 +108,7 @@ const DriverContextProvider = ({ children }) => {
   const deleteUserDriver = async (userId) => {
     try {
       const response = await fetch(
-        `https://kommahem-fd9ac0fc3b1a.herokuapp.com/users/${userId}`,
+        `https://kommahem-fd9ac0fc3b1a.herokuapp.com/usersdriver/${userId}`,
         {
           method: "DELETE",
         }

@@ -136,11 +136,8 @@ const PassengerContextProvider = ({ children }) => {
       if (!response.ok) {
         throw new Error(data.message);
       }
-
-      alert(data.message);
     } catch (error) {
       console.error(error);
-      alert(error.message);
     }
   };
 
@@ -149,7 +146,7 @@ const PassengerContextProvider = ({ children }) => {
   const deleteUser = async (userId) => {
     try {
       const response = await fetch(
-        `https://kommahem-fd9ac0fc3b1a.herokuapp.com/users/${userId}`,
+        `https://kommahem-fd9ac0fc3b1a.herokuapp.com/userspassenger/${userId}`,
         {
           method: "DELETE",
         }
@@ -164,7 +161,6 @@ const PassengerContextProvider = ({ children }) => {
       localStorage.setItem("user-passenger", "");
     } catch (error) {
       console.error(error);
-      alert(error.message);
     }
   };
 

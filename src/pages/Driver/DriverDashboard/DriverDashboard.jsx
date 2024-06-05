@@ -12,7 +12,7 @@ const DriverDashboard = () => {
     handleChangePasswordDriver,
     deleteUserDriver,
   } = useContext(DriverContext);
-  const [bookings, setBookings] = useState([]);
+  // const [bookings, setBookings] = useState([]);
   const user = JSON.parse(localStorage.getItem("user-driver"));
   const userEmail = user.user.email;
   const userPhone = user.user.phone;
