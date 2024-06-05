@@ -33,7 +33,7 @@ const PassengerDashboard = () => {
         );
       }
     };
-    // console.log(userPassword);
+
     fetchBookings();
   }, []);
 

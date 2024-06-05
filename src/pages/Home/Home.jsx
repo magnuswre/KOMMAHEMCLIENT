@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import bgImage from "../../assets/sea2.jpg";
+// import bgImage from "../../assets/sea2.jpg";
 import infoIcon from "../../assets/info.svg";
 import "./Home.css";
 import InformationText from "../../components/data/InformationText";
@@ -24,9 +24,7 @@ const Home = () => {
   return (
     <div className="App-Wrapper">
       <div className="App-Overlay"></div>
-      <div className="Bg-Image">
-        <img src={bgImage} alt="" />
-      </div>
+      <div className="Bg-Image">{/* <img src={bgImage} alt="" /> */}</div>
       <div className="App-Content">
         <div className="App-Form">
           <div className="App-Title">
