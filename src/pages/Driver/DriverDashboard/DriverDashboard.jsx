@@ -72,7 +72,13 @@ const DriverDashboard = () => {
           <div className="Driver-dashboard-btns">
             <button
               className="Driver-dashboard-change-password-btn"
-              onClick={handleChangePasswordDriver}
+              onClick={() =>
+                handleChangePasswordDriver(
+                  userId,
+                  currentPasswordDriver,
+                  newPasswordDriver
+                )
+              }
             >
               Uppdatera lösenord
             </button>
