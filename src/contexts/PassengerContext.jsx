@@ -314,6 +314,35 @@ const PassengerContextProvider = ({ children }) => {
     }
   };
 
+  // ----- UPDATE BOOKING -----//
+
+  const updateBooking = async (bookingId, userId) => {
+    const data = { user_id: userId };
+    console.log("Sending data to endpoint:", data);
+    try {
+      const response = await axios.put(
+        `${baseUrl}/booking/cancel/${bookingId}`,
+        data,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (response.status < 200 || response.status >= 300) {
+        throw new Error(`Update failed with status: ${response.status}`);
+      }
+
+      const responseData = response.data;
+      console.log("Booking updated successfully");
+      return responseData;
+    } catch (error) {
+      console.error("Error:", error.message);
+      throw error;
+    }
+  };
+
   //-----CLEAR ERROR MESSAGE-----//
   const clearErrorMessage = () => {
     setErrorMessagePassenger("");
@@ -360,7 +389,7 @@ const PassengerContextProvider = ({ children }) => {
     clearErrorMessagePassenger,
     setErrorMessagePassenger,
     getBookingsByUserId,
-    // bookings,
+    updateBooking,
   };
 
   return (

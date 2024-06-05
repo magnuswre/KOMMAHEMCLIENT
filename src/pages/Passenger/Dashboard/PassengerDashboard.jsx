@@ -68,8 +68,8 @@ const PassengerDashboard = () => {
         </div>
 
         <h2>Alla mina bokningar:</h2>
-        {bookings.map((booking, index) => (
-          <BookingCard key={index} booking={booking} />
+        {bookings.map((booking, id) => (
+          <BookingCard key={id} booking={booking} />
         ))}
       </div>
     </div>
