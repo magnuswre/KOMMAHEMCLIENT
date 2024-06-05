@@ -1,10 +1,12 @@
 import axios from "axios";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 export const PassengerContext = createContext();
 const baseUrl = "https://kommahem-fd9ac0fc3b1a.herokuapp.com";
+import { useNavigate } from "react-router-dom";
 // const baseUrl = "http://localhost:5000";
 
 const PassengerContextProvider = ({ children }) => {
+  const navigate = useNavigate();
   const [IsLoggedInPassenger, setIsLoggedInPassenger] = useState(false);
   const [userPassenger, setUserPassenger] = useState("");
   const [placeNamePassenger, setPlaceNamePassenger] = useState("");
@@ -28,6 +30,8 @@ const PassengerContextProvider = ({ children }) => {
   const [arrivalTime, setArrivalTime] = useState("");
   const [selectedSeats, setSelectedSeats] = useState("");
   const [selectedDestination, setSelectedDestination] = useState(null);
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
 
   //------ GET ALL DESTINATIONS-------//
   const getAllDestinations = async () => {
@@ -107,6 +111,61 @@ const PassengerContextProvider = ({ children }) => {
 
   const clearErrorMessagePassenger = () => {
     setErrorMessagePassenger("");
+  };
+
+  // ---- CHANGE PASSWORD USER  ---- //
+
+  const handleChangePassword = async () => {
+    try {
+      const response = await fetch(
+        "https://kommahem-fd9ac0fc3b1a.herokuapp.com/user/4/password",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            currentPassword,
+            newPassword,
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message);
+      }
+
+      alert(data.message);
+    } catch (error) {
+      console.error(error);
+      alert(error.message);
+    }
+  };
+
+  // ------------ DELETE USER -------------  //
+
+  const deleteUser = async (userId) => {
+    try {
+      const response = await fetch(
+        `https://kommahem-fd9ac0fc3b1a.herokuapp.com/users/${userId}`,
+        {
+          method: "DELETE",
+        }
+      );
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.message);
+      }
+
+      navigate("/");
+      localStorage.setItem("user-passenger", "");
+    } catch (error) {
+      console.error(error);
+      alert(error.message);
+    }
   };
 
   // -------GET DESTINATION BY CURRENT DATE-------//
@@ -387,6 +446,12 @@ const PassengerContextProvider = ({ children }) => {
     setErrorMessagePassenger,
     getBookingsByUserId,
     updateBooking,
+    handleChangePassword,
+    currentPassword,
+    setCurrentPassword,
+    newPassword,
+    setNewPassword,
+    deleteUser,
   };
 
   return (
