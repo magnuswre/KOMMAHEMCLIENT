@@ -188,6 +188,8 @@ const PassengerContextProvider = ({ children }) => {
     }
   };
 
+  // ------GET DESTINATIONS BY DATE AND NAME-------//
+
   const getDestinationsByDateAndName = async (traveldate, enddestination) => {
     try {
       const response = await axios.get(
@@ -200,6 +202,8 @@ const PassengerContextProvider = ({ children }) => {
       console.error(error);
     }
   };
+
+  // ------GET DESTINATIONS BY DATE, NAME, SEATS AND ROUTE-------//
 
   const getDestinationsByDateNameSeatsAndRoute = async (
     traveldate,
@@ -221,6 +225,8 @@ const PassengerContextProvider = ({ children }) => {
     }
   };
 
+  // ------FETCH ROUTES-------//
+
   const fetchRoutes = async (date, destination) => {
     try {
       const response = await axios.get(
@@ -237,6 +243,8 @@ const PassengerContextProvider = ({ children }) => {
     }
   };
 
+  //------CREATE BOOKING-------//
+
   const createBooking = async (
     traveldate,
     enddestination,
@@ -248,17 +256,6 @@ const PassengerContextProvider = ({ children }) => {
     destinationId
   ) => {
     try {
-      console.log({
-        traveldate,
-        enddestination,
-        seats,
-        arrival_time,
-        departure_time,
-        route, // added
-        user_id,
-        destinationId,
-      });
-
       const response = await axios.post(
         `${baseUrl}/booking/create`,
         {

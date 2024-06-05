@@ -14,8 +14,6 @@ const BookingCard = ({ booking: initialBooking }) => {
         return "aktiv";
       case "Booking cancelled":
         return "avbokad";
-      case "Booking cancelled":
-        return "Bokning avbokad";
       default:
         return status;
     }
