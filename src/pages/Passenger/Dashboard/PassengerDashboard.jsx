@@ -33,7 +33,6 @@ const PassengerDashboard = () => {
         );
       }
     };
-
     fetchBookings();
   }, []);
 
@@ -73,7 +72,7 @@ const PassengerDashboard = () => {
           <div className="passenger-dashboard-btns">
             <button
               className="passenger-dashboard-change-password-btn"
-              onClick={handleChangePassword}
+              onClick={() => handleChangePassword(userId)}
             >
               Uppdatera lösenord
             </button>

@@ -115,23 +115,22 @@ const PassengerContextProvider = ({ children }) => {
 
   // ---- CHANGE PASSWORD USER PASSENGER ---- //
 
-  const handleChangePassword = async () => {
+  const handleChangePassword = async (userId) => {
     try {
-      const response = await fetch(
-        "https://kommahem-fd9ac0fc3b1a.herokuapp.com/user/4/password",
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            currentPassword,
-            newPassword,
-          }),
-        }
-      );
+      const response = await fetch(`${baseUrl}/user/${userId}/password`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          currentPassword,
+          newPassword,
+        }),
+      });
 
       const data = await response.json();
+
+      console.log("Password changed successfully");
 
       if (!response.ok) {
         throw new Error(data.message);
