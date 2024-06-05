@@ -1,4 +1,4 @@
-.PassengerLogin-container{
+.PassengerLogin-container {
     background-color: black;
     height: 100vh;
     box-sizing: border-box;
@@ -12,32 +12,24 @@
     border: 10px solid white;
     margin: 0 auto;
     margin-top: 5%;
-    display: grid; 
+    display: grid;
     align-items: center;
     background-color: black;
     border-radius: 10px;
     font-size: 16px;
     gap: 20px;
     padding: 30px;
-    Link{
+
+    Link {
         color: red;
     }
 }
 
-.PassengerForm{
+.PassengerForm {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-
-/* .PassengerLogin-form-group {
-    padding: 30px;
-} */
-
-/* .PassengerLogin-form-text {
-    float: left;
-    padding: 30px 440px 20px 30px;
-} */
 
 .PassengerLogin-input {
     width: 100%;
@@ -51,7 +43,7 @@
 
 
 
-#PassengerLogin-btn{
+#PassengerLogin-btn {
     background-color: #1E1E1E;
     color: white;
     border: solid 2px white;
@@ -63,7 +55,8 @@
     font-weight: bold;
 }
 
-.destination-btn-current-date, .destination-btn-chosen-date{
+.destination-btn-current-date,
+.destination-btn-chosen-date {
     background-color: #1E1E1E;
     color: white;
     border: solid 2px white;
@@ -82,15 +75,23 @@
     font-size: 12px;
     padding-left: 10px;
 }
-.PassengerLogin-red-text{
+
+.PassengerLogin-red-text {
     display: inline;
     margin-left: 20px;
     color: red;
     font-size: 14px;
 }
-.PassengerLogin-red-text1{
+
+.PassengerLogin-red-text1 {
     display: inline;
     color: red;
     font-size: 14px;
     float: right;
+}
+
+@media (max-width: 640px) {
+    .PassengerLoginForm-login {
+        border: none;
+    }
 }
