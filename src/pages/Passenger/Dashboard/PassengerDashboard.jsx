@@ -4,12 +4,21 @@ import "./PassengerDashboard.css";
 import React, { useContext, useEffect, useState } from "react";
 
 const PassengerDashboard = () => {
-  const { getBookingsByUserId } = useContext(PassengerContext);
+  const {
+    getBookingsByUserId,
+    currentPassword,
+    setCurrentPassword,
+    newPassword,
+    setNewPassword,
+    handleChangePassword,
+    deleteUser,
+  } = useContext(PassengerContext);
   const [bookings, setBookings] = useState([]);
   const user = JSON.parse(localStorage.getItem("user-passenger"));
   const userEmail = user.user.email;
   const userPhone = user.user.phone;
-  const userPassword = user.user.password;
+  const userId = user.user.id;
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
   useEffect(() => {
     const fetchBookings = async () => {
@@ -24,7 +33,7 @@ const PassengerDashboard = () => {
         );
       }
     };
-
+    // console.log(userPassword);
     fetchBookings();
   }, []);
 
@@ -49,21 +58,51 @@ const PassengerDashboard = () => {
                 className="passenger-dashboard-change-password-input"
                 type="password"
                 placeholder="Ange nuvarande lösenord"
+                value={currentPassword}
+                onChange={(e) => setCurrentPassword(e.target.value)}
               />
               <input
                 className="passenger-dashboard-change-password-input"
                 type="password"
                 placeholder="Ange nytt lösenord"
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
               />
             </div>
           </div>
           <div className="passenger-dashboard-btns">
-            <button className="passenger-dashboard-change-password-btn">
+            <button
+              className="passenger-dashboard-change-password-btn"
+              onClick={handleChangePassword}
+            >
               Uppdatera lösenord
             </button>
-            <button className="passenger-dashboard-delete-account-btn">
-              Radera mitt konto
-            </button>
+            {!showDeleteConfirm ? (
+              <button
+                className="passenger-dashboard-delete-account-btn"
+                onClick={() => setShowDeleteConfirm(true)}
+              >
+                Radera mitt konto
+              </button>
+            ) : (
+              <>
+                <button
+                  className="passenger-dashboard-delete-account-btn"
+                  onClick={() => {
+                    deleteUser(user.user.id);
+                    setShowDeleteConfirm(false);
+                  }}
+                >
+                  Ja, radera mitt konto
+                </button>
+                <button
+                  className="passenger-dashboard-delete-account-btn"
+                  onClick={() => setShowDeleteConfirm(false)}
+                >
+                  Avbryt
+                </button>
+              </>
+            )}
           </div>
         </div>
 
