@@ -22,6 +22,7 @@ import PassengerForgotPassword from "./pages/Passenger/PassengerForgotPassword/P
 import PassengerReset from "./pages/Passenger/PassengerReset/PassengerReset";
 import PassengerRecovered from "./pages/Passenger/PassengerRecovered/PassengerRecovered";
 import PassengerOPTInput from "./pages/Passenger/PassengerOPTInput/PassengerOPTInput";
+import DriverDashboard from "./pages/Driver/DriverDashboard/DriverDashboard";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
         <Route path="/driveroptinput" element={<DriverOPTInput />} />
         <Route path="/driverreset" element={<DriverReset />} />
         <Route path="/driverrecovered" element={<DriverRecovered />} />
+        <Route path="/driverdashboard" element={<DriverDashboard />} />
 
         {/* PASSENGER */}
         <Route path="/passenger" element={<Passenger />} />
