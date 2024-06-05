@@ -74,32 +74,31 @@ const DriverContextProvider = ({ children }) => {
 
   // ---- CHANGE PASSWORD USER DRIVER ---- //
 
-  const handleChangePasswordDriver = async () => {
+  const handleChangePasswordDriver = async (
+    userId,
+    currentPasswordDriver,
+    newPasswordDriver
+  ) => {
     try {
-      const response = await fetch(
-        "https://kommahem-fd9ac0fc3b1a.herokuapp.com/user/4/password",
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            currentPassword,
-            newPassword,
-          }),
-        }
-      );
+      const response = await fetch(`${baseUrl}/user/${userId}/password`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          currentPassword: currentPasswordDriver,
+          newPassword: newPasswordDriver,
+        }),
+      });
 
       const data = await response.json();
+      console.log("Password changed successfully");
 
       if (!response.ok) {
         throw new Error(data.message);
       }
-
-      alert(data.message);
     } catch (error) {
       console.error(error);
-      alert(error.message);
     }
   };
 
@@ -107,12 +106,9 @@ const DriverContextProvider = ({ children }) => {
 
   const deleteUserDriver = async (userId) => {
     try {
-      const response = await fetch(
-        `https://kommahem-fd9ac0fc3b1a.herokuapp.com/usersdriver/${userId}`,
-        {
-          method: "DELETE",
-        }
-      );
+      const response = await fetch(`${baseUrl}/usersdriver/${userId}`, {
+        method: "DELETE",
+      });
 
       if (!response.ok) {
         const data = await response.json();
@@ -120,7 +116,7 @@ const DriverContextProvider = ({ children }) => {
       }
 
       navigate("/");
-      localStorage.setItem("user-passenger", "");
+      localStorage.setItem("user-driver", "");
     } catch (error) {
       console.error(error);
       alert(error.message);
