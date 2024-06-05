@@ -113,7 +113,7 @@ const PassengerContextProvider = ({ children }) => {
     setErrorMessagePassenger("");
   };
 
-  // ---- CHANGE PASSWORD USER  ---- //
+  // ---- CHANGE PASSWORD USER PASSENGER ---- //
 
   const handleChangePassword = async () => {
     try {
@@ -144,7 +144,7 @@ const PassengerContextProvider = ({ children }) => {
     }
   };
 
-  // ------------ DELETE USER -------------  //
+  // ------------ DELETE USER PASSENGER-------------  //
 
   const deleteUser = async (userId) => {
     try {

@@ -1,12 +1,10 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-// import bgImage from "../../assets/sea2.jpg";
 import infoIcon from "../../assets/info.svg";
 import "./Home.css";
 import InformationText from "../../components/data/InformationText";
 // import { DriverContext } from "../../contexts/DriverContext";
 // import { PassengerContext } from "../../contexts/PassengerContext";
-// import UserCondition from "../../data/UserCondition";
 
 const Home = () => {
   // const { IsLoggedInDriver } = useContext(DriverContext);
@@ -23,8 +21,6 @@ const Home = () => {
 
   return (
     <div className="App-Wrapper">
-      <div className="App-Overlay"></div>
-      <div className="Bg-Image">{/* <img src={bgImage} alt="" /> */}</div>
       <div className="App-Content">
         <div className="App-Form">
           <div className="App-Title">
@@ -37,9 +33,6 @@ const Home = () => {
             <Link className="Drive-Btn" to="/driverlogin">
               Köra
             </Link>
-            {/* <Link className="Change-Btn" to="/change">
-              Ändra
-            </Link> */}
           </div>
           <div className="Icon-Container">
             <img

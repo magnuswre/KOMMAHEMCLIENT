@@ -1,0 +1,82 @@
+.Driver-dashboard-container {
+    background-color: black;
+    height: 100vh;
+    color: white;
+    display: grid;
+    place-items: center;
+    /* margin: 10%; */
+    /* overflow: hidden; */
+}
+
+.Driver-dashboard-wrapper {
+    margin: 0 auto;
+    margin-top: 5%;
+    width: 50%;
+    /* border: solid 10px white; */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* display: grid; */
+    /* grid-template-columns: 1fr 1fr; */
+}
+
+.Driver-dashboard-account-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.Driver-dashboard-account-group {
+    display: flex;
+    flex-direction: column;
+    /* margin-top: 10px; */
+    margin-bottom: 10px;
+}
+
+
+.Driver-dashboard-wrapper>* {
+    margin: 10px;
+    /* Adjust this value to your needs */
+}
+
+.Driver-dashboard-change-password {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-top: 5px;
+}
+
+.Driver-dashboard-change-password-input {
+    width: 200px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+
+}
+
+.Driver-dashboard-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.Driver-dashboard-change-password-btn,
+.Driver-dashboard-delete-account-btn {
+    background-color: #1E1E1E;
+    color: white;
+    border: solid 2px white;
+    border-radius: 10px;
+    padding: 5px;
+    /* width: 100%; */
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.Driver-dashboard-delete-account-btn {
+    background-color: red;
+    margin-top: 10px;
+}

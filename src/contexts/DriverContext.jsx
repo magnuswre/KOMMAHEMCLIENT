@@ -1,9 +1,12 @@
 import axios from "axios";
 import { createContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const DriverContext = createContext();
 
 const DriverContextProvider = ({ children }) => {
+  const navigate = useNavigate();
+
   const [IsLoggedInDriver, setIsLoggedInDriver] = useState(false);
   const [placeNameDriver, setPlaceNameDriver] = useState("");
   const [userDriver, setUserDriver] = useState({});
@@ -12,8 +15,12 @@ const DriverContextProvider = ({ children }) => {
   const [seatsDriver, setSeatsDriver] = useState("1");
   const [startDateDriver, setStartDateDriver] = useState(new Date());
   const [selectedDateDriver, setSelectedDateDriver] = useState("");
+  const [currentPasswordDriver, setCurrentPasswordDriver] = useState("");
+  const [newPasswordDriver, setNewPasswordDriver] = useState("");
   const baseUrl = "https://kommahem-fd9ac0fc3b1a.herokuapp.com";
   // const baseUrl = "http://localhost:5000";
+
+  // ---- REGISTER DRIVER ------/
 
   const registerUserDriver = async (userDataDriver) => {
     try {
@@ -36,6 +43,8 @@ const DriverContextProvider = ({ children }) => {
       throw error;
     }
   };
+
+  // ---- LOGIN DRIVER ------//
 
   const loginUserDriver = async (email, password) => {
     try {
@@ -60,6 +69,61 @@ const DriverContextProvider = ({ children }) => {
       console.error("Error:", error.message);
       setErrorMessageDriver("Incorrect email or password. Please try again.");
       throw error;
+    }
+  };
+
+  // ---- CHANGE PASSWORD USER DRIVER ---- //
+
+  const handleChangePasswordDriver = async () => {
+    try {
+      const response = await fetch(
+        "https://kommahem-fd9ac0fc3b1a.herokuapp.com/user/4/password",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            currentPassword,
+            newPassword,
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message);
+      }
+
+      alert(data.message);
+    } catch (error) {
+      console.error(error);
+      alert(error.message);
+    }
+  };
+
+  // ------------ DELETE USER DRIVER -------------  //
+
+  const deleteUserDriver = async (userId) => {
+    try {
+      const response = await fetch(
+        `https://kommahem-fd9ac0fc3b1a.herokuapp.com/users/${userId}`,
+        {
+          method: "DELETE",
+        }
+      );
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.message);
+      }
+
+      navigate("/");
+      localStorage.setItem("user-passenger", "");
+    } catch (error) {
+      console.error(error);
+      alert(error.message);
     }
   };
 
@@ -159,6 +223,12 @@ const DriverContextProvider = ({ children }) => {
     addDestinationDriver,
     selectedDateDriver,
     setSelectedDateDriver,
+    handleChangePasswordDriver,
+    currentPasswordDriver,
+    setCurrentPasswordDriver,
+    newPasswordDriver,
+    setNewPasswordDriver,
+    deleteUserDriver,
   };
 
   return (
