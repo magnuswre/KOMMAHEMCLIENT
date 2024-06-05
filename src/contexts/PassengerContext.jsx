@@ -318,7 +318,7 @@ const PassengerContextProvider = ({ children }) => {
 
   const updateBooking = async (bookingId, userId) => {
     const data = { user_id: userId };
-    console.log("Sending data to endpoint:", data);
+    // console.log("Sending data to endpoint:", data);
     try {
       const response = await axios.put(
         `${baseUrl}/booking/cancel/${bookingId}`,
