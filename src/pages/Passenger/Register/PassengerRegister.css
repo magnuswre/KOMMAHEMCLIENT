@@ -47,6 +47,7 @@
     height: 35px;
     background-color: #FAFAFA;
     border: none;
+    border-radius: 4px;
 }
 
 #PassengerRegister-Btn {
@@ -63,14 +64,21 @@
 
 .PassengerRegister-form-group-terms {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+    align-items: start;
     gap: 10px;
+}
+
+.PassengerRegister-form-group-input-btn {
+    display: flex;
+    justify-content: center;
     align-items: center;
+    gap: 10px;
 }
 
 .PassengerRegister-text {
-    font-size: 12px;
+    font-size: 11px;
     /* padding-left: 10px; */
     text-decoration: underline;
     color: white;
@@ -95,4 +103,9 @@
 
 .PassengerRegister-modal {
     border: 2px solid white;
+}
+
+.PassengerRegister-error-text {
+    color: red;
+    font-size: 12px;
 }

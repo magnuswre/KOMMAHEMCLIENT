@@ -151,7 +151,7 @@ const PassengerRegister = () => {
               value={formData.email}
               onChange={handleChangeInput}
             />
-            <p className="error-text">{error.email}</p>
+            <p className="PassengerRegister-error-text">{error.email}</p>
           </div>
           <div className="PassengerRegister-form-group">
             <label htmlFor="phone">Phone number*</label>
@@ -163,7 +163,7 @@ const PassengerRegister = () => {
               value={formData.phone}
               onChange={handleChangeInput}
             />
-            <p className="error-text">{error.phone}</p>
+            <p className="PassengerRegister-error-text">{error.phone}</p>
           </div>
           <div className="PassengerRegister-form-group">
             <label htmlFor="password">Password*</label>
@@ -175,7 +175,7 @@ const PassengerRegister = () => {
               value={formData.password}
               onChange={handleChangeInput}
             />
-            <p className="error-text">{error.password}</p>
+            <p className="PassengerRegister-error-text">{error.password}</p>
           </div>
           <div className="PassengerRegister-form-group">
             <label htmlFor="confirmPassword">Confirm Password*</label>
@@ -187,23 +187,29 @@ const PassengerRegister = () => {
               value={formData.confirmPassword}
               onChange={handleChangeInput}
             />
-            <p className="error-text">{error.confirmPassword}</p>
+            <p className="PassengerRegister-error-text">
+              {error.confirmPassword}
+            </p>
           </div>
           <div className="PassengerRegister-form-group-terms">
-            <input
-              className="PassengerRegister-checkbox"
-              type="checkbox"
-              name="terms"
-              checked={termsAccepted}
-              onChange={handleChangeInput}
-            />
-            <button
-              onClick={handleTermsClick}
-              className="PassengerRegister-text"
-            >
-              I have read and accept the terms and agreements
-            </button>
-            <p className="error-text">{error.terms}</p>
+            <div className="PassengerRegister-form-group-input-btn">
+              <input
+                className="PassengerRegister-checkbox"
+                type="checkbox"
+                name="terms"
+                checked={termsAccepted}
+                onChange={handleChangeInput}
+              />
+              <button
+                onClick={handleTermsClick}
+                className="PassengerRegister-text"
+              >
+                I have read and accept the terms and agreements
+              </button>
+            </div>
+            <div>
+              <p className="PassengerRegister-error-text">{error.terms}</p>
+            </div>
           </div>
           {showTerms && (
             <div className="modal-InformationText" onClick={handleTermsClick}>

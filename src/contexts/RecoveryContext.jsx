@@ -30,11 +30,9 @@ const RecoveryContextProvider = ({ children }) => {
         throw new Error("User does not exist");
       }
 
-      console.log(`User's ID is ${userId}`);
       setUserId(userId);
 
       const OTP = Math.floor(Math.random() * 9000 + 1000);
-      console.log(OTP);
       setOTP(OTP);
 
       const response = await fetch(`${baseUrl}/send_recovery_email`, {
@@ -49,7 +47,7 @@ const RecoveryContextProvider = ({ children }) => {
       });
 
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
     } catch (error) {
       console.error("Forgot password error:", error);
       setError(error.message);

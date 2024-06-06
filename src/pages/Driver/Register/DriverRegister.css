@@ -46,6 +46,7 @@
     height: 35px;
     background-color: #FAFAFA;
     border: none;
+    border-radius: 4px;
 }
 
 #DriverRegister-Btn {
@@ -70,24 +71,21 @@
     border: none;
 }
 
-.DriverRegister-red-text {
-    display: inline;
-    margin-left: 20px;
-    color: red;
-    font-size: 14px;
-}
-
-.DriverRegister-red-text1 {
-    display: inline;
-    color: red;
-    font-size: 14px;
-    float: right;
-}
-
 .DriverRegister-form-group-terms {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+    align-items: start;
     gap: 10px;
+}
+
+.DriverRegister-form-group-input-btn {
+    display: flex;
+    justify-content: center;
     align-items: center;
+}
+
+.DriverRegister-error-text {
+    color: red;
+    font-size: 12px;
 }

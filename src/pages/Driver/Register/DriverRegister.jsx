@@ -150,7 +150,7 @@ const DriverRegister = () => {
               value={formData.email}
               onChange={handleChangeInput}
             />
-            <p className="error-text">{error.email}</p>
+            <p className="DriverRegister-error-text">{error.email}</p>
           </div>
           <div className="DriverRegister-form-group">
             <label htmlFor="phone">Phone number*</label>
@@ -162,7 +162,7 @@ const DriverRegister = () => {
               value={formData.phone}
               onChange={handleChangeInput}
             />
-            <p className="error-text">{error.phone}</p>
+            <p className="DriverRegister-error-text">{error.phone}</p>
           </div>
           <div className="DriverRegister-form-group">
             <label htmlFor="password">Password*</label>
@@ -174,7 +174,7 @@ const DriverRegister = () => {
               value={formData.password}
               onChange={handleChangeInput}
             />
-            <p className="error-text">{error.password}</p>
+            <p className="DriverRegister-error-text">{error.password}</p>
           </div>
           <div className="DriverRegister-form-group">
             <label htmlFor="confirmPassword">Confirm Password*</label>
@@ -186,20 +186,27 @@ const DriverRegister = () => {
               value={formData.confirmPassword}
               onChange={handleChangeInput}
             />
-            <p className="error-text">{error.confirmPassword}</p>
+            <p className="DriverRegister-error-text">{error.confirmPassword}</p>
           </div>
           <div className="DriverRegister-form-group-terms">
-            <input
-              className="DriverRegister-checkbox"
-              type="checkbox"
-              name="terms"
-              checked={termsAccepted}
-              onChange={handleChangeInput}
-            />
-            <button onClick={handleTermsClick} className="DriverRegister-text">
-              I have read and accept the terms and agreements
-            </button>
-            <p className="error-text">{error.terms}</p>
+            <div className="DriverRegister-form-group-input-btn">
+              <input
+                className="DriverRegister-checkbox"
+                type="checkbox"
+                name="terms"
+                checked={termsAccepted}
+                onChange={handleChangeInput}
+              />
+              <button
+                onClick={handleTermsClick}
+                className="DriverRegister-text"
+              >
+                I have read and accept the terms and agreements
+              </button>
+            </div>
+            <div>
+              <p className="DriverRegister-error-text">{error.terms}</p>
+            </div>
           </div>
           {showTerms && (
             <div className="modal-InformationText" onClick={handleTermsClick}>
