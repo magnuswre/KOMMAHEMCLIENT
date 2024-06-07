@@ -111,6 +111,11 @@
 }
 
 @media (max-width: 640px) {
+
+    .PassengerRegister-container {
+        place-items: start;
+    }
+
     .PassengerRegister-create-form {
         border: none;
     }

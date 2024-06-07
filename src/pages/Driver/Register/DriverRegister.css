@@ -91,6 +91,11 @@
 }
 
 @media (max-width: 640px) {
+
+    .DriverRegister-container {
+        place-items: start;
+    }
+
     .DriverRegister-create-form {
         border: none;
     }

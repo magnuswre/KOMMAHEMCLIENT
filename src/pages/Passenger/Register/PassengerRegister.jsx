@@ -230,7 +230,7 @@ const PassengerRegister = () => {
               </div>
             </div>
           )}
-          <button id="PassengerRegister-Btn">Submit</button>
+          <button id="PassengerRegister-Btn">Godkänn</button>
         </form>
       </div>
     </div>

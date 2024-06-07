@@ -225,7 +225,7 @@ const DriverRegister = () => {
               </div>
             </div>
           )}
-          <button id="DriverRegister-Btn">Submit</button>
+          <button id="DriverRegister-Btn">Godkänn</button>
         </form>
       </div>
     </div>
