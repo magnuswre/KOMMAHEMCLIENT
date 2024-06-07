@@ -42,7 +42,7 @@ const PassengerDashboard = () => {
         <div className="passenger-dashboard-account-container">
           <h2>Mina kontouppgifter:</h2>
           <div className="passenger-dashboard-account-group">
-            <p>Email: </p>
+            <p>E-post: </p>
             <p>{userEmail}</p>
           </div>
           <div className="passenger-dashboard-account-group">

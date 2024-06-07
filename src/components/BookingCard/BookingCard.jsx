@@ -11,10 +11,10 @@ const BookingCard = ({ booking: initialBooking }) => {
   const mapStatusToSwedish = (status) => {
     switch (status) {
       case "active":
-        return "aktiv";
+        return "Aktiv";
       case "Booking cancelled":
       case "cancelled":
-        return "avbokad";
+        return "Avbokad";
       default:
         return status;
     }
@@ -22,6 +22,7 @@ const BookingCard = ({ booking: initialBooking }) => {
 
   useEffect(() => {
     setIsActive(booking.status === "active");
+    console.log(booking);
   }, [booking.status]);
 
   const handleCancelBooking = () => {
@@ -46,12 +47,17 @@ const BookingCard = ({ booking: initialBooking }) => {
   return (
     <div className="booking-card-container">
       <p>Datum: {booking.traveldate}</p>
-      <p>Avresetid: {booking.arrivalTime}</p>
       <p>Slutdestination: {booking.enddestination}</p>
+
+      <p>
+        Båttur: {booking.route}
+        <span>-{booking.departure_time}-</span>
+        <span>{booking.arrival_time}</span>
+      </p>
       <p>Sittplatser: {booking.seats}</p>
       <p>Förarens nummer: {booking.driverPhone}</p>
-      <p>Förarens email: {booking.driverEmail}</p>
-      <p>status: {mapStatusToSwedish(booking.status)} </p>
+      <p>Förarens e-post: {booking.driverEmail}</p>
+      <p>Status: {mapStatusToSwedish(booking.status)} </p>
       {isActive && !showButtons && (
         <button className="booking-card-btns" onClick={handleCancelBooking}>
           Avboka

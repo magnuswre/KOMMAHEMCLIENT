@@ -47,7 +47,7 @@ const PassengerForgotPassword = () => {
       <form className="PassengerFP" onSubmit={handleSubmit}>
         <div className="PassengerFP-form-group">
           <label className="PassengerFP-form-label" htmlFor="email">
-            Ange din email:
+            Ange din e-post:
           </label>
 
           <input

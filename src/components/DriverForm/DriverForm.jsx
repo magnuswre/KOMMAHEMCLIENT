@@ -85,7 +85,7 @@ const DriverForm = () => {
           <MyDatePickerComponent />
         </div>
         <div>
-          <p>Vilken rutt:</p>
+          <p>Vilken båttur:</p>
           <select
             className="driver-arrival-selection-picker"
             value={routes.arrival_time}

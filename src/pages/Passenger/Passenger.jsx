@@ -125,7 +125,7 @@ const Passenger = () => {
             />
           </div>
           <div>
-            <h2>Välj avgång:</h2>
+            <h2>Välj båttur:</h2>
             <select
               className="passenger-arrival-selection-picker"
               onChange={(e) => {

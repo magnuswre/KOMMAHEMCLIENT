@@ -47,7 +47,7 @@ const DriverForgotPassword = () => {
       <form className="DriverFP" onSubmit={handleSubmit}>
         <div className="DriverFP-form-group">
           <label className="DriverFP-form-label" htmlFor="email">
-            Ange din email:
+            Ange din e-post:
           </label>
 
           <input
