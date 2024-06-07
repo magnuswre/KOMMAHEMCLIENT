@@ -399,6 +399,52 @@ const PassengerContextProvider = ({ children }) => {
     setErrorMessagePassenger("");
   };
 
+  //------SEND BOOKING CONFIRMATION-------//
+
+  const bookingConfirmation = async (
+    recipient_email,
+    selectedDate,
+    destination,
+    selectedSeats,
+    arrival_time,
+    departure_time,
+    route,
+    userId,
+    destinationId
+  ) => {
+    try {
+      const response = await axios.post(
+        `${baseUrl}/send_booking_confirmation`,
+        {
+          recipient_email,
+          traveldate: selectedDate,
+          enddestination: destination,
+          seats: selectedSeats,
+          arrival_time,
+          departure_time,
+          route,
+          user_id: userId,
+          destinationId,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (response.status < 200 || response.status >= 300) {
+        throw new Error(`Request failed with status: ${response.status}`);
+      }
+
+      const responseData = response.data;
+      return responseData;
+    } catch (error) {
+      console.error("Error:", error.message);
+      throw error;
+    }
+  };
+
   const value = {
     IsLoggedInPassenger,
     setIsLoggedInPassenger,
@@ -447,6 +493,7 @@ const PassengerContextProvider = ({ children }) => {
     newPassword,
     setNewPassword,
     deleteUser,
+    bookingConfirmation,
   };
 
   return (

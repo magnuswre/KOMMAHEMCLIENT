@@ -30,6 +30,7 @@ const Passenger = () => {
   const debouncedDestination = useDebounce(destination, 500);
   const user = JSON.parse(localStorage.getItem("user-passenger"));
   const userId = user.user.id;
+  const recipient_email = user.user.email;
 
   const {
     selectedDate,
@@ -40,6 +41,7 @@ const Passenger = () => {
     createBooking,
     selectedDestination,
     setSelectedDestination,
+    bookingConfirmation,
   } = useContext(PassengerContext);
 
   const [routes, setRoutes] = useState([]);
@@ -79,6 +81,17 @@ const Passenger = () => {
     const destinationId = selectedDestination.id;
     e.preventDefault();
     createBooking(
+      selectedDate,
+      destination,
+      selectedSeats,
+      selectedDestination.arrival_time,
+      selectedDestination.departure_time,
+      selectedDestination.route,
+      userId,
+      destinationId
+    );
+    bookingConfirmation(
+      recipient_email,
       selectedDate,
       destination,
       selectedSeats,
@@ -174,7 +187,8 @@ const Passenger = () => {
               ))
             ) : (
               <p>
-                Tyvärr, inga körningar för detta datum med detta antal platser.
+                Tyvärr, inga körningar för detta datum med denna båttur och
+                dessa antal platser.
               </p>
             )}
           </div>
