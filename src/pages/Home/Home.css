@@ -80,6 +80,7 @@
 @media (max-width: 640px) {
   .App-Content {
     width: 90%;
+    margin-top: 0;
   }
 
   .Links {
