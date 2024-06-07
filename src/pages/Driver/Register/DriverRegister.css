@@ -89,3 +89,9 @@
     color: red;
     font-size: 12px;
 }
+
+@media (max-width: 640px) {
+    .DriverRegister-create-form {
+        border: none;
+    }
+}

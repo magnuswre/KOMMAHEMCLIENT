@@ -72,7 +72,7 @@ const PassengerRegister = () => {
       setError((data) => {
         return {
           ...data,
-          email: "You need to enter an email address",
+          email: "Du behöver ange en e-postadress",
         };
       });
       hasError = true;
@@ -82,7 +82,7 @@ const PassengerRegister = () => {
       setError((data) => {
         return {
           ...data,
-          phone: "You need to enter a phone number",
+          phone: "Du behöver ange ett telefonnummer",
         };
       });
       hasError = true;
@@ -92,7 +92,7 @@ const PassengerRegister = () => {
       setError((data) => {
         return {
           ...data,
-          password: "You need to enter a password",
+          password: "Du behöver ange ett lösenord",
         };
       });
       hasError = true;
@@ -102,7 +102,7 @@ const PassengerRegister = () => {
       setError((data) => {
         return {
           ...data,
-          confirmPassword: "Passwords do not match",
+          confirmPassword: "Lösenorden matchar inte",
         };
       });
       hasError = true;
@@ -112,7 +112,7 @@ const PassengerRegister = () => {
       setError((data) => {
         return {
           ...data,
-          terms: "You must accept the terms and agreements",
+          terms: "Du måste acceptera användarvillkoren",
         };
       });
       hasError = true;
@@ -139,10 +139,10 @@ const PassengerRegister = () => {
       <div className="PassengerRegister-create-form">
         <form className="PassengerForm-register" onSubmit={handleSubmit}>
           <p className="PassengerRegister-form-text">
-            Register your new account here:
+            Registrera ditt konto här:
           </p>
           <div className="PassengerRegister-form-group">
-            <label htmlFor="email">Email*</label>
+            <label htmlFor="email">E-post*</label>
             <input
               type="email"
               name="email"
@@ -154,7 +154,7 @@ const PassengerRegister = () => {
             <p className="PassengerRegister-error-text">{error.email}</p>
           </div>
           <div className="PassengerRegister-form-group">
-            <label htmlFor="phone">Phone number*</label>
+            <label htmlFor="phone">Telefonnummer*</label>
             <input
               type="text"
               name="phone"
@@ -166,7 +166,7 @@ const PassengerRegister = () => {
             <p className="PassengerRegister-error-text">{error.phone}</p>
           </div>
           <div className="PassengerRegister-form-group">
-            <label htmlFor="password">Password*</label>
+            <label htmlFor="password">Lösenord*</label>
             <input
               type="password"
               name="password"
@@ -178,7 +178,7 @@ const PassengerRegister = () => {
             <p className="PassengerRegister-error-text">{error.password}</p>
           </div>
           <div className="PassengerRegister-form-group">
-            <label htmlFor="confirmPassword">Confirm Password*</label>
+            <label htmlFor="confirmPassword">Bekräfta lösenordet*</label>
             <input
               type="password"
               name="confirmPassword"
@@ -204,7 +204,7 @@ const PassengerRegister = () => {
                 onClick={handleTermsClick}
                 className="PassengerRegister-text"
               >
-                I have read and accept the terms and agreements
+                Jag har läst och accepterar användarvillkoren
               </button>
             </div>
             <div>

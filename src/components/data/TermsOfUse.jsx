@@ -26,6 +26,10 @@ const TermsOfUse = () => {
         personuppgifter. Avslutande av Konto Kommahem förbehåller sig rätten att
         avsluta eller suspendera ditt konto om du bryter mot dessa villkor eller
         engagerar dig i beteenden som vi bedömer olämpliga eller skadliga.
+        Personuppgifter Din integritet är viktig för oss. Läs vår
+        integritetspolicy för information om hur vi hanterar dina
+        personuppgifter. Genom att använda Kommahem, godkänner du även
+        behandlingen av dina personuppgifter i enlighet med GDPR.
       </p>
     </div>
   );

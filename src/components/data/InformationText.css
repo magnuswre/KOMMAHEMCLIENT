@@ -13,14 +13,13 @@
 }
 
 .modal-content-InformationText {
-
     display: flex;
     flex-direction: column;
     gap: 10px;
     background-color: black;
     padding: 20px;
     border-radius: 4px;
-    max-width: 600px;
+    max-width: 500px;
     width: 90%;
     border: 2px solid white;
     overflow: auto;

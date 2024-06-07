@@ -53,7 +53,7 @@ const PassengerLogin = () => {
         </p>
         <div className="PassengerLogin-form-group">
           <label className="PassengerLogin-form-labels" htmlFor="email">
-            Email*
+            E-post*
           </label>
           <p className="PassengerLogin-red-text">
             <Link

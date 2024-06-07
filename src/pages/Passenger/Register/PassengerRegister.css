@@ -109,3 +109,9 @@
     color: red;
     font-size: 12px;
 }
+
+@media (max-width: 640px) {
+    .PassengerRegister-create-form {
+        border: none;
+    }
+}

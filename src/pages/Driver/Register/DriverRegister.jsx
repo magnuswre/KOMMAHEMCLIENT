@@ -72,7 +72,7 @@ const DriverRegister = () => {
       setError((data) => {
         return {
           ...data,
-          email: "You need to enter an email address",
+          email: "Du behöver ange en e-postadress",
         };
       });
       hasError = true;
@@ -82,7 +82,7 @@ const DriverRegister = () => {
       setError((data) => {
         return {
           ...data,
-          phone: "You need to enter a phone number",
+          phone: "Du behöver ange ett telefonnummer",
         };
       });
       hasError = true;
@@ -92,7 +92,7 @@ const DriverRegister = () => {
       setError((data) => {
         return {
           ...data,
-          password: "You need to enter a password",
+          password: "Du behöver ange ett lösenord",
         };
       });
       hasError = true;
@@ -102,7 +102,7 @@ const DriverRegister = () => {
       setError((data) => {
         return {
           ...data,
-          confirmPassword: "Passwords do not match",
+          confirmPassword: "Lösenorden matchar inte",
         };
       });
       hasError = true;
@@ -112,7 +112,7 @@ const DriverRegister = () => {
       setError((data) => {
         return {
           ...data,
-          terms: "You must accept the terms and agreements",
+          terms: "Du måste acceptera användarvillkoren",
         };
       });
       hasError = true;
@@ -137,11 +137,9 @@ const DriverRegister = () => {
     <div className="DriverRegister-container">
       <div className="DriverRegister-create-form">
         <form className="DriverForm-register" onSubmit={handleSubmit}>
-          <p className="DriverRegister-form-text">
-            Register your new account here:
-          </p>
+          <p className="DriverRegister-form-text">Registrera ditt konto här:</p>
           <div className="DriverRegister-form-group">
-            <label htmlFor="email">Email*</label>
+            <label htmlFor="email">E-post*</label>
             <input
               type="email"
               name="email"
@@ -153,7 +151,7 @@ const DriverRegister = () => {
             <p className="DriverRegister-error-text">{error.email}</p>
           </div>
           <div className="DriverRegister-form-group">
-            <label htmlFor="phone">Phone number*</label>
+            <label htmlFor="phone">Telefonnummer*</label>
             <input
               type="text"
               name="phone"
@@ -165,7 +163,7 @@ const DriverRegister = () => {
             <p className="DriverRegister-error-text">{error.phone}</p>
           </div>
           <div className="DriverRegister-form-group">
-            <label htmlFor="password">Password*</label>
+            <label htmlFor="password">Lösenord*</label>
             <input
               type="password"
               name="password"
@@ -177,7 +175,7 @@ const DriverRegister = () => {
             <p className="DriverRegister-error-text">{error.password}</p>
           </div>
           <div className="DriverRegister-form-group">
-            <label htmlFor="confirmPassword">Confirm Password*</label>
+            <label htmlFor="confirmPassword">Bekräfta lösenordet*</label>
             <input
               type="password"
               name="confirmPassword"
@@ -201,7 +199,7 @@ const DriverRegister = () => {
                 onClick={handleTermsClick}
                 className="DriverRegister-text"
               >
-                I have read and accept the terms and agreements
+                Jag har läst och accepterar användarvillkoren
               </button>
             </div>
             <div>
