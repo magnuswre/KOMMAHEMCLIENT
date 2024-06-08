@@ -23,14 +23,16 @@ const Driver = () => {
 
   return (
     <div className="driver-page-container">
-      <button
-        className="driver-page-dashboard-btn"
-        onClick={handleDashboardClick}
-      >
-        Körningar och konto
-      </button>
-      <ReactMapComponent />
-      <DriverForm />
+      <div className="driver-page-wrapper">
+        <button
+          className="driver-page-dashboard-btn"
+          onClick={handleDashboardClick}
+        >
+          Körningar och konto
+        </button>
+        <ReactMapComponent />
+        <DriverForm />
+      </div>
     </div>
   );
 };
