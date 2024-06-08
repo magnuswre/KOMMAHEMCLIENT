@@ -1,12 +1,22 @@
  .driver-page-container {
-    /* width: 80%; */
-    background-color: black;
-    margin: 0 auto;
-    height: 100vh;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
- 
-} 
+     background-color: black;
+     margin: 0 auto;
+     height: 100vh;
+     color: white;
+     display: flex;
+     flex-direction: column;
+     justify-content: start;
+     align-items: center;
+     margin-top: 25px;
+ }
+
+ .driver-page-dashboard-btn {
+     background-color: #1E1E1E;
+     color: white;
+     border: solid 2px white;
+     border-radius: 10px;
+     padding: 5px;
+     margin: 10px;
+     font-size: 1.2rem;
+     font-weight: bold;
+ }

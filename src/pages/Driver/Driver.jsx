@@ -24,10 +24,10 @@ const Driver = () => {
   return (
     <div className="driver-page-container">
       <button
-        className="driver-page-destination-btn"
+        className="driver-page-dashboard-btn"
         onClick={handleDashboardClick}
       >
-        Bokningar och konto
+        Körningar och konto
       </button>
       <ReactMapComponent />
       <DriverForm />
