@@ -38,7 +38,7 @@
 
 .input-destination-search-bar {
     padding: 20px;
-    width: 225px;
+    width: 175px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
@@ -46,7 +46,7 @@
     color: black;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
     .google-maps-container {
         border: none;
     }
@@ -57,8 +57,16 @@
     }
 
     .input-destination-search-bar {
-        /* width: 150px; */
+        width: 150px;
         padding: 2%
             /* height: 5px; */
     }
 }
+
+/* @media (max-width: 500px) {
+    .google-maps-container {
+        width: 50%;
+    }
+
+    .user-input-map-container {}
+} */

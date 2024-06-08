@@ -162,7 +162,7 @@ const ReactMapComponent = () => {
               className="input-destination-search-bar"
               value={value}
               onChange={handleInput}
-              placeholder="Ange din slutdestionation här:"
+              placeholder="Din slutdestination:"
             />
             {suggestions.length > 0 && (
               <ul className="google-maps-renderSuggestions">
@@ -175,7 +175,7 @@ const ReactMapComponent = () => {
           <div className="user-map-container">
             <div>
               <APIProvider apiKey={"YOUR_GOOGLE_MAPS_API_KEY"}>
-                <div style={{ height: "40vh " }}>
+                <div style={{ height: "30vh " }}>
                   <Map zoom={12} center={position} mapId={"e7b9c1e6b6c3c6a7"}>
                     <AdvancedMarker
                       position={position}
