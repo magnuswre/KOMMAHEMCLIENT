@@ -41,7 +41,7 @@
     color: lightslategray;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
     .driver-form-container {
         border: none;
     }
