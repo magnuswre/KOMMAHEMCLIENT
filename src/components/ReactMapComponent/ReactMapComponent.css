@@ -46,6 +46,12 @@
     color: black;
 }
 
+@media (max-width: 1024px) {
+    .input-destination-search-bar {
+        padding: 5px;
+    }
+}
+
 @media (max-width: 640px) {
     .google-maps-container {
         border: none;
