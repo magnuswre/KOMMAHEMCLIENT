@@ -70,6 +70,13 @@ const DriverForm = () => {
     }
   };
 
+  const formatTime = (time) => {
+    if (time) {
+      return time.slice(0, -3); // Trims the last ":00"
+    }
+    return time;
+  };
+
   return (
     <div className="driver-form-container">
       <form onSubmit={handleSubmit}>
@@ -91,14 +98,14 @@ const DriverForm = () => {
             value={routes.arrival_time}
             onChange={(e) => {
               const selectedRoute = routes[e.target.selectedIndex];
-              console.log(selectedRoute);
+              // console.log(selectedRoute);
               setArrivalDriver(selectedRoute);
             }}
           >
             {routes.map((route, id) => (
               <option key={id} value={route.arrival_time}>
-                {route.route}, avgång: {route.departure_time}, ankomst:{" "}
-                {route.arrival_time}
+                {route.route}, avgång: {formatTime(route.departure_time)},
+                ankomst: {formatTime(route.arrival_time)}
               </option>
             ))}
           </select>
