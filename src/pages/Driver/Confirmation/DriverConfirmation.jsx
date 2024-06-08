@@ -28,21 +28,9 @@ const DriverConfirmation = () => {
   }, []);
 
   const handleChange = () => {
-    navigate(`/driverchange/${userId}`);
+    navigate(`/driverdashboard/`);
   };
 
-  const handleDelete = () => {
-    setDeleteModalOpen(true);
-  };
-
-  const handleDeleteConfirm = () => {
-    console.log("Delete confirmed");
-    setDeleteModalOpen(false);
-  };
-
-  const handleDeleteCancel = () => {
-    setDeleteModalOpen(false);
-  };
   const handleLogout = () => {
     console.log("Logout");
     // setUserDriver({});
@@ -81,28 +69,10 @@ const DriverConfirmation = () => {
             onClick={() => handleChange()}
             className="driver-confirmation-page-btn"
           >
-            Vill du ändra senaste?
+            Alla mina körningar och konto
           </button>
-        </div>
-        <div>
-          <button
-            onClick={() => handleDelete()}
-            className="driver-confirmation-page-btn"
-          >
-            Vill du ta bort senaste?
-          </button>
-          {isDeleteModalOpen && (
-            <div className="delete-modal">
-              <p>Är du säker på att du vill ta bort?</p>
-              <button onClick={handleDeleteConfirm}>Ja</button>
-              <button onClick={handleDeleteCancel}>Nej</button>
-            </div>
-          )}
         </div>
 
-        <div>
-          <h2>Alla mina körningar:</h2>
-        </div>
         <div>
           <button
             onClick={() => handleLogout()}
