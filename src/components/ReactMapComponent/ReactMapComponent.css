@@ -38,11 +38,27 @@
 
 .input-destination-search-bar {
     padding: 20px;
-    width: 250px;
+    width: 225px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
     outline: none;
     color: black;
+}
 
+@media (max-width: 768px) {
+    .google-maps-container {
+        border: none;
+    }
+
+    .user-input-map-container {
+        padding: 0;
+        margin-bottom: 5px;
+    }
+
+    .input-destination-search-bar {
+        /* width: 150px; */
+        padding: 2%
+            /* height: 5px; */
+    }
 }

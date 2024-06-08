@@ -39,5 +39,10 @@
     font-size: 14px;
     outline: none;
     color: lightslategray;
+}
 
+@media (max-width: 768px) {
+    .driver-form-container {
+        border: none;
+    }
 }
