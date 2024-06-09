@@ -92,13 +92,15 @@ const DriverContextProvider = ({ children }) => {
       });
 
       const data = await response.json();
-      console.log("Password changed successfully");
 
       if (!response.ok) {
         throw new Error(data.message);
       }
+
+      return { success: true, message: "Lösenordet uppdaterat" };
     } catch (error) {
       console.error(error);
+      return { success: false, message: error.message };
     }
   };
 
@@ -199,6 +201,30 @@ const DriverContextProvider = ({ children }) => {
     }
   };
 
+  const getDestinationsByUserId = async (userId) => {
+    try {
+      const response = await axios.get(
+        `${baseUrl}/users/${userId}/destinations`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (response.status !== 200) {
+        console.error(`Request failed with status: ${response.status}`);
+        throw new Error(`Request failed with status: ${response.status}`);
+      }
+
+      return response.data;
+    } catch (error) {
+      console.error("Error:", error.message);
+      setErrorMessageDriver("Fetching destinations failed. Please try again.");
+      throw error;
+    }
+  };
+
   const value = {
     IsLoggedInDriver,
     setIsLoggedInDriver,
@@ -225,6 +251,7 @@ const DriverContextProvider = ({ children }) => {
     newPasswordDriver,
     setNewPasswordDriver,
     deleteUserDriver,
+    getDestinationsByUserId,
   };
 
   return (

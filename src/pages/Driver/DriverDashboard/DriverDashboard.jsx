@@ -1,40 +1,51 @@
+import DestinationCard from "../../../components/DestinationCard/DestinationCard";
 import { DriverContext } from "../../../contexts/DriverContext";
 import "./DriverDashboard.css";
 import React, { useContext, useEffect, useState } from "react";
 
 const DriverDashboard = () => {
   const {
-    // getBookingsByUserId,
     currentPasswordDriver,
     setCurrentPasswordDriver,
     newPasswordDriver,
     setNewPasswordDriver,
     handleChangePasswordDriver,
     deleteUserDriver,
+    getDestinationsByUserId,
   } = useContext(DriverContext);
-  // const [bookings, setBookings] = useState([]);
+
   const user = JSON.parse(localStorage.getItem("user-driver"));
   const userEmail = user.user.email;
   const userPhone = user.user.phone;
   const userId = user.user.id;
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [destinations, setDestinations] = useState([]);
+  const [passwordChangeMessage, setPasswordChangeMessage] = useState("");
 
-  // useEffect(() => {
-  //   const fetchBookings = async () => {
-  //     const user = JSON.parse(localStorage.getItem("user-driver"));
-  //     if (user && user.user && "id" in user.user) {
-  //       const userId = user.user.id;
-  //       const userBookings = await getBookingsByUserId(userId);
-  //       setBookings(userBookings);
-  //     } else {
-  //       console.log(
-  //         "User not found in local storage or user object does not have an id property"
-  //       );
-  //     }
-  //   };
+  useEffect(() => {
+    const fetchDestinations = async () => {
+      const user = JSON.parse(localStorage.getItem("user-driver"));
+      if (user && user.user && "id" in user.user) {
+        const userId = user.user.id;
+        const userDestinations = await getDestinationsByUserId(userId);
+        setDestinations(userDestinations);
+      } else {
+        console.log(
+          "User not found in local storage or user object does not have an id property"
+        );
+      }
+    };
+    fetchDestinations();
+  }, []);
 
-  //   fetchBookings();
-  // }, []);
+  const handlePasswordChange = async () => {
+    const result = await handleChangePasswordDriver(
+      userId,
+      currentPasswordDriver,
+      newPasswordDriver
+    );
+    setPasswordChangeMessage(result.message);
+  };
 
   return (
     <div className="Driver-dashboard-container">
@@ -42,7 +53,7 @@ const DriverDashboard = () => {
         <div className="Driver-dashboard-account-container">
           <h2>Mina kontouppgifter:</h2>
           <div className="Driver-dashboard-account-group">
-            <p>Email: </p>
+            <p>E-post: </p>
             <p>{userEmail}</p>
           </div>
           <div className="Driver-dashboard-account-group">
@@ -69,16 +80,15 @@ const DriverDashboard = () => {
               />
             </div>
           </div>
+          {passwordChangeMessage && (
+            <div className="password-change-message">
+              <p>{passwordChangeMessage}</p>
+            </div>
+          )}
           <div className="Driver-dashboard-btns">
             <button
               className="Driver-dashboard-change-password-btn"
-              onClick={() =>
-                handleChangePasswordDriver(
-                  userId,
-                  currentPasswordDriver,
-                  newPasswordDriver
-                )
-              }
+              onClick={handlePasswordChange}
             >
               Uppdatera lösenord
             </button>
@@ -111,10 +121,11 @@ const DriverDashboard = () => {
           </div>
         </div>
 
-        {/* <h2>Alla mina bokningar:</h2>
-        {bookings.map((booking, id) => (
-          <BookingCard key={id} booking={booking} />
-        ))} */}
+        <div>
+          {destinations.map((destination, id) => (
+            <DestinationCard key={id} destination={destination} />
+          ))}
+        </div>
       </div>
     </div>
   );

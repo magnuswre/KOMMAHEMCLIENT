@@ -115,7 +115,7 @@ const PassengerContextProvider = ({ children }) => {
 
   // ---- CHANGE PASSWORD USER PASSENGER ---- //
 
-  const handleChangePassword = async (userId) => {
+  const handleChangePassword = async (userId, currentPassword, newPassword) => {
     try {
       const response = await fetch(`${baseUrl}/user/${userId}/password`, {
         method: "PUT",
@@ -130,13 +130,14 @@ const PassengerContextProvider = ({ children }) => {
 
       const data = await response.json();
 
-      console.log("Password changed successfully");
-
       if (!response.ok) {
         throw new Error(data.message);
       }
+
+      return { success: true, message: "Lösenordet uppdaterat" };
     } catch (error) {
       console.error(error);
+      return { success: false, message: error.message };
     }
   };
 

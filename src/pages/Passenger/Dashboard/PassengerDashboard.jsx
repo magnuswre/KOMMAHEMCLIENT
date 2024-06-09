@@ -13,12 +13,14 @@ const PassengerDashboard = () => {
     handleChangePassword,
     deleteUser,
   } = useContext(PassengerContext);
+
   const [bookings, setBookings] = useState([]);
   const user = JSON.parse(localStorage.getItem("user-passenger"));
   const userEmail = user.user.email;
   const userPhone = user.user.phone;
   const userId = user.user.id;
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [passwordChangeMessage, setPasswordChangeMessage] = useState("");
 
   useEffect(() => {
     const fetchBookings = async () => {
@@ -35,6 +37,15 @@ const PassengerDashboard = () => {
     };
     fetchBookings();
   }, []);
+
+  const handlePasswordChange = async () => {
+    const result = await handleChangePassword(
+      userId,
+      currentPassword,
+      newPassword
+    );
+    setPasswordChangeMessage(result.message);
+  };
 
   return (
     <div className="passenger-dashboard-container">
@@ -69,10 +80,15 @@ const PassengerDashboard = () => {
               />
             </div>
           </div>
+          {passwordChangeMessage && (
+            <div className="password-change-message">
+              <p>{passwordChangeMessage}</p>
+            </div>
+          )}
           <div className="passenger-dashboard-btns">
             <button
               className="passenger-dashboard-change-password-btn"
-              onClick={() => handleChangePassword(userId)}
+              onClick={handlePasswordChange}
             >
               Uppdatera lösenord
             </button>
