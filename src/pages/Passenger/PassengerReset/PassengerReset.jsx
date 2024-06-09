@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import "./PassengerReset.css";
 import { useNavigate } from "react-router-dom";
 import { RecoveryContext } from "../../../contexts/RecoveryContext";
-const baseUrl = import.meta.env.VITE_APP_BASE_URL;
+const baseUrl = "https://kommahem-fd9ac0fc3b1a.herokuapp.com";
 
 const PassengerReset = () => {
   const { userId } = useContext(RecoveryContext);

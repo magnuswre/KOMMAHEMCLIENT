@@ -3,7 +3,7 @@ import "./DriverForm.css";
 import { useNavigate } from "react-router-dom";
 import { DriverContext } from "../../contexts/DriverContext";
 import MyDatePickerComponent from "../DatePickerComponents/DatePickerComponentDriver/MyDatePickerComponent";
-const baseUrl = import.meta.env.VITE_APP_BASE_URL;
+const baseUrl = "https://kommahem-fd9ac0fc3b1a.herokuapp.com";
 
 const DriverForm = () => {
   const {
