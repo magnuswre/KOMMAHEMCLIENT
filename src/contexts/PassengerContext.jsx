@@ -1,7 +1,7 @@
 import axios from "axios";
 import { createContext, useState } from "react";
 export const PassengerContext = createContext();
-const baseUrl = "https://kommahem-fd9ac0fc3b1a.herokuapp.com";
+const baseUrl = import.meta.env.VITE_APP_BASE_URL;
 import { useNavigate } from "react-router-dom";
 // const baseUrl = "http://localhost:5000";
 
