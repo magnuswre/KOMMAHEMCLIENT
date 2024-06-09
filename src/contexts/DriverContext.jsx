@@ -63,7 +63,6 @@ const DriverContextProvider = ({ children }) => {
       const responseDataDriver = response.data;
       localStorage.setItem("user-driver", JSON.stringify(responseDataDriver));
       setUserDriver(responseDataDriver);
-      console.log("DriverContext: UserDriver data:", responseDataDriver);
     } catch (error) {
       console.error("Error:", error.message);
       setErrorMessageDriver("Incorrect email or password. Please try again.");
