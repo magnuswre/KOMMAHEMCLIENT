@@ -220,8 +220,8 @@ const Passenger = () => {
               ))
             ) : (
               <p>
-                Tyvärr, inga körningar för detta datum med denna båttur och
-                dessa antal platser.
+                Tyvärr, inga körningar för detta datum <br></br> med denna
+                båttur och dessa antal platser.
               </p>
             )}
           </div>
