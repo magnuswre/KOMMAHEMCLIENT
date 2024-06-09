@@ -3,7 +3,6 @@ import { createContext, useState } from "react";
 export const PassengerContext = createContext();
 const baseUrl = import.meta.env.VITE_APP_BASE_URL;
 import { useNavigate } from "react-router-dom";
-// const baseUrl = "http://localhost:5000";
 
 const PassengerContextProvider = ({ children }) => {
   const navigate = useNavigate();
@@ -145,12 +144,9 @@ const PassengerContextProvider = ({ children }) => {
 
   const deleteUser = async (userId) => {
     try {
-      const response = await fetch(
-        `https://kommahem-fd9ac0fc3b1a.herokuapp.com/userspassenger/${userId}`,
-        {
-          method: "DELETE",
-        }
-      );
+      const response = await fetch(`${baseUrl}/userspassenger/${userId}`, {
+        method: "DELETE",
+      });
 
       if (!response.ok) {
         const data = await response.json();
