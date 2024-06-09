@@ -34,6 +34,7 @@ const Passenger = () => {
 
   const {
     selectedDate,
+    setSelectedDate,
     getDestinationsByDateNameSeatsAndRoute,
     destinationsByDateNameSeatsAndRoute,
     setDestinationsByDateNameSeatsAndRoute,
@@ -53,6 +54,9 @@ const Passenger = () => {
           setRoutes(routes);
         })
         .catch((error) => console.error(error));
+    } else {
+      setRoutes([]);
+      setSelectedDestination(null);
     }
   }, [selectedDate, debouncedDestination]);
 
@@ -68,14 +72,22 @@ const Passenger = () => {
       ).then((destinations) => {
         setDestinationsByDateNameSeatsAndRoute(destinations);
       });
+    } else {
+      setDestinationsByDateNameSeatsAndRoute([]);
     }
   }, [selectedDate, debouncedDestination, selectedSeats, selectedDestination]);
 
   useEffect(() => {
     if (routes.length > 0) {
       setSelectedDestination(routes[0]);
+    } else {
+      setSelectedDestination(null);
     }
   }, [routes]);
+
+  useEffect(() => {
+    setRoutes([]);
+  }, [selectedDate, destination]);
 
   const onSubmit = (e) => {
     const destinationId = selectedDestination.id;
@@ -106,12 +118,25 @@ const Passenger = () => {
 
   const handleButtonClick = (destination) => {
     setSelectedDestination(destination);
-    console.log(destination);
     setDestinationSelected(true);
   };
 
   const handleDashboardClick = () => {
     navigate("/PassengerDashboard");
+  };
+
+  const handleDestinationChange = (event) => {
+    setDestination(event.target.value);
+    setSelectedSeats("1");
+    setSelectedDestination(null);
+  };
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+    setDestination("");
+    setSelectedSeats("1");
+    setSelectedDestination(null);
+    setRoutes([]);
   };
 
   return (
@@ -124,6 +149,7 @@ const Passenger = () => {
           <div>
             <h2>Välj datum:</h2>
             <MyDatePickerComponentPassenger
+              onDateChange={handleDateChange}
               onInputClick={() => setInputClicked(true)}
             />
           </div>
@@ -132,7 +158,7 @@ const Passenger = () => {
             <input
               type="text"
               value={destination}
-              onChange={(event) => setDestination(event.target.value)}
+              onChange={handleDestinationChange}
               placeholder="Ange din slutdestination"
               className="passenger-destination-picker"
             />
@@ -141,14 +167,20 @@ const Passenger = () => {
             <h2>Välj båttur:</h2>
             <select
               className="passenger-arrival-selection-picker"
+              value={
+                selectedDestination ? selectedDestination.arrival_time : ""
+              }
               onChange={(e) => {
                 const selectedDestination = routes.find(
                   (route) => route.arrival_time === e.target.value
                 );
-                console.log(selectedDestination);
                 setSelectedDestination(selectedDestination);
               }}
+              disabled={!routes.length}
             >
+              <option value="" disabled>
+                Välj en båttur
+              </option>
               {routes.map((route, id) => (
                 <option key={id} value={route.arrival_time}>
                   {route.route}, avgång: {route.departure_time}, ankomst:{" "}
@@ -164,6 +196,7 @@ const Passenger = () => {
               className="passenger-selection-picker"
               value={selectedSeats}
               onChange={(e) => setSelectedSeats(e.target.value)}
+              disabled={!selectedDestination}
             >
               <option value="1">1</option>
               <option value="2">2</option>
