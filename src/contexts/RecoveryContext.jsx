@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 
 export const RecoveryContext = createContext();
-const baseUrl = import.meta.env.VITE_APP_BASE_URL;
+const baseUrl = "https://kommahem-fd9ac0fc3b1a.herokuapp.com";
 
 const RecoveryContextProvider = ({ children }) => {
   const [recipient_email, setRecipient_email] = useState("");
