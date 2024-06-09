@@ -17,7 +17,7 @@ const DriverContextProvider = ({ children }) => {
   const [selectedDateDriver, setSelectedDateDriver] = useState("");
   const [currentPasswordDriver, setCurrentPasswordDriver] = useState("");
   const [newPasswordDriver, setNewPasswordDriver] = useState("");
-  const baseUrl = "https://kommahem-fd9ac0fc3b1a.herokuapp.com";
+  const baseUrl = import.meta.env.VITE_APP_BASE_URL;
 
   // ---- REGISTER DRIVER ------/
 
