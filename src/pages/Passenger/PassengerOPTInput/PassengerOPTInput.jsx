@@ -6,7 +6,7 @@ import { RecoveryContext } from "../../../contexts/RecoveryContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const baseUrl = "https://kommahem-fd9ac0fc3b1a.herokuapp.com";
+const baseUrl = import.meta.env.VITE_APP_BASE_URL;
 
 const PassengerOPTInput = () => {
   const navigate = useNavigate();
