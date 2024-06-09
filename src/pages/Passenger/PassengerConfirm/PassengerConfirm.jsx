@@ -15,7 +15,7 @@ const PassengerConfirm = () => {
   };
 
   const handleChange = () => {
-    navigate("/passengerchange");
+    navigate("/passengerdashboard");
   };
 
   return (
@@ -34,12 +34,13 @@ const PassengerConfirm = () => {
           <p>Bekräftelse skickas även till din angivna mejladress</p>
         </div>
         <div>
-          <p>Gå till alla mina bokningar</p>
-          <div>
-            {/* {bookings.map((booking, index) => (
-              <BookingCard key={index} booking={booking} />
-            ))} */}
-          </div>
+          <button
+            type="button"
+            onClick={handleChange}
+            className="passenger-confirm-page-btn"
+          >
+            Se alla mina bokningar och konto
+          </button>
         </div>
       </div>
     </div>
