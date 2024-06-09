@@ -105,7 +105,7 @@ const predefinedPlaces = [
   { name: "Östergarn", lat: 57.4133, lng: 18.7554 },
 ];
 
-const ReactMapComponent = () => {
+const ReactMapComponent = ({ onDestinationSelected }) => {
   const [markerRef, marker] = useMarkerRef();
   const [open, setOpen] = useState(false);
   const { placeNameDriver, setPlaceNameDriver } = useContext(DriverContext);
@@ -139,7 +139,8 @@ const ReactMapComponent = () => {
     setSuggestions([]);
     setPlaceNameDriver(place.name);
     setPosition({ lat: place.lat, lng: place.lng });
-    console.log("📍 Coordinates: ", { lat: place.lat, lng: place.lng });
+    // console.log("📍 Coordinates: ", { lat: place.lat, lng: place.lng });
+    onDestinationSelected();
   };
 
   const renderSuggestions = () =>

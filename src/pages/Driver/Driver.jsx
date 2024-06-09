@@ -1,24 +1,35 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ReactMapComponent from "../../components/ReactMapComponent/ReactMapComponent";
 import DriverForm from "../../components/DriverForm/DriverForm";
-import "./Driver.css";
 import { DriverContext } from "../../contexts/DriverContext";
-import { useNavigate } from "react-router-dom";
+import "./Driver.css";
 
 const Driver = () => {
   const navigate = useNavigate();
   const { setUserDriver } = useContext(DriverContext);
+  const [destinationSelected, setDestinationSelected] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem("user-driver");
-    const parsedToken = JSON.parse(token);
-    const { user } = parsedToken;
-    const userDriverId = user.id;
-    setUserDriver(userDriverId);
-  }, []);
+    if (token) {
+      const parsedToken = JSON.parse(token);
+      const { user } = parsedToken;
+      const userDriverId = user.id;
+      setUserDriver(userDriverId);
+    }
+  }, [setUserDriver]);
 
   const handleDashboardClick = () => {
-    navigate("/driverdashboard");
+    if (destinationSelected) {
+      navigate("/driverdashboard");
+    } else {
+      alert("Please select a destination first.");
+    }
+  };
+
+  const handleDestinationSelected = () => {
+    setDestinationSelected(true);
   };
 
   return (
@@ -30,8 +41,8 @@ const Driver = () => {
         >
           Körningar och konto
         </button>
-        <ReactMapComponent />
-        <DriverForm />
+        <ReactMapComponent onDestinationSelected={handleDestinationSelected} />
+        <DriverForm disabled={!destinationSelected} />
       </div>
     </div>
   );

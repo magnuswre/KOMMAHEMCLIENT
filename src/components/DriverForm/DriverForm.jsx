@@ -76,19 +76,25 @@ const DriverForm = () => {
     return time;
   };
 
+  const disabled = !placeNameDriver;
+
   return (
     <div className="driver-form-container">
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={handleSubmit}
+        className={`driver-form ${disabled ? "disabled" : ""}`}
+      >
         <div>
           <p>
-            Vald destination: <span>{placeNameDriver}</span>
+            Vald destination:{" "}
+            <span>{placeNameDriver || "Ingen destination vald"}</span>
           </p>
         </div>
         <div>
           <p>När vill du köra?</p>
         </div>
         <div>
-          <MyDatePickerComponent />
+          <MyDatePickerComponent disabled={disabled} />
         </div>
         <div>
           <p>Båttur:</p>
@@ -97,9 +103,9 @@ const DriverForm = () => {
             value={routes.arrival_time}
             onChange={(e) => {
               const selectedRoute = routes[e.target.selectedIndex];
-              // console.log(selectedRoute);
               setArrivalDriver(selectedRoute);
             }}
+            disabled={disabled}
           >
             {routes.map((route, id) => (
               <option key={id} value={route.arrival_time}>
@@ -115,6 +121,7 @@ const DriverForm = () => {
             className="driver-selection-picker"
             value={seatsDriver}
             onChange={(e) => setSeatsDriver(e.target.value)}
+            disabled={disabled}
           >
             <option value="1">1</option>
             <option value="2">2</option>
@@ -129,11 +136,14 @@ const DriverForm = () => {
             id="driver-terms-condition"
             checked={isChecked}
             onChange={() => setIsChecked(!isChecked)}
+            disabled={disabled}
           />
           <label htmlFor="driver-terms-condition">Acceptera villkoren</label>
         </div>
         <div>
-          <button className="driver-form-btn">Godkänn</button>
+          <button className="driver-form-btn" disabled={disabled}>
+            Godkänn
+          </button>
         </div>
       </form>
     </div>
