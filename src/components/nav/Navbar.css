@@ -1,0 +1,27 @@
+.nav-icons {
+    color: white;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.home-navigation {
+    font-weight: bold;
+    letter-spacing: 2.5px;
+    margin-left: 5px;
+}
+
+.icons-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    letter-spacing: 2.5px;
+    margin-right: 5px;
+}
+
+.icons-navigation svg {
+    color: white;
+}

@@ -2,11 +2,11 @@ import { useContext, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./PassengerLogin.css";
 import { PassengerContext } from "../../../contexts/PassengerContext";
+import Navbar from "../../../components/nav/Navbar";
 
 const PassengerLogin = () => {
   const navigate = useNavigate();
   const {
-    setIsLoggedInPassenger,
     loginUserPassenger,
     errorMessagePassenger,
     clearErrorMessagePassenger,
@@ -38,7 +38,6 @@ const PassengerLogin = () => {
         formData.email,
         formData.password
       );
-      setIsLoggedInPassenger(true);
       navigate(`/passenger`);
     } catch (error) {
       console.error("Login error:", error);

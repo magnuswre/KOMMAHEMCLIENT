@@ -3,8 +3,8 @@ import React, { useContext, useEffect, useState } from "react";
 import "./PassengerReset.css";
 import { useNavigate } from "react-router-dom";
 import { RecoveryContext } from "../../../contexts/RecoveryContext";
-const baseUrl = import.meta.env.VITE_APP_BASE_URL;
-// const baseUrl = "http://localhost:5000";
+// const baseUrl = import.meta.env.VITE_APP_BASE_URL;
+const baseUrl = "http://localhost:5000";
 
 const PassengerReset = () => {
   const { userId } = useContext(RecoveryContext);

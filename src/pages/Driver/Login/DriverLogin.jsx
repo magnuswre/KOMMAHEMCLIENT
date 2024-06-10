@@ -5,12 +5,8 @@ import { DriverContext } from "../../../contexts/DriverContext";
 
 const DriverLogin = () => {
   const navigate = useNavigate();
-  const {
-    setIsLoggedInDriver,
-    loginUserDriver,
-    errorMessageDriver,
-    clearErrorMessageDriver,
-  } = useContext(DriverContext);
+  const { loginUserDriver, errorMessageDriver, clearErrorMessageDriver } =
+    useContext(DriverContext);
 
   const [formData, setFormData] = useState({
     email: "",
@@ -35,8 +31,6 @@ const DriverLogin = () => {
     try {
       clearErrorMessageDriver();
       const response = await loginUserDriver(formData.email, formData.password);
-      // console.log(response)
-      setIsLoggedInDriver(true);
       navigate(`/driver`);
     } catch (error) {
       console.error("Login error:", error);

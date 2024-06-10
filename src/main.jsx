@@ -7,6 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 import DriverContextProvider from "./contexts/DriverContext.jsx";
 import PassengerContextProvider from "./contexts/PassengerContext.jsx";
 import RecoveryContextProvider from "./contexts/RecoveryContext.jsx";
+import Navbar from "./components/nav/Navbar.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <>
@@ -14,6 +15,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <DriverContextProvider>
         <PassengerContextProvider>
           <RecoveryContextProvider>
+            <Navbar />
             <App />
           </RecoveryContextProvider>
         </PassengerContextProvider>

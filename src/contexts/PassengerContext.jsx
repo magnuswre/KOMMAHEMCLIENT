@@ -1,13 +1,13 @@
 import axios from "axios";
 import { createContext, useState } from "react";
 export const PassengerContext = createContext();
-const baseUrl = import.meta.env.VITE_APP_BASE_URL;
-// const baseUrl = "http://localhost:5000";
+// const baseUrl = import.meta.env.VITE_APP_BASE_URL;
+const baseUrl = "http://localhost:5000";
 import { useNavigate } from "react-router-dom";
 
 const PassengerContextProvider = ({ children }) => {
   const navigate = useNavigate();
-  const [IsLoggedInPassenger, setIsLoggedInPassenger] = useState(false);
+  const [isLoggedInPassenger, setIsLoggedInPassenger] = useState(false);
   const [userPassenger, setUserPassenger] = useState("");
   const [placeNamePassenger, setPlaceNamePassenger] = useState("");
   const [errorMessagePassenger, setErrorMessagePassenger] = useState("");
@@ -95,6 +95,7 @@ const PassengerContextProvider = ({ children }) => {
       );
 
       setUserPassenger(responseDataPassenger);
+      setIsLoggedInPassenger(true);
       console.log("User logged in successfully");
     } catch (error) {
       console.error("Error:", error.message);
@@ -444,7 +445,7 @@ const PassengerContextProvider = ({ children }) => {
   };
 
   const value = {
-    IsLoggedInPassenger,
+    isLoggedInPassenger,
     setIsLoggedInPassenger,
     getAllDestinations,
     allDestinations,

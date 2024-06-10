@@ -7,7 +7,7 @@ export const DriverContext = createContext();
 const DriverContextProvider = ({ children }) => {
   const navigate = useNavigate();
 
-  const [IsLoggedInDriver, setIsLoggedInDriver] = useState(false);
+  const [isLoggedInDriver, setIsLoggedInDriver] = useState(false);
   const [placeNameDriver, setPlaceNameDriver] = useState("");
   const [userDriver, setUserDriver] = useState({});
   const [errorMessageDriver, setErrorMessageDriver] = useState("");
@@ -19,8 +19,8 @@ const DriverContextProvider = ({ children }) => {
   const [currentPasswordDriver, setCurrentPasswordDriver] = useState("");
   const [newPasswordDriver, setNewPasswordDriver] = useState("");
   const [bookingsDestinations, setBookingsDestinations] = useState([]);
-  const baseUrl = import.meta.env.VITE_APP_BASE_URL;
-  // const baseUrl = "http://localhost:5000";
+  // const baseUrl = import.meta.env.VITE_APP_BASE_URL;
+  const baseUrl = "http://localhost:5000";
 
   // ---- REGISTER DRIVER ------/
 
@@ -66,6 +66,7 @@ const DriverContextProvider = ({ children }) => {
       const responseDataDriver = response.data;
       localStorage.setItem("user-driver", JSON.stringify(responseDataDriver));
       setUserDriver(responseDataDriver);
+      setIsLoggedInDriver(true);
     } catch (error) {
       console.error("Error:", error.message);
       setErrorMessageDriver("Incorrect email or password. Please try again.");
@@ -260,7 +261,7 @@ const DriverContextProvider = ({ children }) => {
   };
 
   const value = {
-    IsLoggedInDriver,
+    isLoggedInDriver,
     setIsLoggedInDriver,
     placeNameDriver,
     setPlaceNameDriver,
