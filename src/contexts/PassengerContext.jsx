@@ -1,7 +1,8 @@
 import axios from "axios";
 import { createContext, useState } from "react";
 export const PassengerContext = createContext();
-const baseUrl = import.meta.env.VITE_APP_BASE_URL;
+// const baseUrl = import.meta.env.VITE_APP_BASE_URL;
+const baseUrl = "http://localhost:5000";
 import { useNavigate } from "react-router-dom";
 
 const PassengerContextProvider = ({ children }) => {

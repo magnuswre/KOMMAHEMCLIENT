@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { DriverContext } from "../../contexts/DriverContext";
 import MyDatePickerComponent from "../DatePickerComponents/DatePickerComponentDriver/MyDatePickerComponent";
 const baseUrl = import.meta.env.VITE_APP_BASE_URL;
+// const baseUrl = "http://localhost:5000";
 
 const DriverForm = () => {
   const {
@@ -15,6 +16,8 @@ const DriverForm = () => {
     addDestinationDriver,
     setUserDriver,
     selectedDateDriver,
+    originalSeatsDriver,
+    setOriginalSeatsDriver,
   } = useContext(DriverContext);
 
   const navigate = useNavigate();
@@ -61,7 +64,12 @@ const DriverForm = () => {
     }
 
     try {
-      await addDestinationDriver(placeNameDriver, arrivalDriver, seatsDriver);
+      await addDestinationDriver(
+        placeNameDriver,
+        arrivalDriver,
+        seatsDriver,
+        originalSeatsDriver
+      );
       navigate(`/driverconfirmation`);
       console.log("Destination added successfully");
     } catch (error) {
@@ -120,7 +128,10 @@ const DriverForm = () => {
           <select
             className="driver-selection-picker"
             value={seatsDriver}
-            onChange={(e) => setSeatsDriver(e.target.value)}
+            onChange={(e) => {
+              setSeatsDriver(e.target.value);
+              setOriginalSeatsDriver(e.target.value);
+            }}
             disabled={disabled}
           >
             <option value="1">1</option>

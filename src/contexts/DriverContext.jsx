@@ -13,11 +13,14 @@ const DriverContextProvider = ({ children }) => {
   const [errorMessageDriver, setErrorMessageDriver] = useState("");
   const [arrivalDriver, setArrivalDriver] = useState({});
   const [seatsDriver, setSeatsDriver] = useState("1");
+  const [originalSeatsDriver, setOriginalSeatsDriver] = useState("1");
   const [startDateDriver, setStartDateDriver] = useState(new Date());
   const [selectedDateDriver, setSelectedDateDriver] = useState("");
   const [currentPasswordDriver, setCurrentPasswordDriver] = useState("");
   const [newPasswordDriver, setNewPasswordDriver] = useState("");
-  const baseUrl = import.meta.env.VITE_APP_BASE_URL;
+  const [bookingsDestinations, setBookingsDestinations] = useState([]);
+  // const baseUrl = import.meta.env.VITE_APP_BASE_URL;
+  const baseUrl = "http://localhost:5000";
 
   // ---- REGISTER DRIVER ------/
 
@@ -127,10 +130,13 @@ const DriverContextProvider = ({ children }) => {
     setErrorMessageDriver("");
   };
 
+  // CREATE DESTINATION DRIVER
+
   const addDestinationDriver = async (
     placeNameDriver,
     arrivalDriver,
-    seatsDriver
+    seatsDriver,
+    originalSeatsDriver
   ) => {
     if (!userDriver) {
       console.error("User or user id is undefined");
@@ -146,6 +152,7 @@ const DriverContextProvider = ({ children }) => {
       arrival_time: arrivalDriver.arrival_time,
       departure_time: arrivalDriver.departure_time,
       seats: seatsDriver,
+      original_seats: originalSeatsDriver,
       route: arrivalDriver.route,
     };
 
@@ -223,6 +230,35 @@ const DriverContextProvider = ({ children }) => {
     }
   };
 
+  // GET BOOKINGS FOR A DESTINATION
+
+  const getBookingsForDestination = async (destinationId) => {
+    try {
+      const response = await axios.get(
+        `${baseUrl}/destinations/${destinationId}/bookings`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (response.status < 200 || response.status >= 300) {
+        throw new Error(
+          `Failed to get bookings with status: ${response.status}`
+        );
+      }
+
+      const bookings = response.data;
+      setBookingsDestinations(bookings);
+      console.log(bookings);
+      return bookings;
+    } catch (error) {
+      console.error("Error:", error.message);
+      throw error;
+    }
+  };
+
   const value = {
     IsLoggedInDriver,
     setIsLoggedInDriver,
@@ -238,6 +274,8 @@ const DriverContextProvider = ({ children }) => {
     setArrivalDriver,
     seatsDriver,
     setSeatsDriver,
+    originalSeatsDriver,
+    setOriginalSeatsDriver,
     startDateDriver,
     setStartDateDriver,
     addDestinationDriver,
@@ -250,6 +288,8 @@ const DriverContextProvider = ({ children }) => {
     setNewPasswordDriver,
     deleteUserDriver,
     getDestinationsByUserId,
+    getBookingsForDestination,
+    bookingsDestinations,
   };
 
   return (

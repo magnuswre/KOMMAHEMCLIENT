@@ -21,11 +21,7 @@ const Driver = () => {
   }, [setUserDriver]);
 
   const handleDashboardClick = () => {
-    if (destinationSelected) {
-      navigate("/driverdashboard");
-    } else {
-      alert("Please select a destination first.");
-    }
+    navigate("/driverdashboard");
   };
 
   const handleDestinationSelected = () => {
