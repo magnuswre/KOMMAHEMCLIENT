@@ -7,10 +7,14 @@
     margin-top: 5px;
 }
 
-.home-navigation {
+.chevron-left {
     font-weight: bold;
     letter-spacing: 2.5px;
     margin-left: 5px;
+    color: white;
+    background-color: black;
+    border: none;
+    font-size: 1.2rem;
 }
 
 .icons-navigation {
@@ -24,4 +28,11 @@
 
 .icons-navigation svg {
     color: white;
+    margin-right: 10px;
+}
+
+@media (min-width: 640px) {
+    .chevron-left {
+        font-size: 1.5rem;
+    }
 }

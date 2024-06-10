@@ -3,13 +3,15 @@
     height: 100vh;
     color: white;
     display: grid;
-    place-items: center;
+    place-items: start;
     /* margin: 10%; */
     /* overflow: hidden; */
 }
 
 .passenger-dashboard-wrapper {
+
     margin: 0 auto;
+    margin-top: 1%;
     width: 50%;
     /* border: solid 10px white; */
     border-radius: 10px;
