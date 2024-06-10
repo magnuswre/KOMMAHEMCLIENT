@@ -19,8 +19,8 @@ const DriverContextProvider = ({ children }) => {
   const [currentPasswordDriver, setCurrentPasswordDriver] = useState("");
   const [newPasswordDriver, setNewPasswordDriver] = useState("");
   const [bookingsDestinations, setBookingsDestinations] = useState([]);
-  // const baseUrl = import.meta.env.VITE_APP_BASE_URL;
-  const baseUrl = "http://localhost:5000";
+  const baseUrl = import.meta.env.VITE_APP_BASE_URL;
+  // const baseUrl = "http://localhost:5000";
 
   // ---- REGISTER DRIVER ------/
 
