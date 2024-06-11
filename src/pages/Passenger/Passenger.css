@@ -103,6 +103,21 @@ p {
     font-weight: bold;
 }
 
+.passenger-selection-picker,
+.passenger-arrival-selection-picker {
+    /* margin-top: 25px; */
+    /*width: 50px; /* Add your desired width */
+    /* width: auto; */
+    text-align: center;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+    color: lightslategray;
+}
+
 @media (max-width: 640px) {
     .passenger-page-wrapper {
         border: none;
