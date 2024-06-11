@@ -44,6 +44,13 @@ const BookingCard = ({ booking: initialBooking }) => {
     setShowButtons(false);
   };
 
+  const formatTime = (time) => {
+    if (time) {
+      return time.slice(0, -3); // Trims the last ":00"
+    }
+    return time;
+  };
+
   return (
     <div className="booking-card-container">
       <p>Datum: {booking.traveldate}</p>
@@ -51,8 +58,8 @@ const BookingCard = ({ booking: initialBooking }) => {
 
       <p>
         Båttur: {booking.route}
-        <span>-{booking.departure_time}-</span>
-        <span>{booking.arrival_time}</span>
+        <span> {formatTime(booking.departure_time)}</span>
+        <span> {formatTime(booking.arrival_time)}</span>
       </p>
       <p>Sittplatser: {booking.seats}</p>
       <p>Förarens nummer: {booking.driverPhone}</p>

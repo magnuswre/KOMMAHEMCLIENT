@@ -27,59 +27,37 @@ const DriverConfirmation = () => {
     );
   }, []);
 
-  const handleChange = () => {
-    navigate(`/driverdashboard/`);
-  };
-
-  const handleLogout = () => {
-    console.log("Logout");
-    // setUserDriver({});
-    // setIsLoggedInDriver(false);
-    // localStorage.setItem("user-driver", "");
-    navigate("/");
+  const formatTime = (time) => {
+    if (time) {
+      return time.slice(0, -3); // Trims the last ":00"
+    }
+    return time;
   };
 
   return (
     <div className="driver-confirmation-page-container">
       <div className="driver-confirmation-page-wrapper">
         <div className="driver-confirmation-page-bookinginformation">
-          <h2>Tack för din körning till:</h2>
-          <h2>
+          <p>Tack för din körning till:</p>
+          <p>
             <span>{placeNameDriver}</span>
-          </h2>
-          <h2>
+          </p>
+          <p>
             <span>{selectedDateDriver}</span>
-          </h2>
-          <h2>
-            Avgångstid: <span> {arrivalDriver.departure_time}</span>
-          </h2>
-          <h2>
-            Ankomsttid: <span> {arrivalDriver.arrival_time}</span>
-          </h2>
-          <h2>
+          </p>
+          <p>
+            Avgångstid: <span> {formatTime(arrivalDriver.departure_time)}</span>
+          </p>
+          <p>
+            Ankomsttid: <span> {formatTime(arrivalDriver.arrival_time)}</span>
+          </p>
+          <p>
             Rutt: <span> {arrivalDriver.route}</span>
-          </h2>
+          </p>
 
-          <h2>
+          <p>
             Antal platser: <span> {seatsDriver} </span>
-          </h2>
-        </div>
-        <div>
-          <button
-            onClick={() => handleChange()}
-            className="driver-confirmation-page-btn"
-          >
-            Alla mina körningar och konto
-          </button>
-        </div>
-
-        <div>
-          <button
-            onClick={() => handleLogout()}
-            className="driver-confirmation-page-btn"
-          >
-            Logga ut
-          </button>
+          </p>
         </div>
       </div>
     </div>

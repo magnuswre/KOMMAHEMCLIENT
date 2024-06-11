@@ -121,10 +121,6 @@ const Passenger = () => {
     setDestinationSelected(true);
   };
 
-  // const handleDashboardClick = () => {
-  //   navigate("/PassengerDashboard");
-  // };
-
   const handleDestinationChange = (event) => {
     setDestination(event.target.value);
     setSelectedSeats("1");
@@ -142,9 +138,6 @@ const Passenger = () => {
   return (
     <div className="passenger-page-container">
       <div className="passenger-page-wrapper">
-        {/* <button className="destination-btn" onClick={handleDashboardClick}>
-          Bokningar och konto
-        </button> */}
         <form onSubmit={onSubmit}>
           <div className="passenger-form-group">
             <h2>Välj datum:</h2>

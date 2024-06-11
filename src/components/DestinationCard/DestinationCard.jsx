@@ -17,6 +17,12 @@ const DestinationCard = ({ destination, bookingsDestinations }) => {
       console.error("Error:", error.message);
     }
   };
+  const formatTime = (time) => {
+    if (time) {
+      return time.slice(0, -3); // Trims the last ":00"
+    }
+    return time;
+  };
 
   return (
     <div className="destination-card-container" onClick={handleClick}>
@@ -28,8 +34,8 @@ const DestinationCard = ({ destination, bookingsDestinations }) => {
         {destination.OriginalSeats}
       </p>
       <p>Båttur: {destination.Route}</p>
-      <p>Avgångstid: {destination.DepartureTime}</p>
-      <p>Ankomsttid: {destination.ArrivalTime}</p>
+      <p>Avgångstid: {formatTime(destination.DepartureTime)}</p>
+      <p>Ankomsttid: {formatTime(destination.ArrivalTime)}</p>
       <BookingsOfDestinationCard bookings={bookings} />
     </div>
   );
