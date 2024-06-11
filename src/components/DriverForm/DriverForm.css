@@ -15,6 +15,13 @@
     /* Adjust as needed */
 }
 
+.driver-form-group>* {
+    margin-top: 2px;
+}
+
+.driver-form-group-destination-choice {
+    padding-bottom: 10px;
+}
 
 .driver-form-btn {
     background-color: #1E1E1E;

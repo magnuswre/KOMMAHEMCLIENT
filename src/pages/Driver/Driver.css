@@ -33,11 +33,10 @@
     font-weight: bold;
 }
 
-input[type="search"] {
+/* input[type="search"] {
     -webkit-appearance: none;
     appearance: none;
     border: 1px solid #ccc;
     border-radius: 4px;
-    /* padding: 6px 12px; */
     font-size: 16px;
-}
+} */

@@ -58,10 +58,10 @@ const DriverForm = () => {
       return;
     }
 
-    if (!isChecked) {
-      console.log("Please accept the terms and conditions");
-      return;
-    }
+    // if (!isChecked) {
+    //   console.log("Please accept the terms and conditions");
+    //   return;
+    // }
 
     try {
       await addDestinationDriver(
@@ -92,19 +92,17 @@ const DriverForm = () => {
         onSubmit={handleSubmit}
         className={`driver-form ${disabled ? "disabled" : ""}`}
       >
-        <div>
+        <div className="driver-form-group-destination-choice">
           <p>
             Vald destination:{" "}
             <span>{placeNameDriver || "Ingen destination vald"}</span>
           </p>
         </div>
-        <div>
+        <div className="driver-form-group driver-form-date-picker">
           <p>När vill du köra?</p>
-        </div>
-        <div>
           <MyDatePickerComponent disabled={disabled} />
         </div>
-        <div>
+        <div className="driver-form-group">
           <p>Båttur:</p>
           <select
             className="driver-arrival-selection-picker"
@@ -123,7 +121,7 @@ const DriverForm = () => {
             ))}
           </select>
         </div>
-        <div>
+        <div className="driver-form-group">
           <p>Antal platser:</p>
           <select
             className="driver-selection-picker"
@@ -140,7 +138,7 @@ const DriverForm = () => {
             <option value="4">4</option>
           </select>
         </div>
-        <div>
+        {/* <div>
           <input
             type="checkbox"
             name="driver-terms-condition"
@@ -150,7 +148,7 @@ const DriverForm = () => {
             disabled={disabled}
           />
           <label htmlFor="driver-terms-condition">Acceptera villkoren</label>
-        </div>
+        </div> */}
         <div>
           <button className="driver-form-btn" disabled={disabled}>
             Godkänn
