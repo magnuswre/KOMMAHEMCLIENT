@@ -24,3 +24,19 @@
     font-size: 1.2rem;
     font-weight: bold;
 }
+
+.Passenger-confirm-wrapper h2 {
+    padding: .5rem;
+}
+
+.Passenger-confirm-wrapper p {
+    padding: .5rem;
+}
+
+@media (max-width: 640px) {
+
+    .Passenger-confirm-wrapper {
+        border: none;
+        width: 80%;
+    }
+}

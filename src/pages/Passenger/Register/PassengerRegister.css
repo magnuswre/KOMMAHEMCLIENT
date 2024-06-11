@@ -4,11 +4,12 @@
     box-sizing: border-box;
     font-family: Roboto-Regular, Roboto;
     display: grid;
-    place-items: center;
+    place-items: start;
 }
 
 .PassengerRegister-create-form {
     margin: 0 auto;
+    margin-top: 3%;
     display: grid;
     place-items: center;
     color: white;
@@ -111,6 +112,10 @@
 }
 
 @media (max-width: 640px) {
+
+    .PassengerRegister-create-form {
+        margin-top: 0;
+    }
 
     .PassengerRegister-container {
         place-items: start;
