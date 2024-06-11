@@ -34,7 +34,7 @@
 
 @media (max-width: 640px) {
     .driver-page-wrapper {
-        border: 1px solid white;
+        border: none;
         width: 80%;
     }
 }
