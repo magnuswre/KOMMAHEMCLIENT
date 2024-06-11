@@ -33,10 +33,11 @@
     font-weight: bold;
 }
 
-/* @media (max-width: 640px) {
-     .driver-page-container {
-         border: 2px solid white;
-         align-items: start;
-         justify-content: start;
-     }
- } */
+input[type="search"] {
+    -webkit-appearance: none;
+    appearance: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    /* padding: 6px 12px; */
+    font-size: 16px;
+}
