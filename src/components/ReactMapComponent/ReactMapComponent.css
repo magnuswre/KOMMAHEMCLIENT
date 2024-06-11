@@ -19,6 +19,11 @@
     /* margin-top: 25px; */
 }
 
+.user-map-price-calculator {
+    padding-left: 3%;
+    padding-bottom: 1%;
+}
+
 .li-tag-destination-suggestions {
     list-style: none;
     margin: 10px;
@@ -57,7 +62,14 @@
         margin-top: 5px;
         margin-bottom: 5px;
     }
+
+    .user-map-price-calculator {
+        padding: 0;
+        padding-bottom: 1%;
+    }
 }
+
+
 
 /* @media (max-width: 1024px) {
     .input-destination-search-bar {

@@ -11,14 +11,51 @@ import {
   Pin,
   InfoWindow,
 } from "@vis.gl/react-google-maps";
+import PriceCalculator from "../PriceCalculator/PriceCalculator";
 
 const predefinedPlaces = [
-  { name: "Akebäck", lat: 57.54754931574185, lng: 18.392084848319442 },
-  { name: "Ala", lat: 57.42354184171825, lng: 18.632247869463818 },
-  { name: "Alskog", lat: 57.33197570635875, lng: 18.628600538182596 },
-  { name: "Alva", lat: 57.20777538482792, lng: 18.36089236876532 },
-  { name: "Ardre", lat: 57.3928, lng: 18.7279 },
-  { name: "Atlingbo", lat: 57.4461, lng: 18.3963 },
+  {
+    name: "Akebäck",
+    lat: 57.54754931574185,
+    lng: 18.392084848319442,
+    distance: 15,
+    comment: "Akebäck Kyrka",
+  },
+  {
+    name: "Ala",
+    lat: 57.4190297,
+    lng: 18.6351653,
+    distance: 36,
+    comment: "Ala Kyrka",
+  },
+  {
+    name: "Alskog",
+    lat: 57.3314785,
+    lng: 18.6273462,
+    distance: 51,
+    comment: "Alskogs Kyrka",
+  },
+  {
+    name: "Alva",
+    lat: 57.2075059,
+    lng: 18.3613878,
+    distance: 55,
+    comment: "Alva Kyrka",
+  },
+  {
+    name: "Ardre",
+    lat: 57.37953,
+    lng: 18.69694,
+    distance: 44,
+    comment: "Ardre Kyrka",
+  },
+  {
+    name: "Atlingbo",
+    lat: 57.479938,
+    lng: 18.3907773,
+    distance: 22,
+    comment: "Atlingbo Kyrka",
+  },
   { name: "Bara", lat: 57.4778, lng: 18.4734 },
   { name: "Barlingbo", lat: 57.5711, lng: 18.4418 },
   { name: "Björke", lat: 57.5278, lng: 18.4767 },
@@ -106,6 +143,7 @@ const predefinedPlaces = [
 ];
 
 const ReactMapComponent = ({ onDestinationSelected }) => {
+  const [selectedPlace, setSelectedPlace] = useState(null);
   const [markerRef, marker] = useMarkerRef();
   const [open, setOpen] = useState(false);
   const { placeNameDriver, setPlaceNameDriver } = useContext(DriverContext);
@@ -139,8 +177,8 @@ const ReactMapComponent = ({ onDestinationSelected }) => {
     setSuggestions([]);
     setPlaceNameDriver(place.name);
     setPosition({ lat: place.lat, lng: place.lng });
-    // console.log("📍 Coordinates: ", { lat: place.lat, lng: place.lng });
     onDestinationSelected();
+    setSelectedPlace(place); // Store the selected place
   };
 
   const renderSuggestions = () =>
@@ -174,6 +212,13 @@ const ReactMapComponent = ({ onDestinationSelected }) => {
         </div>
         {isClicked && (
           <div className="user-map-container">
+            <div className="user-map-price-calculator">
+              <PriceCalculator
+                distance={selectedPlace.distance}
+                rate={2.5}
+                name={selectedPlace.name}
+              />
+            </div>
             <div>
               <APIProvider apiKey={"YOUR_GOOGLE_MAPS_API_KEY"}>
                 <div style={{ height: "30vh " }}>

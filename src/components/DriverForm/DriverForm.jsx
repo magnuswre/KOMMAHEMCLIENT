@@ -18,6 +18,7 @@ const DriverForm = () => {
     selectedDateDriver,
     originalSeatsDriver,
     setOriginalSeatsDriver,
+    setSelectedDateDriver,
   } = useContext(DriverContext);
 
   const navigate = useNavigate();
@@ -50,6 +51,11 @@ const DriverForm = () => {
     setSeatsDriver("1");
   }, [routes]);
 
+  useEffect(() => {
+    const currentDate = new Date().toISOString().split("T")[0]; // Get current date in YYYY-MM-DD format
+    setSelectedDateDriver(currentDate);
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -57,11 +63,6 @@ const DriverForm = () => {
       console.log("Please choose a destination");
       return;
     }
-
-    // if (!isChecked) {
-    //   console.log("Please accept the terms and conditions");
-    //   return;
-    // }
 
     try {
       await addDestinationDriver(
@@ -138,17 +139,7 @@ const DriverForm = () => {
             <option value="4">4</option>
           </select>
         </div>
-        {/* <div>
-          <input
-            type="checkbox"
-            name="driver-terms-condition"
-            id="driver-terms-condition"
-            checked={isChecked}
-            onChange={() => setIsChecked(!isChecked)}
-            disabled={disabled}
-          />
-          <label htmlFor="driver-terms-condition">Acceptera villkoren</label>
-        </div> */}
+
         <div>
           <button className="driver-form-btn" disabled={disabled}>
             Godkänn
