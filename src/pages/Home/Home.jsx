@@ -27,11 +27,11 @@ const Home = () => {
             <h1>kommahem</h1>
           </div>
           <div className="Links">
-            <Link className="Passenger-Btn" to="/passengerlogin">
-              Åka
-            </Link>
             <Link className="Drive-Btn" to="/driverlogin">
               Köra
+            </Link>
+            <Link className="Passenger-Btn" to="/passengerlogin">
+              Åka
             </Link>
           </div>
           <div className="Icon-Container">

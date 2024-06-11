@@ -20,9 +20,9 @@ const Driver = () => {
     }
   }, [setUserDriver]);
 
-  const handleDashboardClick = () => {
-    navigate("/driverdashboard");
-  };
+  // const handleDashboardClick = () => {
+  //   navigate("/driverdashboard");
+  // };
 
   const handleDestinationSelected = () => {
     setDestinationSelected(true);
@@ -31,12 +31,12 @@ const Driver = () => {
   return (
     <div className="driver-page-container">
       <div className="driver-page-wrapper">
-        <button
+        {/* <button
           className="driver-page-dashboard-btn"
           onClick={handleDashboardClick}
         >
           Körningar och konto
-        </button>
+        </button> */}
         <ReactMapComponent onDestinationSelected={handleDestinationSelected} />
         <DriverForm disabled={!destinationSelected} />
       </div>
