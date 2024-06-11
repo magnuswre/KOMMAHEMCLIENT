@@ -109,13 +109,22 @@ p {
     /*width: 50px; /* Add your desired width */
     /* width: auto; */
     text-align: center;
-    padding-top: 4px;
-    padding-bottom: 4px;
+    padding-top: 6px;
+    padding-bottom: 6px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 14px;
     outline: none;
     color: lightslategray;
+}
+
+.passenger-form-group h2 {
+    margin-top: 10px;
+}
+
+
+.passenger-form-group>* {
+    margin-top: 2px;
 }
 
 @media (max-width: 640px) {

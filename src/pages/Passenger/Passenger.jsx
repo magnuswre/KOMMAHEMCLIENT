@@ -146,14 +146,14 @@ const Passenger = () => {
           Bokningar och konto
         </button> */}
         <form onSubmit={onSubmit}>
-          <div>
+          <div className="passenger-form-group">
             <h2>Välj datum:</h2>
             <MyDatePickerComponentPassenger
               onDateChange={handleDateChange}
               onInputClick={() => setInputClicked(true)}
             />
           </div>
-          <div>
+          <div className="passenger-form-group">
             <h2>Välj slutdestination:</h2>
             <input
               type="text"
@@ -163,7 +163,7 @@ const Passenger = () => {
               className="passenger-destination-picker"
             />
           </div>
-          <div>
+          <div className="passenger-form-group">
             <h2>Välj båttur:</h2>
             <select
               className="passenger-arrival-selection-picker"
@@ -190,7 +190,7 @@ const Passenger = () => {
             </select>
           </div>
 
-          <div>
+          <div className="passenger-form-group">
             <h2>Välj platser:</h2>
             <select
               className="passenger-selection-picker"
