@@ -3,4 +3,6 @@
     margin-top: 5px;
     padding: 5px;
     border-radius: 10px;
+    max-width: 100%;
+    overflow-x: hidden;
 }
