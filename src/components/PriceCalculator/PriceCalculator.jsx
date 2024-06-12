@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./PriceCalculator.css";
 
 const PriceCalculator = ({ distance, rate, name }) => {
   const [count, setCount] = useState(0);
@@ -8,21 +9,22 @@ const PriceCalculator = ({ distance, rate, name }) => {
     const interval = setInterval(() => {
       setCount((prevCount) => {
         if (prevCount < maxCount) {
-          return prevCount + rate;
+          return Math.round(prevCount + rate);
         } else {
           clearInterval(interval);
-          return maxCount;
+          return Math.round(maxCount);
         }
       });
-    }, 10); // Adjust this value to make the counter faster or slower
+    }, 10);
 
-    // Clean up interval on component unmount
     return () => clearInterval(interval);
   }, [rate, maxCount]);
 
   return (
     <div>
-      <p>Rekommenderat lägsta pris: {count}kr per person.</p>
+      <p>
+        Rekommenderat lägsta pris: <br /> {count}kr per person.
+      </p>
       <p>
         Från Visby till {name}: {distance} km
       </p>

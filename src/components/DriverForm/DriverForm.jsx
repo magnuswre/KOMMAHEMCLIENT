@@ -93,12 +93,12 @@ const DriverForm = () => {
         onSubmit={handleSubmit}
         className={`driver-form ${disabled ? "disabled" : ""}`}
       >
-        <div className="driver-form-group-destination-choice">
+        {/* <div className="driver-form-group-destination-choice">
           <p>
             Vald destination:{" "}
             <span>{placeNameDriver || "Ingen destination vald"}</span>
           </p>
-        </div>
+        </div> */}
         <div className="driver-form-group driver-form-date-picker">
           <p>När vill du köra?</p>
           <MyDatePickerComponent disabled={disabled} />

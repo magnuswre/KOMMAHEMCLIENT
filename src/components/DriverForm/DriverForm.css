@@ -54,6 +54,10 @@
     .driver-form-container {
         border: none;
     }
+
+    .driver-form-container form {
+        padding: 0;
+    }
 }
 
 .driver-form.disabled {
