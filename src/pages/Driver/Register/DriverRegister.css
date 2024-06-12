@@ -47,6 +47,7 @@
     background-color: #FAFAFA;
     border: none;
     border-radius: 4px;
+    font-size: 16px;
 }
 
 #DriverRegister-Btn {
@@ -63,7 +64,6 @@
 
 
 .DriverRegister-text {
-    font-size: 12px;
     padding-left: 10px;
     text-decoration: underline;
     color: white;

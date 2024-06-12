@@ -32,6 +32,10 @@
     gap: 20px;
 }
 
+.PassengerForm-register input {
+    font-size: 16px;
+}
+
 
 .PassengerRegister-form-group {
     display: flex;
@@ -79,7 +83,6 @@
 }
 
 .PassengerRegister-text {
-    font-size: 11px;
     /* padding-left: 10px; */
     text-decoration: underline;
     color: white;
