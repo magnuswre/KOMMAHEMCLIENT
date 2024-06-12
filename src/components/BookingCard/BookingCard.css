@@ -15,3 +15,10 @@
     font-weight: bold;
     margin-top: 10px;
 }
+
+@media (max-width: 640px) {
+    .booking-card-container {
+        width: 80%;
+    }
+
+}
