@@ -144,7 +144,7 @@ const DriverRegister = () => {
               type="email"
               name="email"
               className="DriverRegister-input"
-              id="DriverRegister-email"
+              id="email"
               value={formData.email}
               onChange={handleChangeInput}
             />
@@ -156,7 +156,7 @@ const DriverRegister = () => {
               type="text"
               name="phone"
               className="DriverRegister-input"
-              id="DriverRegister-phone"
+              id="phone"
               value={formData.phone}
               onChange={handleChangeInput}
             />
@@ -168,7 +168,7 @@ const DriverRegister = () => {
               type="password"
               name="password"
               className="DriverRegister-input"
-              id="DriverRegister-password"
+              id="password"
               value={formData.password}
               onChange={handleChangeInput}
             />
@@ -180,7 +180,7 @@ const DriverRegister = () => {
               type="password"
               name="confirmPassword"
               className="DriverRegister-input"
-              id="DriverRegister-confirmPassword"
+              id="confirmPassword"
               value={formData.confirmPassword}
               onChange={handleChangeInput}
             />

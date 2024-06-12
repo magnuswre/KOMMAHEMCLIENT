@@ -69,7 +69,7 @@ const DriverLogin = () => {
         <p className="DriverLogin-form-text">Logga in till ditt konto här</p>
         <div className="DriverLogin-form-group">
           <div className="DriverLogin-form-email-links">
-            <label htmlFor="email-driver">Email*</label>
+            <label htmlFor="email">Email*</label>
             <div>
               <p className="DriverLogin-red-text">
                 <Link
@@ -95,19 +95,19 @@ const DriverLogin = () => {
             type="email"
             name="email"
             className="DriverLogin-input"
-            id="email-driver"
+            id="email"
             value={formData.email}
             onChange={handleChange}
           />
           <p className="DriverLogin-error-text">{error.email}</p>
         </div>
         <div className="DriverLogin-form-group">
-          <label htmlFor="password-driver">Lösenord*</label>
+          <label htmlFor="password">Lösenord*</label>
           <input
             type="password"
             name="password"
             className="DriverLogin-input"
-            id="password-driver"
+            id="password"
             value={formData.password}
             onChange={handleChange}
           />

@@ -77,10 +77,7 @@ const PassengerLogin = () => {
           Logga in till ditt konto här:
         </p>
         <div className="PassengerLogin-form-group">
-          <label
-            className="PassengerLogin-form-labels"
-            htmlFor="email-passenger"
-          >
+          <label className="PassengerLogin-form-labels" htmlFor="email">
             E-post*
           </label>
           <p className="PassengerLogin-red-text">
@@ -105,24 +102,21 @@ const PassengerLogin = () => {
             type="email"
             name="email"
             className="PassengerLogin-input"
-            id="email-passenger"
+            id="email"
             value={formData.email}
             onChange={handleChange}
           />
           <p className="PassengerLogin-error-text">{error.email}</p>
         </div>
         <div className="PassengerLogin-form-group">
-          <label
-            className="PassengerLogin-form-labels"
-            htmlFor="password-passenger"
-          >
+          <label className="PassengerLogin-form-labels" htmlFor="password">
             Lösenord*
           </label>
           <input
             type="password"
             name="password"
             className="PassengerLogin-input"
-            id="password-passenger"
+            id="password"
             value={formData.password}
             onChange={handleChange}
           />
