@@ -402,6 +402,7 @@ const PassengerContextProvider = ({ children }) => {
 
   const bookingConfirmation = async (
     recipient_email,
+    destination_owner_email,
     selectedDate,
     destination,
     selectedSeats,
@@ -416,6 +417,7 @@ const PassengerContextProvider = ({ children }) => {
         `${baseUrl}/send_booking_confirmation`,
         {
           recipient_email,
+          destination_owner_email,
           traveldate: selectedDate,
           enddestination: destination,
           seats: selectedSeats,

@@ -33,6 +33,7 @@ const Passenger = () => {
   const user = JSON.parse(localStorage.getItem("user-passenger"));
   const userId = user.user.id;
   const recipient_email = user.user.email;
+  const [destinationOwnerEmail, setDestinationOwnerEmail] = useState("");
   const [lat, setLat] = useState(null);
   const [lng, setLng] = useState(null);
 
@@ -93,6 +94,15 @@ const Passenger = () => {
     setRoutes([]);
   }, [selectedDate, destination]);
 
+  // const userDetails = destinationsByDateNameSeatsAndRoute.map(
+  //   (destination) => ({
+  //     destination_owner_email: destination.userEmail,
+  //   })
+  // );
+
+  // console.log("User Details", userDetails);
+  // console.log("Passenger IDs", ids);
+
   const onSubmit = (e) => {
     const destinationId = selectedDestination.id;
     e.preventDefault();
@@ -108,6 +118,7 @@ const Passenger = () => {
     );
     bookingConfirmation(
       recipient_email,
+      destinationOwnerEmail,
       selectedDate,
       destination,
       selectedSeats,
@@ -121,8 +132,10 @@ const Passenger = () => {
   };
 
   const handleButtonClick = (destination) => {
+    console.log(destination);
     setSelectedDestination(destination);
-    setSelectedDestinationId(destination.id); // Update the state with the clicked destination ID
+    setSelectedDestinationId(destination.id);
+    setDestinationOwnerEmail(destination.userEmail);
   };
 
   const handleDestinationChange = (event) => {
