@@ -19,10 +19,6 @@
     font-size: 16px;
     gap: 20px;
     padding: 30px;
-
-    Link {
-        color: red;
-    }
 }
 
 .PassengerForm {
@@ -73,11 +69,18 @@
 
 .PassengerLoginForm-login input {
     font-size: 16px;
+    margin-top: 4px;
 }
 
 .PassengerLogin-text {
     font-size: 12px;
     padding-left: 10px;
+}
+
+.PassengerLogin-error-text {
+    color: red;
+    font-size: 14px;
+    text-decoration: none;
 }
 
 .PassengerLogin-red-text {

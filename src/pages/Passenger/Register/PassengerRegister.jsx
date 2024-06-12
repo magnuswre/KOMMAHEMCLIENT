@@ -142,12 +142,12 @@ const PassengerRegister = () => {
             Registrera ditt konto här:
           </p>
           <div className="PassengerRegister-form-group">
-            <label htmlFor="email">E-post*</label>
+            <label htmlFor="email-passenger">E-post*</label>
             <input
               type="email"
-              name="email"
+              name="email-passenger"
               className="PassengerRegister-input"
-              id="PassengerRegister-email"
+              id="email-passenger"
               value={formData.email}
               onChange={handleChangeInput}
             />

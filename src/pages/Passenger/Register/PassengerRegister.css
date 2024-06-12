@@ -23,7 +23,6 @@
     Link {
         color: red;
     }
-
 }
 
 .PassengerForm-register {
@@ -42,11 +41,6 @@
     flex-direction: column;
 }
 
-/* .PassengerRegister-form-text {
-    float: left;
-    padding: 30px 440px 20px 30px;
-} */
-
 .PassengerRegister-input {
     width: 100%;
     height: 35px;
@@ -61,8 +55,6 @@
     border: solid 2px white;
     border-radius: 10px;
     padding: 5px;
-    /* margin: 10px; */
-    /* width: 100%; */
     font-size: 1.2rem;
     font-weight: bold;
 }
@@ -83,7 +75,6 @@
 }
 
 .PassengerRegister-text {
-    /* padding-left: 10px; */
     text-decoration: underline;
     color: white;
     background-color: black;

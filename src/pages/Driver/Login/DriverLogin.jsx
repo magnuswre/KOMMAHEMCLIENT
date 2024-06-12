@@ -13,20 +13,46 @@ const DriverLogin = () => {
     password: "",
   });
 
+  const [error, setError] = useState({
+    email: "",
+    password: "",
+  });
+
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormData((prevState) => ({
       ...prevState,
-      [e.target.name]: e.target.value,
+      [name]: value,
+    }));
+
+    setError((prevError) => ({
+      ...prevError,
+      [name]: "",
     }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.email || !formData.password) {
-      console.error("Please provide both email and password");
-      return;
+    let hasError = false;
+
+    if (!formData.email) {
+      setError((data) => ({
+        ...data,
+        email: "Du behöver ange en e-postadress",
+      }));
+      hasError = true;
     }
+
+    if (!formData.password) {
+      setError((data) => ({
+        ...data,
+        password: "Du behöver ange ett lösenord",
+      }));
+      hasError = true;
+    }
+
+    if (hasError) return;
 
     try {
       clearErrorMessageDriver();
@@ -42,52 +68,51 @@ const DriverLogin = () => {
       <form className="DriverLoginForm-login" onSubmit={handleSubmit}>
         <p className="DriverLogin-form-text">Logga in till ditt konto här</p>
         <div className="DriverLogin-form-group">
-          <label htmlFor="email">Email*</label>
-          <p className="DriverLogin-red-text">
-            <Link
-              className="DriverLogin-error-text"
-              to={"/Driverregister"}
-              style={{ color: "red" }}
-            >
-              Skaffa konto här
-            </Link>
-          </p>
-          <p className="DriverLogin-red-text">
-            <Link
-              className="DriverLogin-error-text"
-              to={"/driverforgotpassword"}
-              style={{ color: "red" }}
-            >
-              Glömt lösenord?
-            </Link>
-          </p>
+          <div className="DriverLogin-form-email-links">
+            <label htmlFor="email-driver">Email*</label>
+            <div>
+              <p className="DriverLogin-red-text">
+                <Link
+                  className="DriverLogin-error-text"
+                  to={"/Driverregister"}
+                  style={{ color: "red" }}
+                >
+                  Skaffa konto här
+                </Link>
+              </p>
+              <p className="DriverLogin-red-text">
+                <Link
+                  className="DriverLogin-error-text"
+                  to={"/driverforgotpassword"}
+                  style={{ color: "red" }}
+                >
+                  Glömt lösenord?
+                </Link>
+              </p>
+            </div>
+          </div>
           <input
             type="email"
             name="email"
             className="DriverLogin-input"
-            id="email"
+            id="email-driver"
             value={formData.email}
             onChange={handleChange}
           />
+          <p className="DriverLogin-error-text">{error.email}</p>
         </div>
         <div className="DriverLogin-form-group">
-          <label htmlFor="password">Lösenord*</label>
-          <p className="DriverLogin-red-text1"></p>
+          <label htmlFor="password-driver">Lösenord*</label>
           <input
             type="password"
             name="password"
             className="DriverLogin-input"
-            id="DriverLogin-password"
+            id="password-driver"
             value={formData.password}
             onChange={handleChange}
           />
+          <p className="DriverLogin-error-text">{error.password}</p>
         </div>
-        {/* <div>
-            <input className="DriverLogin-checkbox" type="checkbox" />
-            <label className="DriverLogin-text" htmlFor="checkbox">
-              Please keep me logged in
-            </label>
-          </div> */}
         <button
           id="DriverLogin-btn"
           className="DriverLogin-btn btn-primary"

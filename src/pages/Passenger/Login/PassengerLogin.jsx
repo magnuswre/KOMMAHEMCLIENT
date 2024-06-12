@@ -17,20 +17,46 @@ const PassengerLogin = () => {
     password: "",
   });
 
+  const [error, setError] = useState({
+    email: "",
+    password: "",
+  });
+
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormData((prevState) => ({
       ...prevState,
-      [e.target.name]: e.target.value,
+      [name]: value,
+    }));
+
+    setError((prevError) => ({
+      ...prevError,
+      [name]: "",
     }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.email || !formData.password) {
-      console.error("Please provide both email and password");
-      return;
+    let hasError = false;
+
+    if (!formData.email) {
+      setError((data) => ({
+        ...data,
+        email: "Du behöver ange en e-postadress",
+      }));
+      hasError = true;
     }
+
+    if (!formData.password) {
+      setError((data) => ({
+        ...data,
+        password: "Du behöver ange ett lösenord",
+      }));
+      hasError = true;
+    }
+
+    if (hasError) return;
 
     try {
       clearErrorMessagePassenger();
@@ -51,7 +77,10 @@ const PassengerLogin = () => {
           Logga in till ditt konto här:
         </p>
         <div className="PassengerLogin-form-group">
-          <label className="PassengerLogin-form-labels" htmlFor="email">
+          <label
+            className="PassengerLogin-form-labels"
+            htmlFor="email-passenger"
+          >
             E-post*
           </label>
           <p className="PassengerLogin-red-text">
@@ -76,31 +105,29 @@ const PassengerLogin = () => {
             type="email"
             name="email"
             className="PassengerLogin-input"
-            id="email"
+            id="email-passenger"
             value={formData.email}
             onChange={handleChange}
           />
+          <p className="PassengerLogin-error-text">{error.email}</p>
         </div>
         <div className="PassengerLogin-form-group">
-          <label className="PassengerLogin-form-labels" htmlFor="password">
+          <label
+            className="PassengerLogin-form-labels"
+            htmlFor="password-passenger"
+          >
             Lösenord*
           </label>
-          <p className="PassengerLogin-red-text1"></p>
           <input
             type="password"
             name="password"
             className="PassengerLogin-input"
-            id="PassengerLogin-password"
+            id="password-passenger"
             value={formData.password}
             onChange={handleChange}
           />
+          <p className="PassengerLogin-error-text">{error.password}</p>
         </div>
-        {/* <div>
-            <input className="PassengerLogin-checkbox" type="checkbox" />
-            <label className="PassengerLogin-text" htmlFor="checkbox">
-              Please keep me logged in
-            </label>
-          </div> */}
         <button
           id="PassengerLogin-btn"
           className="PassengerLogin-btn btn-primary"

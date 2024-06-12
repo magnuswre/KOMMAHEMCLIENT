@@ -14,14 +14,10 @@
     margin: 0 auto;
     margin-top: 10%;
     display: grid;
-    /* place-items: center;  */
     align-items: center;
-    /* width: 20%; */
-    /* height: 80%; */
     background-color: black;
     border-radius: 10px;
     font-size: 16px;
-    /* box-shadow: 20px 20px 20px 50px rgb(253, 251, 251); */
     gap: 20px;
     padding: 30px;
 
@@ -29,6 +25,13 @@
         color: red;
     }
 }
+
+
+.DriverLogin-form-email-links {
+    display: flex;
+    margin-bottom: 5px;
+}
+
 
 .DriverLogin-input {
     width: 100%;
@@ -66,6 +69,11 @@
     font-size: 14px;
 }
 
+.DriverLogin-error-text {
+    color: red;
+    font-size: 14px;
+    text-decoration: none;
+}
 
 
 @media (max-width: 640px) {
