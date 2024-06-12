@@ -4,15 +4,9 @@
     color: white;
     display: grid;
     place-items: start;
-    /* border: 2px solid white; */
-    /* margin: 10%; */
-    /* overflow: hidden; */
-    /* margin-top: 25px; */
 }
 
 .Driver-dashboard-wrapper {
-    /* border: solid 10px white; */
-    height: 100vh;
     margin: 0 auto;
     margin-top: 5%;
     width: 50%;
