@@ -58,8 +58,8 @@
     outline: none;
 }
 
-.button-container {
-    display: flex;
+.button-container button {
+    margin-right: 7px;
 }
 
 #Passenger-destinations-btn:hover {
@@ -78,7 +78,7 @@
     border-radius: 10px;
     padding: 5px;
     margin-top: 10px;
-    /* width: 100%; */
+    /* width: 30%; */
     font-size: 1.2rem;
     font-weight: bold;
 }
@@ -139,15 +139,21 @@ p {
     margin-top: 2px;
 }
 
-@media (max-width: 640px) {
-    .passenger-page-wrapper {
-        border: none;
-        width: 80%;
-    }
-}
-
 .passenger-destinationsByDateNameSeatsAndRoute {
     /* border: solid 2px white; */
     display: flex;
     flex-direction: column;
+}
+
+/* @media (min-width: 640px) {
+    .Passenger-destinations-btn {
+        width: 60%;
+    }
+} */
+
+@media (max-width: 640px) {
+    .passenger-page-wrapper {
+        border: none;
+        width: 100%;
+    }
 }
