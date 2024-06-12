@@ -22,7 +22,7 @@
     justify-content: center;
     align-items: center;
     display: grid;
-    overflow: scroll;
+    overflow-x: hidden;
 }
 
 .Driver-dashboard-account-container {
