@@ -3,6 +3,8 @@ import "./Passenger.css";
 import { useNavigate } from "react-router-dom";
 import { PassengerContext } from "../../contexts/PassengerContext";
 import MyDatePickerComponentPassenger from "../../components/DatePickerComponents/DatePickerComponentPassenger/MyDatePickerComponentPassenger";
+import MapComponentUser from "../../components/MapComponentUser/MapComponentUser";
+import { predefinedPlaces } from "../../components/data/predefinedPlaces/predefinedPlaces";
 
 const Passenger = () => {
   function useDebounce(value, delay) {
@@ -26,11 +28,13 @@ const Passenger = () => {
   const [inputClicked, setInputClicked] = useState(false);
   const [destination, setDestination] = useState("");
   const [selectedSeats, setSelectedSeats] = useState("1");
-  const [destinationSelected, setDestinationSelected] = useState(false);
+  const [selectedDestinationId, setSelectedDestinationId] = useState(null);
   const debouncedDestination = useDebounce(destination, 500);
   const user = JSON.parse(localStorage.getItem("user-passenger"));
   const userId = user.user.id;
   const recipient_email = user.user.email;
+  const [lat, setLat] = useState(null);
+  const [lng, setLng] = useState(null);
 
   const {
     selectedDate,
@@ -118,13 +122,22 @@ const Passenger = () => {
 
   const handleButtonClick = (destination) => {
     setSelectedDestination(destination);
-    setDestinationSelected(true);
+    setSelectedDestinationId(destination.id); // Update the state with the clicked destination ID
   };
 
   const handleDestinationChange = (event) => {
     setDestination(event.target.value);
     setSelectedSeats("1");
     setSelectedDestination(null);
+    setSelectedDestinationId(null); // Reset the selected destination ID
+
+    const place = predefinedPlaces.find(
+      (place) => place.name.toLowerCase() === event.target.value.toLowerCase()
+    );
+    if (place) {
+      setLat(place.lat);
+      setLng(place.lng);
+    }
   };
 
   const handleDateChange = (date) => {
@@ -132,7 +145,15 @@ const Passenger = () => {
     setDestination("");
     setSelectedSeats("1");
     setSelectedDestination(null);
+    setSelectedDestinationId(null); // Reset the selected destination ID
     setRoutes([]);
+  };
+
+  const formatTime = (time) => {
+    if (time) {
+      return time.slice(0, -3); // Trims the last ":00"
+    }
+    return time;
   };
 
   return (
@@ -155,6 +176,13 @@ const Passenger = () => {
               placeholder="Ange din slutdestination"
               className="passenger-destination-picker"
             />
+
+            {lat !== null &&
+              lng !== null &&
+              destinationsByDateNameSeatsAndRoute &&
+              destinationsByDateNameSeatsAndRoute.length > 0 && (
+                <MapComponentUser lat={lat} lng={lng} />
+              )}
           </div>
           <div className="passenger-form-group">
             <h2>Välj båttur:</h2>
@@ -176,8 +204,8 @@ const Passenger = () => {
               </option>
               {routes.map((route, id) => (
                 <option key={id} value={route.arrival_time}>
-                  {route.route}, avgång: {route.departure_time}, ankomst:{" "}
-                  {route.arrival_time}
+                  {route.route}, avgång: {formatTime(route.departure_time)},
+                  ankomst: {formatTime(route.arrival_time)}
                 </option>
               ))}
             </select>
@@ -197,31 +225,33 @@ const Passenger = () => {
               <option value="4">4</option>
             </select>
           </div>
-          <div>
+          <div className="passenger-destinationsByDateNameSeatsAndRoute">
             {Array.isArray(destinationsByDateNameSeatsAndRoute) &&
             destinationsByDateNameSeatsAndRoute.length > 0 ? (
-              destinationsByDateNameSeatsAndRoute.map((destination) => (
-                <button
-                  type="button"
-                  key={destination.id}
-                  id="Passenger-destinations-btn"
-                  className="Passenger-destinations-btn"
-                  onClick={() => handleButtonClick(destination)}
-                >
-                  {destination.enddestination}
-                </button>
-              ))
+              <>
+                <p>Tillgängliga körningar</p>
+                {destinationsByDateNameSeatsAndRoute.map((destination) => (
+                  <div className="button-container" key={destination.id}>
+                    <button
+                      type="button"
+                      id="Passenger-destinations-btn"
+                      className="Passenger-destinations-btn"
+                      onClick={() => handleButtonClick(destination)}
+                    >
+                      {destination.enddestination}
+                    </button>
+                    {selectedDestinationId === destination.id && (
+                      <button id="Passenger-Submit-Btn" onClick={onSubmit}>
+                        Boka
+                      </button>
+                    )}
+                  </div>
+                ))}
+              </>
             ) : (
-              <p>
-                Tyvärr, inga körningar för detta datum <br></br> med denna
-                båttur och dessa antal platser.
-              </p>
+              <p>Tyvärr, inga tillgängliga körningar:</p>
             )}
           </div>
-
-          {destinationSelected && (
-            <button id="Passenger-Submit-Btn">Boka</button>
-          )}
         </form>
       </div>
     </div>

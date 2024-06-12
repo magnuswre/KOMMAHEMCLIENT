@@ -23,8 +23,15 @@
     /* grid-template-columns: 1fr 1fr; */
 }
 
+.passenger-page-wrapper form {
+    /* border: solid 2px white; */
+    width: 80%;
+}
+
+
 .passenger-page-wrapper form>* {
     margin: 10px;
+
     /* Adjust this value to your needs */
 }
 
@@ -43,12 +50,16 @@
 }
 
 .passenger-destination-picker {
-    width: 150px;
+    /* width: 150px; */
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 14px;
     outline: none;
+}
+
+.button-container {
+    display: flex;
 }
 
 #Passenger-destinations-btn:hover {
@@ -72,13 +83,14 @@
     font-weight: bold;
 }
 
-.destination-btn {
+.Passenger-destinations-btn {
+    width: 40%;
     background-color: #1E1E1E;
     color: white;
     border: solid 2px white;
     border-radius: 10px;
     padding: 5px;
-    margin: 10px;
+    margin: 1px;
     /* width: 100%; */
     font-size: 1.2rem;
     font-weight: bold;
@@ -134,12 +146,8 @@ p {
     }
 }
 
-/* 
-input[type="search"] {
-    -webkit-appearance: none;
-    appearance: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 6px 12px;
-    font-size: 16px;
-} */
+.passenger-destinationsByDateNameSeatsAndRoute {
+    /* border: solid 2px white; */
+    display: flex;
+    flex-direction: column;
+}
