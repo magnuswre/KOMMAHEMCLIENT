@@ -9,20 +9,17 @@
 .Driver-dashboard-wrapper {
     margin: 0 auto;
     margin-top: 5%;
-    width: 50%;
-    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    display: grid;
-    overflow-x: hidden;
 }
 
 .Driver-dashboard-account-container {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    margin-bottom: 10px;
 }
 
 .Driver-dashboard-account-group {
@@ -51,6 +48,7 @@
 
 .Driver-dashboard-btns {
     display: flex;
+    width: 100%;
     flex-direction: column;
     gap: 7px;
 }
@@ -72,8 +70,24 @@
 }
 
 @media (max-width: 640px) {
+
+    .Driver-dashboard-change-password-btn,
+    .Driver-dashboard-delete-account-btn {
+        font-size: 14px;
+        width: 70%;
+    }
+}
+
+@media (min-width: 1024px) {
     .Driver-dashboard-wrapper {
+        flex-direction: row-reverse;
+        justify-content: space-around;
+        align-items: start;
+        gap: 40px;
+    }
+
+    .Driver-dashboard-btn {
         width: 100%;
-        border: none;
+
     }
 }

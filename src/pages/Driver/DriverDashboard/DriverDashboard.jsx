@@ -122,6 +122,7 @@ const DriverDashboard = () => {
         </div>
 
         <div>
+          <h2>Mina körningar:</h2>
           {destinations.map((destination, id) => (
             <DestinationCard key={id} destination={destination} />
           ))}

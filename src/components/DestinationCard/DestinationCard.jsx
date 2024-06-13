@@ -30,7 +30,7 @@ const DestinationCard = ({ destination, bookingsDestinations }) => {
       <p>Destination: {destination.EndDestination}</p>
       <p>Bookingsid: {destination.DestinationId}</p>
       <p>
-        Platser kvar: {destination.DestinationSeats} av
+        Platser kvar: {destination.DestinationSeats} av <span> </span>
         {destination.OriginalSeats}
       </p>
       <p>Båttur: {destination.Route}</p>

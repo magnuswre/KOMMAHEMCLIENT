@@ -120,11 +120,12 @@ const PassengerDashboard = () => {
             )}
           </div>
         </div>
-
-        <h2>Alla mina bokningar:</h2>
-        {bookings.map((booking, id) => (
-          <BookingCard key={id} booking={booking} />
-        ))}
+        <div className="passenger-dashboard-bookingtitle-bookings">
+          <h2>Alla mina bokningar:</h2>
+          {bookings.map((booking, id) => (
+            <BookingCard key={id} booking={booking} />
+          ))}
+        </div>
       </div>
     </div>
   );

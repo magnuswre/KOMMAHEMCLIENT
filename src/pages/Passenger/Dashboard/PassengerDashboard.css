@@ -4,45 +4,30 @@
     color: white;
     display: grid;
     place-items: start;
-    /* margin: 10%; */
-    /* overflow: hidden; */
 }
 
 .passenger-dashboard-wrapper {
-
     margin: 0 auto;
     margin-top: 1%;
-    width: 50%;
-    /* border: solid 10px white; */
-    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* display: grid; */
-    /* grid-template-columns: 1fr 1fr; */
 }
 
 .passenger-dashboard-account-container {
     display: flex;
-    width: 70%;
     flex-direction: column;
     gap: 5px;
-    /* border: solid 1px white; */
+    margin-bottom: 10px;
 }
 
 .passenger-dashboard-account-group {
     display: flex;
     flex-direction: column;
-    /* margin-top: 10px; */
     margin-bottom: 10px;
 }
 
-
-.passenger-dashboard-wrapper>* {
-    margin: 10px;
-    /* Adjust this value to your needs */
-}
 
 .passenger-dashboard-change-password {
     display: flex;
@@ -64,6 +49,7 @@
 .passenger-dashboard-btns {
     display: flex;
     flex-direction: column;
+    width: 60%;
     gap: 7px;
 }
 
@@ -85,11 +71,28 @@
 }
 
 @media (max-width: 640px) {
-    .passenger-dashboard-wrapper {
-        width: 100%;
+
+    .passenger-dashboard-change-password-btn,
+    .passenger-dashboard-delete-account-btn {
+        font-size: 14px;
+        width: 70%;
     }
 
-    .passenger-dashboard-account-container {
-        width: 80%;
+    .passenger-dashboard-bookingtitle-bookings {
+        width: 90%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .passenger-dashboard-wrapper {
+        flex-direction: row-reverse;
+        justify-content: space-around;
+        align-items: start;
+        gap: 40px;
+    }
+
+    .passenger-dashboard-btn {
+        width: 100%;
+
     }
 }
