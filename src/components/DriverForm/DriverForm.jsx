@@ -6,7 +6,7 @@ import MyDatePickerComponent from "../DatePickerComponents/DatePickerComponentDr
 const baseUrl = import.meta.env.VITE_APP_BASE_URL;
 // const baseUrl = "http://localhost:5000";
 
-const DriverForm = () => {
+const DriverForm = ({ disabled }) => {
   const {
     placeNameDriver,
     arrivalDriver,
@@ -85,7 +85,7 @@ const DriverForm = () => {
     return time;
   };
 
-  const disabled = !placeNameDriver;
+  // const disabled = !placeNameDriver;
 
   return (
     <div className="driver-form-container">
