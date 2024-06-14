@@ -62,6 +62,10 @@ const BookingCard = ({ booking: initialBooking }) => {
         <span> {formatTime(booking.arrival_time)}</span>
       </p>
       <p>Sittplatser: {booking.seats}</p>
+      <p>
+        Lägsta rekommenderat pris <br /> per person:
+      </p>
+      <p> {booking.price} kr</p>
       <p>Förarens nummer: {booking.driverPhone}</p>
       <p>Förarens e-post: {booking.driverEmail}</p>
       <p>Status: {mapStatusToSwedish(booking.status)} </p>

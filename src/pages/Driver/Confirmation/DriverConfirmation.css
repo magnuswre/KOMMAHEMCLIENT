@@ -2,13 +2,10 @@
     background-color: black;
     display: grid;
     place-items: start;
-    height: 100vh;
-    /* margin-top: 25px; */
 }
 
 .driver-confirmation-page-wrapper {
     margin: 0 auto;
-    /* height: 60vh; */
     color: white;
     display: grid;
     place-items: center;
@@ -24,9 +21,7 @@
     align-items: center;
     justify-content: center;
     margin: 10px;
-
 }
-
 
 .passenger-change-page-destination-btn {
     background-color: #1E1E1E;

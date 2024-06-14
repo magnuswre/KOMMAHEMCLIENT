@@ -19,8 +19,8 @@ const DriverContextProvider = ({ children }) => {
   const [currentPasswordDriver, setCurrentPasswordDriver] = useState("");
   const [newPasswordDriver, setNewPasswordDriver] = useState("");
   const [bookingsDestinations, setBookingsDestinations] = useState([]);
+  const [destinationPrice, setDestinationPrice] = useState(0);
   const baseUrl = import.meta.env.VITE_APP_BASE_URL;
-  // const baseUrl = "http://localhost:5000";
 
   // ---- REGISTER DRIVER ------/
 
@@ -137,7 +137,8 @@ const DriverContextProvider = ({ children }) => {
     placeNameDriver,
     arrivalDriver,
     seatsDriver,
-    originalSeatsDriver
+    originalSeatsDriver,
+    destinationPrice
   ) => {
     if (!userDriver) {
       console.error("User or user id is undefined");
@@ -146,6 +147,7 @@ const DriverContextProvider = ({ children }) => {
     }
 
     const startDateString = startDateDriver.toLocaleDateString();
+    console.log(destinationPrice);
 
     const destinationDataDriver = {
       enddestination: placeNameDriver,
@@ -155,6 +157,7 @@ const DriverContextProvider = ({ children }) => {
       seats: seatsDriver,
       original_seats: originalSeatsDriver,
       route: arrivalDriver.route,
+      price: destinationPrice,
     };
 
     try {
@@ -291,6 +294,8 @@ const DriverContextProvider = ({ children }) => {
     getDestinationsByUserId,
     getBookingsForDestination,
     bookingsDestinations,
+    destinationPrice,
+    setDestinationPrice,
   };
 
   return (

@@ -24,6 +24,8 @@ const DestinationCard = ({ destination, bookingsDestinations }) => {
     return time;
   };
 
+  console.log(destination);
+
   return (
     <div className="destination-card-container" onClick={handleClick}>
       <p>Datum: {destination.DestinationTravelDate}</p>
@@ -36,6 +38,7 @@ const DestinationCard = ({ destination, bookingsDestinations }) => {
       <p>Båttur: {destination.Route}</p>
       <p>Avgångstid: {formatTime(destination.DepartureTime)}</p>
       <p>Ankomsttid: {formatTime(destination.ArrivalTime)}</p>
+      <p>Pris: {destination.Price} kr</p>
       <BookingsOfDestinationCard bookings={bookings} />
     </div>
   );

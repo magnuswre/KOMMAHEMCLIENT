@@ -1,35 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./DriverConfirmation.css";
 import { useContext } from "react";
 import { DriverContext } from "../../../contexts/DriverContext";
-import { useNavigate, useParams } from "react-router-dom";
 
 const DriverConfirmation = () => {
-  const navigate = useNavigate();
-  const { userId } = useParams();
-  const {
-    placeNameDriver,
-    arrivalDriver,
-    seatsDriver,
-    selectedDateDriver,
-    // setUserDriver,
-    // setIsLoggedInDriver,
-  } = useContext(DriverContext);
-
-  const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
-
-  useEffect(() => {
-    console.log(
-      placeNameDriver,
-      arrivalDriver,
-      seatsDriver,
-      selectedDateDriver
-    );
-  }, []);
+  const { placeNameDriver, arrivalDriver, seatsDriver, selectedDateDriver } =
+    useContext(DriverContext);
 
   const formatTime = (time) => {
     if (time) {
-      return time.slice(0, -3); // Trims the last ":00"
+      return time.slice(0, -3);
     }
     return time;
   };

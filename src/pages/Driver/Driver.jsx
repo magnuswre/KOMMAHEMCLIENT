@@ -30,8 +30,6 @@ const Driver = () => {
     }
   }, [location]);
 
-  console.log(destinationSelected);
-
   return (
     <div className="driver-page-container">
       <div className="driver-page-wrapper">

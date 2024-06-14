@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { DriverContext } from "../../contexts/DriverContext";
 import MyDatePickerComponent from "../DatePickerComponents/DatePickerComponentDriver/MyDatePickerComponent";
 const baseUrl = import.meta.env.VITE_APP_BASE_URL;
-// const baseUrl = "http://localhost:5000";
 
 const DriverForm = ({ disabled }) => {
   const {
@@ -19,6 +18,8 @@ const DriverForm = ({ disabled }) => {
     originalSeatsDriver,
     setOriginalSeatsDriver,
     setSelectedDateDriver,
+    destinationPrice,
+    setDestinationPrice,
   } = useContext(DriverContext);
 
   const navigate = useNavigate();
@@ -69,7 +70,8 @@ const DriverForm = ({ disabled }) => {
         placeNameDriver,
         arrivalDriver,
         seatsDriver,
-        originalSeatsDriver
+        originalSeatsDriver,
+        destinationPrice
       );
       navigate(`/driverconfirmation`);
       console.log("Destination added successfully");

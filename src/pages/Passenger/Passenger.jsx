@@ -242,7 +242,7 @@ const Passenger = () => {
             {Array.isArray(destinationsByDateNameSeatsAndRoute) &&
             destinationsByDateNameSeatsAndRoute.length > 0 ? (
               <>
-                <p>Tillgängliga körningar</p>
+                <p>Tillgängliga körningar:</p>
                 {destinationsByDateNameSeatsAndRoute.map((destination) => (
                   <div className="button-container" key={destination.id}>
                     <button
