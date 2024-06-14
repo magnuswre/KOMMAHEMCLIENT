@@ -7,7 +7,6 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const baseUrl = import.meta.env.VITE_APP_BASE_URL;
-// const baseUrl = "http://localhost:5000";
 
 const PassengerOPTInput = () => {
   const navigate = useNavigate();

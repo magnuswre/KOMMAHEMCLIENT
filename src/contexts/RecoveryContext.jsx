@@ -2,7 +2,6 @@ import { createContext, useState } from "react";
 
 export const RecoveryContext = createContext();
 const baseUrl = import.meta.env.VITE_APP_BASE_URL;
-// const baseUrl = "http://localhost:5000";
 
 const RecoveryContextProvider = ({ children }) => {
   const [recipient_email, setRecipient_email] = useState("");

@@ -4,7 +4,6 @@ import "./DriverReset.css";
 import { useNavigate } from "react-router-dom";
 import { RecoveryContext } from "../../../contexts/RecoveryContext";
 const baseUrl = import.meta.env.VITE_APP_BASE_URL;
-// const baseUrl = "http://localhost:5000";
 
 const DriverReset = () => {
   const { userId } = useContext(RecoveryContext);
