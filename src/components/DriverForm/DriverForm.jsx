@@ -62,13 +62,13 @@ const DriverForm = ({ disabled }) => {
       return;
     }
 
-    console.log({
-      placeNameDriver,
-      arrivalDriver,
-      seatsDriver,
-      originalSeatsDriver,
-      destinationPrice,
-    });
+    // console.log({
+    //   placeNameDriver,
+    //   arrivalDriver,
+    //   seatsDriver,
+    //   originalSeatsDriver,
+    //   destinationPrice,
+    // });
 
     try {
       await addDestinationDriver(
