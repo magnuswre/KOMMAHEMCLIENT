@@ -27,11 +27,13 @@ const MapComponentUser = ({ lat, lng }) => {
   return (
     <>
       <div className="passenger-google-maps-container">
-        {destinationsByDateNameSeatsAndRoute.map((destination) => (
+        {destinationsByDateNameSeatsAndRoute.length > 0 && (
           <p>
-            Minsta rekommenderad ersättning per person: {destination.price} kr
+            Minsta rekommenderad ersättning per person:<span> </span>
+            {destinationsByDateNameSeatsAndRoute[0].price}
+            <span>kr</span>
           </p>
-        ))}
+        )}
         <div className="passenger-user-input-map-container">
           {/* <div ref={ref} className="passenger-google-map-ref"></div> */}
         </div>
