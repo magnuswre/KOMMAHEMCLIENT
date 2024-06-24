@@ -3,7 +3,7 @@
 }
 
 .PassengerRecovered-FullHeight {
-    height: 100vh;
+    /* height: 100vh; */
     /* equivalent to h-screen */
 }
 
