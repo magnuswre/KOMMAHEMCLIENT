@@ -12,14 +12,14 @@ const DestinationCard = ({ destination, bookingsDestinations }) => {
       const fetchedBookings = await getBookingsForDestination(
         destination.DestinationId
       );
-      setBookings(fetchedBookings); // Set the fetched bookings to the state
+      setBookings(fetchedBookings);
     } catch (error) {
       console.error("Error:", error.message);
     }
   };
   const formatTime = (time) => {
     if (time) {
-      return time.slice(0, -3); // Trims the last ":00"
+      return time.slice(0, -3);
     }
     return time;
   };
@@ -28,6 +28,9 @@ const DestinationCard = ({ destination, bookingsDestinations }) => {
 
   return (
     <div className="destination-card-container" onClick={handleClick}>
+      <div className="destination-card-notice">
+        <p>1</p>
+      </div>
       <p>Datum: {destination.DestinationTravelDate}</p>
       <p>Destination: {destination.EndDestination}</p>
       <p>Bookingsid: {destination.DestinationId}</p>
