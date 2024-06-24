@@ -19,11 +19,9 @@ const DriverForm = ({ disabled }) => {
     setOriginalSeatsDriver,
     setSelectedDateDriver,
     destinationPrice,
-    setDestinationPrice,
   } = useContext(DriverContext);
 
   const navigate = useNavigate();
-  const [isChecked, setIsChecked] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem("user-driver");
@@ -48,12 +46,11 @@ const DriverForm = ({ disabled }) => {
     if (routes.length > 0) {
       setArrivalDriver(routes[0]);
     }
-
     setSeatsDriver("1");
   }, [routes]);
 
   useEffect(() => {
-    const currentDate = new Date().toISOString().split("T")[0]; // Get current date in YYYY-MM-DD format
+    const currentDate = new Date().toISOString().split("T")[0];
     setSelectedDateDriver(currentDate);
   }, []);
 
@@ -64,6 +61,14 @@ const DriverForm = ({ disabled }) => {
       console.log("Please choose a destination");
       return;
     }
+
+    console.log({
+      placeNameDriver,
+      arrivalDriver,
+      seatsDriver,
+      originalSeatsDriver,
+      destinationPrice,
+    });
 
     try {
       await addDestinationDriver(
@@ -82,12 +87,10 @@ const DriverForm = ({ disabled }) => {
 
   const formatTime = (time) => {
     if (time) {
-      return time.slice(0, -3); // Trims the last ":00"
+      return time.slice(0, -3);
     }
     return time;
   };
-
-  // const disabled = !placeNameDriver;
 
   return (
     <div className="driver-form-container">
@@ -95,12 +98,6 @@ const DriverForm = ({ disabled }) => {
         onSubmit={handleSubmit}
         className={`driver-form ${disabled ? "disabled" : ""}`}
       >
-        {/* <div className="driver-form-group-destination-choice">
-          <p>
-            Vald destination:{" "}
-            <span>{placeNameDriver || "Ingen destination vald"}</span>
-          </p>
-        </div> */}
         <div className="driver-form-group driver-form-date-picker">
           <p>När vill du köra?</p>
           <MyDatePickerComponent disabled={disabled} />
