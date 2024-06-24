@@ -139,17 +139,21 @@ const Passenger = () => {
   };
 
   const handleDestinationChange = (event) => {
-    setDestination(event.target.value);
+    const inputDestination = event.target.value.trim();
+    setDestination(inputDestination);
     setSelectedSeats("1");
     setSelectedDestination(null);
-    setSelectedDestinationId(null); // Reset the selected destination ID
+    setSelectedDestinationId(null);
 
     const place = predefinedPlaces.find(
-      (place) => place.name.toLowerCase() === event.target.value.toLowerCase()
+      (place) => place.name.toLowerCase() === inputDestination.toLowerCase()
     );
     if (place) {
       setLat(place.lat);
       setLng(place.lng);
+    } else {
+      setLat(null);
+      setLng(null);
     }
   };
 
@@ -158,13 +162,13 @@ const Passenger = () => {
     setDestination("");
     setSelectedSeats("1");
     setSelectedDestination(null);
-    setSelectedDestinationId(null); // Reset the selected destination ID
+    setSelectedDestinationId(null);
     setRoutes([]);
   };
 
   const formatTime = (time) => {
     if (time) {
-      return time.slice(0, -3); // Trims the last ":00"
+      return time.slice(0, -3);
     }
     return time;
   };
@@ -197,6 +201,7 @@ const Passenger = () => {
                 <MapComponentUser lat={lat} lng={lng} />
               )}
           </div>
+
           <div className="passenger-form-group">
             <h2>Välj båttur:</h2>
             <select
@@ -210,7 +215,7 @@ const Passenger = () => {
                 );
                 setSelectedDestination(selectedDestination);
               }}
-              disabled={!routes.length}
+              disabled={routes.length === 0}
             >
               <option value="" disabled>
                 Välj en båttur

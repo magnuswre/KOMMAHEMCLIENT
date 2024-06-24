@@ -2,7 +2,7 @@ import "./MapComponentUser.css";
 import { useContext, useState } from "react";
 import { DriverContext } from "../../contexts/DriverContext";
 import { PassengerContext } from "../../contexts/PassengerContext";
-import useOnclickOutside from "react-cool-onclickoutside";
+// import useOnclickOutside from "react-cool-onclickoutside";
 import {
   APIProvider,
   Map,
@@ -18,9 +18,9 @@ const MapComponentUser = ({ lat, lng }) => {
   const { destinationsByDateNameSeatsAndRoute } = useContext(PassengerContext);
   const position = { lat, lng };
 
-  const ref = useOnclickOutside(() => {
-    setSuggestions([]);
-  });
+  // const ref = useOnclickOutside(() => {
+  //   setSuggestions([]);
+  // });
 
   console.log(destinationsByDateNameSeatsAndRoute);
 
@@ -33,7 +33,7 @@ const MapComponentUser = ({ lat, lng }) => {
           </p>
         ))}
         <div className="passenger-user-input-map-container">
-          <div ref={ref} className="passenger-google-map-ref"></div>
+          {/* <div ref={ref} className="passenger-google-map-ref"></div> */}
         </div>
         <div className="passenger-user-map-container">
           <div>
